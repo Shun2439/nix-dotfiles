@@ -1,10 +1,14 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ <nixpkgs/nixos/modules/installer/virtualbox-demo.nix> ];
+	imports = [ <nixpkgs/nixos/modules/installer/virtualbox-demo.nix> ];
 
-  # Let demo build as a trusted user.
+# Let demo build as a trusted user.
 # nix.settings.trusted-users = [ "demo" ];
+
+	users.users.demo = {
+		shell = pkgs.fish;
+	};
 
 # Mount a VirtualBox shared folder.
 # This is configurable in the VirtualBox menu at
@@ -33,12 +37,37 @@
 # environment.systemPackages = with pkgs; [
 #   wget vim
 # ];
+	programs = {
+		git = {
+			enable = true;
+		};
+		vim = {
+			enable = true;
+			defaultEditor = true;
+		};
+		starship = {
+			enable = true;
+		};
+		fish = {
+			enable = true;
+		};
+	};
 
 # Enable the OpenSSH daemon.
 # services.openssh.enable = true;
-  nix = {
-    settings = {
-      experimental-features = ["nix-command" "flakes"];
-    };
-  };
+	nix = {
+		settings = {
+			auto-optimise-store = true;
+			experimental-features = ["nix-command" "flakes"];
+		};
+	};
+	gc = {
+
+		automatic = true;
+
+		dates = "weekly";
+
+		options = "--delete-older-than 7d";
+
+	};
 }
