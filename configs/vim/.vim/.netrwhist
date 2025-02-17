@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/shun/.vim'
+let g:netrw_dirhist_6='/mnt/g/My Drive/backup/lab/asm/.git'
+let g:netrw_dirhist_5='/mnt/c/Users/shunt'
+let g:netrw_dirhist_4='/mnt/c/Users/shunt/Documents/note/text/kick_start/lib'
+let g:netrw_dirhist_3='/mnt/c/Users/shunt/Documents/IE/programming_basics'
+let g:netrw_dirhist_2='/home/shun'
+let g:netrw_dirhist_1='/mnt/c/Users/shunt'

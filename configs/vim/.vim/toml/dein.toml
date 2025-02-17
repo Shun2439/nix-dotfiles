@@ -1,0 +1,41 @@
+[[plugins]]
+repo = 'vim-autoformat/vim-autoformat'
+hook_add = 'noremap <F2> :Autoformat<CR>'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+
+[[plugins]]
+repo = 'vim-skk/skk.vim'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = '''
+let g:airline#extensions#tabline#enabled = 1
+'''
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'sainnhe/everforest'
+hook_add = '''
+colorscheme everforest
+let g:airline_theme = 'everforest'
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_add = 'nmap gx <Plug>(openbrowser-smart-search)'
+
+[[plugins]]
+repo = 'lambdalisue/vim-fern'
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'rhysd/vim-healthcheck'
+
+

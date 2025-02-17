@@ -1,0 +1,9 @@
+"coc.source.vimtex.filetypes": {
+	"type": "array",
+	"default": [
+		"tex",
+		"plaintex",
+		"latex",
+		"msy"
+	]
+}
