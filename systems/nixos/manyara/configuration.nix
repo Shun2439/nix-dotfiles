@@ -1,10 +1,12 @@
 { config, pkgs, modulesPath, ... }:
+
 {
-  imports = [
-    # https://github.com/ryan4yin/nixos-and-flakes-book/issues/164#issuecomment-2185407390
-    <nixpkgs/nixos/modules/installer/virtualbox-demo.nix>
-    # (modulesPath + "/installer/virtualbox-demo.nix")
-  ];
+  imports =
+	  [
+# https://github.com/ryan4yin/nixos-and-flakes-book/issues/164#issuecomment-2185407390
+	  <nixpkgs/nixos/modules/installer/virtualbox-demo.nix>
+# (modulesPath + "/installer/virtualbox-demo.nix")
+	  ];
 
 # Let demo build as a trusted user.
 # nix.settings.trusted-users = [ "demo" ];

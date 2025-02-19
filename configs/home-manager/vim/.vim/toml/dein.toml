@@ -38,4 +38,6 @@ repo = 'vim-denops/denops.vim'
 [[plugins]]
 repo = 'rhysd/vim-healthcheck'
 
+[[plugins]]
+repo = 'itchyny/vim-qfedit'
 
