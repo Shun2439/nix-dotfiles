@@ -3,7 +3,16 @@
   programs.vim = {
     enable = true;
     defaultEditor = true;
-    # extraConfig = builtins.readFile ./.vimrc;
+  };
+  home.file = {
+    ".vimrc" = {
+      target = ".vimrc";
+      source = ./.vimrc;
+    };
+    ".vim" = {
+      target = ".vim";
+      source = ./.vim;
+    };
   };
 }
 

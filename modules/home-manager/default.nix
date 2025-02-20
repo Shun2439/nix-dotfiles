@@ -12,6 +12,7 @@
     ../../configs/home-manager/fzf
 
     ../../configs/home-manager/xmobar
+    ../../configs/home-manager/fcitx
   ];
 
   home = rec {
@@ -27,7 +28,7 @@
     ];
 
     shellAliases = { # not work
-      ls = "eza";
+      ls = "eza --icons";
       la = "ls -al";
     };
   };
