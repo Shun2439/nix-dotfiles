@@ -47,16 +47,38 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable the LXQT Desktop Environment.
   # services.xserver.displayManager.lightdm.enable = true;
   # services.xserver.desktopManager.lxqt.enable = true;
 
-  services.xserver.windowManager.xmonad = {
-	  enable = true;
-	  enableContribAndExtras = true;
-	  config = builtins.readFile ./../../../configs/nixos/desktop/xmonad/xmonad.hs;
+  services.xserver = {
+    enable = true;
+    xrandrHeads = [{
+      output = "HDMI-1";
+      primary = true;
+    }
+    {
+      output = "LVDS-1";
+    }];
+    
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      config = builtins.readFile ./../../../configs/nixos/desktop/xmonad/xmonad.hs;
+      extraPackages = hpkgs: [
+        # xmonad-contrib
+        hpkgs.xmobar
+      ];
+    };
+    displayManager = {
+      defaultSession = "none+xmonad";
+      sessionCommands = ''
+        xrandr --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output LVDS-1 --off
+        ./.fehgb
+      '';
+    };
   };
 
   # Configure keymap in X11

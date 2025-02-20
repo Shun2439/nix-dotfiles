@@ -3,7 +3,7 @@
   imports = [
     ../../configs/nixos/core/nixos.nix
     # ../../configs/home-manager/development.nix
-    # ../../configs/home-manager/vim
+    ../../configs/home-manager/vim
     ../../configs/home-manager/tmux
     # ../../configs/home-manager/browser
     ../../configs/home-manager/git
@@ -18,6 +18,8 @@
     stateVersion = "22.11";
 
     packages = with pkgs; [
+      dmenu
+      gmrun
       bat
       # z
     ];
