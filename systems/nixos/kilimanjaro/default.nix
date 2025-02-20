@@ -8,6 +8,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
+      ../../../configs/nixos/desktop/fcitx5
+
+      # ../../../configs/nixos/desktop/xmobar
     ];
 
   # Bootloader.
@@ -46,6 +50,26 @@
     LC_TIME = "ja_JP.UTF-8";
   };
 
+  fonts = {
+    fonts = with pkgs; [
+      noto-fonts-cjk-serif
+      noto-fonts-cjk-sans
+      noto-fonts-emoji
+      # nerdfonts # error?
+    ];
+
+    fontDir.enable = true;
+
+    fontconfig = {
+      defaultFonts = {
+        serif = ["Noto Serif CJK JP" "Noto Color Emoji"];
+        sansSerif = ["Noto Sans CJK JP" "Noto Color Emoji"];
+        monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
+        emoji = ["Noto Color Emoji"];
+      };
+    };
+  };
+
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
@@ -67,9 +91,9 @@
       enable = true;
       enableContribAndExtras = true;
       config = builtins.readFile ./../../../configs/nixos/desktop/xmonad/xmonad.hs;
-      extraPackages = hpkgs: [
-        # xmonad-contrib
-        hpkgs.xmobar
+      extraPackages = hpkgs: with hpkgs; [
+        xmonad-contrib
+        # dmenu # allowBroken?
       ];
     };
     displayManager = {
@@ -159,9 +183,16 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 
-	nix = {
-			settings = {
-				experimental-features = ["nix-command" "flakes"];
-			};
-	};
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = ["nix-command" "flakes"];
+    };
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+  };
 }

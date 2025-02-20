@@ -10,6 +10,8 @@
     ../../configs/home-manager/wezterm
     ../../configs/home-manager/eza
     ../../configs/home-manager/fzf
+
+    ../../configs/home-manager/xmobar
   ];
 
   home = rec {
@@ -18,9 +20,9 @@
     stateVersion = "22.11";
 
     packages = with pkgs; [
+      bat
       dmenu
       gmrun
-      bat
       # z
     ];
 
