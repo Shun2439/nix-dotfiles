@@ -10,7 +10,8 @@
 
     # rust-bin.stable.latest.default
 
-    # rbenv
+    ruby
+
     android-studio
   ];
 }
