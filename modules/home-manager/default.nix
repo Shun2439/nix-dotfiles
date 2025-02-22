@@ -2,7 +2,7 @@
 {
   imports = [
     ../../configs/nixos/core/nixos.nix
-    # ../../configs/home-manager/development.nix
+    ../../configs/home-manager/development.nix
     ../../configs/home-manager/vim
     ../../configs/home-manager/tmux
     # ../../configs/home-manager/browser
@@ -21,6 +21,8 @@
     stateVersion = "22.11";
 
     packages = with pkgs; [
+      vscode
+      # eclipse
       bat
       dmenu
       gmrun
