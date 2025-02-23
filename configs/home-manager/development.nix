@@ -13,6 +13,8 @@
     ruby
 
     android-studio
+
+    zed-editor
   ];
 }
 
