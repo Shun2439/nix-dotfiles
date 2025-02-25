@@ -12,7 +12,6 @@
     ../../configs/home-manager/fzf
 
     ../../configs/home-manager/xmobar
-    ../../configs/home-manager/fcitx
     ../../configs/home-manager/x
 
     ../../configs/home-manager/ctf.nix
