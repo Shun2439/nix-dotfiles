@@ -9,6 +9,9 @@ myConfig = defaultConfig
 				{
 					terminal = myTerminal
 				, modMask = mod4Mask -- change mod to win key
+				, borderWidth = 2
+				, normalBorderColor     = "#cccccc" 
+				, focusedBorderColor    = "#cd8b00"
 				}
 
 myTerminal = "wezterm"

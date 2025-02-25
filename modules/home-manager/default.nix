@@ -13,6 +13,9 @@
 
     ../../configs/home-manager/xmobar
     ../../configs/home-manager/fcitx
+    ../../configs/home-manager/x
+
+    ../../configs/home-manager/ctf.nix
   ];
 
   home = rec {
@@ -27,6 +30,8 @@
       dmenu
       gmrun
       # z
+      alsa-utils
+      oneko
     ];
 
     shellAliases = { # not work

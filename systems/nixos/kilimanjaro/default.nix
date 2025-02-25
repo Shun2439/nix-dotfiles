@@ -9,7 +9,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      # ../../../configs/nixos/desktop/fcitx
+      # ../../../configs/nixos/desktop/fcitx5.nix
+      ../../../configs/nixos/core/tlp.nix
     ];
 
   # Bootloader.
@@ -48,12 +49,24 @@
     LC_TIME = "ja_JP.UTF-8";
   };
 
+  i18n.inputMethod = {
+    type = "fcitx5";
+    enable = true;
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+      # fcitx5-gtk
+      fcitx5-skk
+    ];
+  };
+
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
       noto-fonts-emoji
       # nerdfonts # error?
+
+      ipafont
     ];
 
     fontDir.enable = true;
@@ -142,19 +155,6 @@
     ];
   };
 
-  services.tlp = {
-    enable = true;
-    settings = {
-      START_CHARGE_THRESH_BAT0 = 80;  # Start charging below 80%
-      STOP_CHARGE_THRESH_BAT0 = 85;   # Stop charging at 85%
-
-      CHARGE_THRESH_ENABLE = 1;
-
-      START_CHARGE_THRESH_AC = 75;
-      STOP_CHARGE_THRESH_AC = 80;
-    };
-  };
-
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -174,8 +174,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+  # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  # wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
