@@ -2,16 +2,14 @@
 {
   programs.xmobar = {
     enable = true;
-    # extraConfig = ''
-    #   Config {font="monospace"}
-    # '';
+    extraConfig = builtins.readFile ./.xmobarrc;
   };
 
-  home.file = {
-    ".xmobarrc" = {
-      target = ".xmobarrc";
-      source = ./.xmobarrc;
-    };
-  };
+  # home.file = {
+  #   ".xmobarrc" = {
+  #     target = ".xmobarrc";
+  #     source = ./.xmobarrc;
+  #   };
+  # };
 }
 
