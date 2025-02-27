@@ -12,6 +12,9 @@
 
     ruby
 
+    cmake
+    ninja
+    flutter
     android-studio
 
     zed-editor

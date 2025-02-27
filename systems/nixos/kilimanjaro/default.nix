@@ -5,13 +5,13 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-      # ../../../configs/nixos/desktop/fcitx5.nix
-      ../../../configs/nixos/core/tlp.nix
-    ];
+    # ../../../configs/nixos/desktop/fcitx5.nix
+    ../../../configs/nixos/core/tlp.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -34,7 +34,7 @@
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
 
-  # Select internationalisation properties.
+  # Select internationalization properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -73,10 +73,19 @@
 
     fontconfig = {
       defaultFonts = {
-        serif = ["Noto Serif CJK JP" "Noto Color Emoji"];
-        sansSerif = ["Noto Sans CJK JP" "Noto Color Emoji"];
-        monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
-        emoji = ["Noto Color Emoji"];
+        serif = [
+          "Noto Serif CJK JP"
+          "Noto Color Emoji"
+        ];
+        sansSerif = [
+          "Noto Sans CJK JP"
+          "Noto Color Emoji"
+        ];
+        monospace = [
+          "JetBrainsMono Nerd Font"
+          "Noto Color Emoji"
+        ];
+        emoji = [ "Noto Color Emoji" ];
       };
     };
   };
@@ -90,28 +99,32 @@
 
   services.xserver = {
     enable = true;
-    xrandrHeads = [{
-      output = "HDMI-1";
-      primary = true;
-    }
-    {
-      output = "LVDS-1";
-    }];
-    
+    xrandrHeads = [
+      {
+        output = "HDMI-1";
+        primary = true;
+      }
+      {
+        output = "LVDS-1";
+      }
+    ];
+
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
       config = builtins.readFile ./../../../configs/nixos/desktop/xmonad/xmonad.hs;
-      extraPackages = hpkgs: with hpkgs; [
-        xmonad-contrib
-        # dmenu # allowBroken?
-      ];
+      extraPackages =
+        hpkgs: with hpkgs; [
+          xmonad-contrib
+          # dmenu # allowBroken?
+        ];
     };
     displayManager = {
       defaultSession = "none+xmonad";
       sessionCommands = ''
-        xrandr --output HDMI-1 --primary --mode 1920x1080 --rotate normal --right-of --output LVDS-1 --off
-        ./.fehgb
+        
+                xrandr --output HDMI-1 --primary --mode 1920x1080 --rotate normal --right-of --output LVDS-1 --off
+                ./.fehgb
       '';
     };
   };
@@ -148,9 +161,12 @@
   users.users.shun2439 = {
     isNormalUser = true;
     description = "Shun2439";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
       tlp
     ];
   };
@@ -165,17 +181,18 @@
 
   networking.firewall = {
     enable = true;
-   # tailscaleの仮想NICを信頼する
-   # `<Tailscaleのホスト名>:<ポート番号>`のアクセスが可能になる
-   trustedInterfaces = ["tailscale0"];
-   allowedUDPPorts = [config.services.tailscale.port];
- };
+    # tailscaleの仮想NICを信頼する
+    # `<Tailscaleのホスト名>:<ポート番号>`のアクセスが可能になる
+    trustedInterfaces = [ "tailscale0" ];
+    allowedUDPPorts = [ config.services.tailscale.port ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  # wget
+    # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # wget
+    nixfmt-rfc-style
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -208,7 +225,10 @@
   nix = {
     settings = {
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
 
     gc = {

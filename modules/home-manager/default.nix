@@ -33,11 +33,11 @@
       oneko
     ];
 
-    shellAliases = { # not work
+    shellAliases = {
+      # not work
       ls = "eza --icons";
       la = "ls -al";
     };
   };
   programs.home-manager.enable = true;
 }
-
