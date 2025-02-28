@@ -5,7 +5,7 @@
 
     icons = "auto";
     enableBashIntegration = true;
-    # enableFishIntegration = true;
+    enableFishIntegration = true;
     git = true;
   };
 }

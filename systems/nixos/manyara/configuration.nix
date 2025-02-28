@@ -90,9 +90,6 @@ programs = {
   starship = {
     enable = true;
   };
-  fish = {
-    enable = true;
-  };
   tmux = {
     enable = true;
   };
