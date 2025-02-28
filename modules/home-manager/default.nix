@@ -5,10 +5,12 @@
 
     ../../configs/home-manager/development.nix
 
+    ../../configs/home-manager/wezterm
     ../../configs/home-manager/vim
     ../../configs/home-manager/fzf
+
     ../../configs/home-manager/git
-    ../../configs/home-manager/wezterm
+    ../../configs/home-manager/lazygit
 
     ../../configs/home-manager/fish
     ../../configs/home-manager/tmux
@@ -31,10 +33,14 @@
     packages = with pkgs; [
       vscode
       # eclipse
+
+      fd
       bat
+      # z
+
       dmenu
       gmrun
-      # z
+
       alsa-utils
       oneko
     ];
