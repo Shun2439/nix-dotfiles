@@ -17,7 +17,7 @@
     ../../configs/home-manager/starship
     ../../configs/home-manager/eza
 
-    # ../../configs/home-manager/browser
+    ../../configs/home-manager/browser
 
     ../../configs/home-manager/xmobar
     ../../configs/home-manager/x

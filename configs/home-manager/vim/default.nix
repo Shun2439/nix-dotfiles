@@ -3,16 +3,20 @@
   programs.vim = {
     enable = true;
     defaultEditor = true;
-  };
-  home.file = {
-    ".vimrc" = {
-      target = ".vimrc";
-      source = ./.vimrc;
+    settings = {
+      background = "dark";
+
+      copyindent = true;
+
+      expandtab = true;
+
+      number = true;
+
+      shiftwidth = 4;
+      smartcase = true;
+      tabstop = 4;
     };
-    ".vim" = {
-      target = ".vim";
-      source = ./.vim;
-    };
+    extraConfig = builtins.readFile ./.vimrc;
   };
 }
 
