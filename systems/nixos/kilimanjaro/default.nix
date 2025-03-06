@@ -171,8 +171,14 @@
     packages = with pkgs; [
       #  thunderbird
       tlp
+
       mtpfs
+
       usbutils
+
+      libdvdcss
+      libdvdread
+      libdvdnav
     ];
   };
 

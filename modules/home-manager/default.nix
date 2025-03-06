@@ -46,6 +46,9 @@
 
       pcmanfm
       ranger
+
+      vlc
+      mpv
     ];
 
   };
