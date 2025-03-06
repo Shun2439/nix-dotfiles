@@ -1,19 +1,19 @@
 {pkgs, ...}:
 {
   home.packages = with pkgs; [
-    # gcc
-    # cmake
-    # ninja
-    # gdb
-
-    # deno
+    deno
 
     # rust-bin.stable.latest.default
 
     ruby
 
+    gcc
     cmake
     ninja
+
+    gdb
+    gef
+
     flutter
     android-studio
 

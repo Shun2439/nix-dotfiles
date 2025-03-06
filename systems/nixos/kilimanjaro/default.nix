@@ -171,6 +171,8 @@
     packages = with pkgs; [
       #  thunderbird
       tlp
+      mtpfs
+      usbutils
     ];
   };
 
@@ -179,6 +181,8 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  services.gvfs.enable = true;
 
   services.tailscale.enable = true;
 

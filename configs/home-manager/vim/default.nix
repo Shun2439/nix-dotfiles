@@ -3,6 +3,18 @@
   programs.vim = {
     enable = true;
     defaultEditor = true;
+    plugins = with pkgs.vimPlugins; [
+      vim-airline
+      vim-devicons
+      nord-vim
+
+      # skk-vim
+
+      denops-vim
+      # denops-helloworld-vim
+
+      # vim-healthcheck
+    ];
     settings = {
       background = "dark";
 

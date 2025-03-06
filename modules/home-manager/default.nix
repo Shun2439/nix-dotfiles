@@ -43,6 +43,9 @@
 
       alsa-utils
       oneko
+
+      pcmanfm
+      ranger
     ];
 
   };
