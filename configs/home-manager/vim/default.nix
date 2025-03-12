@@ -14,6 +14,7 @@
       # denops-helloworld-vim
 
       # vim-healthcheck
+      ddc-vim
     ];
     settings = {
       background = "dark";
@@ -21,6 +22,8 @@
       copyindent = true;
 
       expandtab = true;
+
+      ignorecase = true;
 
       number = true;
 

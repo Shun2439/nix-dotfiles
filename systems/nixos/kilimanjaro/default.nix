@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -11,6 +11,8 @@
 
     # ../../../configs/nixos/desktop/fcitx5.nix
     ../../../configs/nixos/core/tlp.nix
+
+    ../../../configs/nixos/core/podman.nix
   ];
 
   # Bootloader.
@@ -89,9 +91,6 @@
       };
     };
   };
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
 
   # Enable the LXQT Desktop Environment.
   # services.xserver.displayManager.lightdm.enable = true;
@@ -185,6 +184,8 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  programs.gnupg.agent.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -206,7 +207,33 @@
     # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # wget
     nixfmt-rfc-style
+    cifs-utils # samba mount
+
+    # podman
+    dive
+    podman-tui
+    docker-compose
   ];
+
+  # samba
+  fileSystems."/mnt/shared" = {
+    device = "//100.80.46.103/shared";
+    fsType = "cifs";
+    options = let
+      # this line prevents hanging on network split
+      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+
+    in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
+  };
+
+  # https://discourse.nixos.org/t/cant-mount-samba-share-as-a-user/49171/5
+  security.wrappers."mount.cifs" = {
+    program = "mount.cifs";
+    source = "${lib.getBin pkgs.cifs-utils}/bin/mount.cifs";
+    owner = "root";
+    group = "root";
+    setuid = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

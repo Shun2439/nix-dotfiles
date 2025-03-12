@@ -1,7 +1,7 @@
 " normal
 " バッファの切替 ----- {{{
-nnoremap <silent> <c-n> :bprev<CR>
-nnoremap <silent> <c-p> :bnext<CR>
+nnoremap <silent> <c-j> :bprev<CR>
+nnoremap <silent> <c-k> :bnext<CR>
 " }}}
 
 " ESCキー2度押しでハイライトの切り替え
@@ -15,10 +15,10 @@ nnoremap <script> <sid>(z3)z zz<sid>(z1)
 " }}}
 
 " WINDOW (NOT WINDOWS) ----- {{{
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+" nnoremap <c-h> <c-w>h
+" nnoremap <c-l> <c-w>l
 
 noremap <c-up> <c-w>+
 noremap <c-down> <c-w>-
@@ -35,3 +35,4 @@ hi CocInlayHint ctermfg=green ctermbg=242 guifg=#15aabf guibg=Grey
 " let g:denops#deno = '~/.nix-profile/bin/deno'
 let g:denops#deno = '/home/shun2439/.nix-profile/bin/deno'
 " }}}
+

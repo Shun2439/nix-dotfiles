@@ -49,8 +49,12 @@
 
       vlc
       mpv
-    ];
 
+      shotcut
+      gimp
+      inkscape
+      audacity
+    ];
   };
   programs.home-manager.enable = true;
 }
