@@ -137,9 +137,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -201,6 +198,8 @@
     allowedUDPPorts = [ config.services.tailscale.port ];
   };
 
+  hardware.bluetooth.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -213,7 +212,13 @@
     dive
     podman-tui
     docker-compose
+
+    # Bluetooth
+    bluez
+    blueman
   ];
+
+  services.blueman.enable = true;
 
   # samba
   fileSystems."/mnt/shared" = {

@@ -54,7 +54,10 @@
       gimp
       inkscape
       audacity
+
+      flameshot
     ];
   };
   programs.home-manager.enable = true;
 }
+
