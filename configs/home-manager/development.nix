@@ -1,7 +1,9 @@
 {pkgs, ...}:
 {
   home.packages = with pkgs; [
-    deno
+    devbox
+    # bun
+    deno # denops
 
     # rust-bin.stable.latest.default
 

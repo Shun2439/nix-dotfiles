@@ -1,4 +1,6 @@
 Config {
-  font = "xft:IPAPGothic:size=14:antialias=true" 
+    -- appearance
+    font = "xft:IPAPGothic:size=14:antialias=true",
+    bgColor = "black",
 } 
 

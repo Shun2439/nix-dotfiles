@@ -15,6 +15,8 @@
 
       # vim-healthcheck
       ddc-vim
+
+      vim-fugitive
     ];
     settings = {
       background = "dark";

@@ -12,8 +12,7 @@
     ../../configs/home-manager/git
     ../../configs/home-manager/lazygit
 
-    ../../configs/home-manager/fish
-    ../../configs/home-manager/tmux
+    ../../configs/home-manager/fish ../../configs/home-manager/tmux
     ../../configs/home-manager/starship
     ../../configs/home-manager/eza
 
@@ -54,6 +53,8 @@
       gimp
       inkscape
       audacity
+
+      # blender
 
       flameshot
     ];

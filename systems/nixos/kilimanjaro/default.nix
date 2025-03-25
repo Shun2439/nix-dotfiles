@@ -69,6 +69,13 @@
       # nerdfonts # error?
 
       ipafont
+
+      # (pkgs.callPackage (fetchFromGitHub {
+      #   owner = "yuru7";
+      #   repo = "moralerspace";
+      #   rev = "main";
+      #   sha256 = "sha256-UMLC9fuGxUbA2k7yAOlXjeQBswXkb4t6b3r62mQph4o=";
+      # }) {}) # not worked
     ];
 
     fontDir.enable = true;
@@ -118,14 +125,13 @@
           # dmenu # allowBroken?
         ];
     };
-    displayManager = {
-      defaultSession = "none+xmonad";
-      sessionCommands = ''
-        
-                xrandr --output HDMI-1 --primary --mode 1920x1080 --rotate normal --right-of --output LVDS-1 --off
-                ./.fehgb
-      '';
-    };
+  };
+  services.displayManager = {
+    defaultSession = "none+xmonad";
+    # sessionCommands = ''
+    #             xrandr --output HDMI-1 --primary --mode 1920x1080 --rotate normal --right-of --output LVDS-1 --off
+    #             ./.fehgb
+    # '';
   };
 
   # Configure keymap in X11
@@ -138,7 +144,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -176,6 +182,9 @@
       libdvdread
       libdvdnav
     ];
+
+    shell = pkgs.fish;
+    ignoreShellProgramCheck = true; # should not use home manager?
   };
 
   # Install firefox.
