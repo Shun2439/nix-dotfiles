@@ -17,23 +17,67 @@
       ddc-vim
 
       vim-fugitive
+
+      emmet-vim
+
+      # skk
     ];
-    settings = {
-      background = "dark";
 
-      copyindent = true;
+    # emmet-vim = {
+    #   enable = true;
 
-      expandtab = true;
+    #   settings = {
+    #     leader = "<C-Z>";
+    #     mode = "inv"; # insert, normal, visual mode
+    #     settings = {
+    #       html = {
+    #         default_attributes = {
+    #           option = {
+    #             value = null;
+    #           };
+    #           textarea = {
+    #             cols = 10;
+    #             id = null;
+    #             name = null;
+    #             rows = 10;
+    #           };
+    #         };
+    #         snippets = {
+    #           "html:5" = ''
+    #           <!DOCTYPE html>
+    #           <html lang=\"$\{lang}\">
+    #           <head>
+    #           \t<meta charset=\"$\{charset}\">
+    #           \t<title></title>
+    #           \t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    #           </head>
+    #           <body>\n\t$\{child}|\n</body>
+    #           </html>
+    #           '';
+    #           };
+    #           };
+    #           variables = {
+    #           lang = "ja";
+    #           };
+    #           };
+    #           };
+    #           };
+              settings = {
+              background = "dark";
 
-      ignorecase = true;
+              copyindent = true;
 
-      number = true;
+              expandtab = true;
 
-      shiftwidth = 4;
-      smartcase = true;
-      tabstop = 4;
-    };
-    extraConfig = builtins.readFile ./.vimrc;
-  };
-}
+              ignorecase = true;
+
+              number = true;
+
+              shiftwidth = 4;
+              smartcase = true;
+              tabstop = 4;
+            };
+            extraConfig = builtins.readFile ./.vimrc;
+          };
+        }
 

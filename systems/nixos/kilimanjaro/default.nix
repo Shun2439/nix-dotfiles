@@ -107,7 +107,8 @@
     enable = true;
     xrandrHeads = [
       {
-        output = "HDMI-1";
+        # output = "HDMI-1";
+        output = "VGA-1";
         primary = true;
       }
       {
@@ -225,13 +226,24 @@
     # Bluetooth
     bluez
     blueman
+
+    qemu
   ];
 
   services.blueman.enable = true;
 
   # samba
+  fileSystems."/mnt/forPi" = {
+    device = "//100.116.42.31/forPi";
+    fsType = "cifs";
+    options = let
+      # this line prevents hanging on network split
+      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+
+    in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
+  };
   fileSystems."/mnt/shared" = {
-    device = "//100.80.46.103/shared";
+    device = "//100.116.42.31/shared";
     fsType = "cifs";
     options = let
       # this line prevents hanging on network split

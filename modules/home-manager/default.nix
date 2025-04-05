@@ -20,6 +20,7 @@
 
     ../../configs/home-manager/xmobar
     ../../configs/home-manager/x
+    ../../configs/home-manager/hyperland
 
     ../../configs/home-manager/ctf.nix
   ];
@@ -57,6 +58,11 @@
       # blender
 
       flameshot
+
+      rpi-imager
+
+      # texlive # not worked
+      texlive.combined.scheme-basic
     ];
   };
   programs.home-manager.enable = true;

@@ -1,3 +1,6 @@
+# set Japanese keyboard layout
+setxkbmap -layout jp
+
 # IM
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx

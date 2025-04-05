@@ -16,10 +16,10 @@
     gdb
     gef
 
-    flutter
+    # flutter
     android-studio
 
-    zed-editor
+    # zed-editor # unsupported gpu
   ];
 }
 

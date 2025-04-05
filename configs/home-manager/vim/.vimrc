@@ -36,3 +36,7 @@ hi CocInlayHint ctermfg=green ctermbg=242 guifg=#15aabf guibg=Grey
 let g:denops#deno = '/home/shun2439/.nix-profile/bin/deno'
 " }}}
 
+" emmet-vim ---- {{{
+let g:user_emmet_leader_key='<c-t>'
+" }}}
+
