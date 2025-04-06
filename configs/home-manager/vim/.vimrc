@@ -36,7 +36,56 @@ hi CocInlayHint ctermfg=green ctermbg=242 guifg=#15aabf guibg=Grey
 let g:denops#deno = '/home/shun2439/.nix-profile/bin/deno'
 " }}}
 
-" emmet-vim ---- {{{
+" emmet-vim ----- {{{
 let g:user_emmet_leader_key='<c-t>'
+" }}}
+
+" ddc ----- {{{
+" ui で何を使用するか指定
+call ddc#custom#patch_global('ui', 'native')
+
+" 補完内容を管理
+call ddc#custom#patch_global('sources', [
+    \ 'around',
+    \ 'file',
+    \ 'vim-lsp',
+    \ ])
+
+" 保管時のオプションを管理
+call ddc#custom#patch_global('sourceOptions', {
+    \ '_': {
+    \   'matchers': ['matcher_head'],
+    \   'sorters': ['sorter_rank']
+    \ },
+    \ 'around': {
+    \     'mark': 'A'
+    \ },
+    \ 'file': {
+    \     'mark': 'F',
+    \     'isVolatile': v:true,
+    \     'forceCompletionPattern': '\S/\S*',
+    \ },
+    \ 'vim-lsp': {
+    \     'mark': 'lsp',
+    \     'isVolatile': v:true,
+    \     'forceCompletionPattern': '\.\w*|:\w*|->\w*',
+    \ },
+    \ })
+
+call ddc#custom#patch_filetype(
+    \ ['ps1', 'dosbatch', 'autohotkey', 'registry'], {
+    \ 'sourceOptions': {
+    \   'file': {
+    \     'forceCompletionPattern': '\S\/\S*',
+    \   },
+    \ },
+    \ 'sourceParams': {
+    \   'file': {
+    \     'mode': 'unix',
+    \   },
+    \ }})
+
+" ddc を有効化！
+call ddc#enable()
 " }}}
 

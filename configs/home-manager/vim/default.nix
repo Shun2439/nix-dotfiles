@@ -15,6 +15,20 @@
 
       # vim-healthcheck
       ddc-vim
+      # https://qiita.com/maachan_9692/items/9b507fd043424013abde
+      ddc-ui-native
+      ddc-source-around
+      ddc-filter-matcher_head
+      ddc-filter-sorter_rank
+      # filename 
+      ddc-source-file
+
+      vim-lsp
+      vim-lsp-settings
+      # ddc-source-vim-lsp
+      ddc-source-lsp
+
+      # skkeleton
 
       vim-fugitive
 

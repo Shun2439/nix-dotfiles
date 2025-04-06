@@ -66,7 +66,8 @@
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
       noto-fonts-emoji
-      # nerdfonts # error?
+
+      nerd-fonts.hack # error?
 
       ipafont
 
@@ -91,7 +92,7 @@
           "Noto Color Emoji"
         ];
         monospace = [
-          "JetBrainsMono Nerd Font"
+          "Hack Nerd Font"
           "Noto Color Emoji"
         ];
         emoji = [ "Noto Color Emoji" ];
