@@ -12,8 +12,11 @@
     ../../../configs/nixos/core/tlp.nix
     ../../../configs/nixos/core/podman.nix
 
+    ../../../configs/nixos/samba.nix
+
     ../../../configs/nixos/desktop/fcitx5.nix
     ../../../configs/nixos/desktop/fonts.nix
+    ../../../configs/nixos/desktop/sound.nix
   ];
 
   # Bootloader.
@@ -97,22 +100,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -140,9 +127,6 @@
     shell = pkgs.fish;
     ignoreShellProgramCheck = true; # should not use home manager?
   };
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   programs.gnupg.agent.enable = true;
 
@@ -184,35 +168,6 @@
   ];
 
   services.blueman.enable = true;
-
-  # samba
-  fileSystems."/mnt/forPi" = {
-    device = "//100.116.42.31/forPi";
-    fsType = "cifs";
-    options = let
-      # this line prevents hanging on network split
-      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-
-    in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
-  };
-  fileSystems."/mnt/shared" = {
-    device = "//100.116.42.31/shared";
-    fsType = "cifs";
-    options = let
-      # this line prevents hanging on network split
-      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-
-    in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
-  };
-
-  # https://discourse.nixos.org/t/cant-mount-samba-share-as-a-user/49171/5
-  security.wrappers."mount.cifs" = {
-    program = "mount.cifs";
-    source = "${lib.getBin pkgs.cifs-utils}/bin/mount.cifs";
-    owner = "root";
-    group = "root";
-    setuid = true;
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
