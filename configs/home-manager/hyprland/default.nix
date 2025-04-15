@@ -1,9 +1,4 @@
 { config, pkgs, inputs, ... }: 
-  # open-terminal =
-  #   pkgs.writeScriptBin "open-terminal"
-  #   # bash
-  #   ''
-  #   window_count=$(hyprctl activeworkspace -j|jq .windows)
 {
   imports = [
     ./key-binds.nix
@@ -31,8 +26,15 @@
         "LDVS-1, 1366x768@60, 0x0, 1"
       ];
       decoration = {
-        shadow_offset = "0 5";
-        "col.shadow" = "rgba(00000099)";
+        rounding = 10;
+        blur = {
+          enabled = true;
+          size = 3;
+          passes = 1;
+          xray = true;
+          ignore_opacity = true;
+          new_optimizations = true;
+        };
       };
 
     env = [
@@ -43,12 +45,11 @@
     exec-once = [
       "fcitx5 -D"
       # "hypr-helper start"
-      "wezterm"
     ];
     misc = {
       disable_hyprland_logo = true;
     };
-    input.kb_layout = "ja";
+    input.kb_layout = "jp";
   };
   # ...
 };

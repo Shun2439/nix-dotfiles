@@ -1,7 +1,8 @@
 {pkgs, ...}:
 {
   home.packages = with pkgs; [
-    devbox
+    vscode
+
     # bun
     deno # denops
 

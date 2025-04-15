@@ -3,6 +3,9 @@
   imports = [
     ../../configs/nixos/core/nixos.nix
 
+    ../../configs/home-manager/cli-utils/default.nix
+    ../../configs/home-manager/gui-utils/default.nix
+
     ../../configs/home-manager/development.nix
 
     ../../configs/home-manager/wezterm
@@ -19,8 +22,8 @@
 
     ../../configs/home-manager/browser
 
-    ../../configs/home-manager/xmobar
-    ../../configs/home-manager/x
+    # ../../configs/home-manager/xmobar
+    # ../../configs/home-manager/x
     ../../configs/home-manager/hyprland
 
     ../../configs/home-manager/ctf.nix
@@ -30,43 +33,6 @@
     username = "shun2439";
     homeDirectory = "/home/${username}";
     stateVersion = "22.11";
-
-    packages = with pkgs; [
-      vscode
-      # eclipse
-
-      fd
-      bat
-      # z
-
-      dmenu
-      gmrun
-
-      alsa-utils
-      oneko
-
-      pcmanfm
-      ranger
-
-      vlc
-      mpv
-
-      shotcut
-      gimp
-      inkscape
-      audacity
-
-      # blender
-
-      flameshot
-
-      rpi-imager
-
-      # texlive # not worked
-      texlive.combined.scheme-basic
-
-      devenv
-    ];
   };
   programs.home-manager.enable = true;
 }
