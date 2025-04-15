@@ -29,11 +29,6 @@
     ../../configs/home-manager/ctf.nix
   ];
 
-  home = rec {
-    username = "shun2439";
-    homeDirectory = "/home/${username}";
-    stateVersion = "22.11";
-  };
   programs.home-manager.enable = true;
 }
 

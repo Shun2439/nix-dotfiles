@@ -20,11 +20,6 @@
     # package = pkgs.hyperland;
 
     settings = {
-      monitor = [
-        # "HDMI-1, 1920x1080@75, 0x0, 1"
-        # "VGA-1, 1920x1080@60, 1366x0, 1"
-        "LDVS-1, 1366x768@60, 0x0, 1"
-      ];
       decoration = {
         rounding = 10;
         blur = {
@@ -49,7 +44,6 @@
     misc = {
       disable_hyprland_logo = true;
     };
-    input.kb_layout = "jp";
   };
   # ...
 };

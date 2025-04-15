@@ -64,7 +64,7 @@
           inherit inputs;
         };
         modules = [
-          ./modules/home-manager
+          ./homes/nixos/kilimanjaro
         ];
       };
     };
