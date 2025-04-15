@@ -12,7 +12,8 @@
     ../../configs/home-manager/git
     ../../configs/home-manager/lazygit
 
-    ../../configs/home-manager/fish ../../configs/home-manager/tmux
+    ../../configs/home-manager/fish
+    ../../configs/home-manager/tmux
     ../../configs/home-manager/starship
     ../../configs/home-manager/eza
 
@@ -20,7 +21,7 @@
 
     ../../configs/home-manager/xmobar
     ../../configs/home-manager/x
-    ../../configs/home-manager/hyperland
+    ../../configs/home-manager/hyprland
 
     ../../configs/home-manager/ctf.nix
   ];
@@ -63,6 +64,8 @@
 
       # texlive # not worked
       texlive.combined.scheme-basic
+
+      devenv
     ];
   };
   programs.home-manager.enable = true;

@@ -65,27 +65,39 @@ call ddc#custom#patch_global('sourceOptions', {
     \     'isVolatile': v:true,
     \     'forceCompletionPattern': '\S/\S*',
     \ },
-    \ 'vim-lsp': {
+    \ 'lsp': {
     \     'mark': 'lsp',
     \     'isVolatile': v:true,
     \     'forceCompletionPattern': '\.\w*|:\w*|->\w*',
     \ },
     \ })
 
-call ddc#custom#patch_filetype(
-    \ ['ps1', 'dosbatch', 'autohotkey', 'registry'], {
-    \ 'sourceOptions': {
-    \   'file': {
-    \     'forceCompletionPattern': '\S\/\S*',
-    \   },
-    \ },
-    \ 'sourceParams': {
-    \   'file': {
-    \     'mode': 'unix',
-    \   },
-    \ }})
+
+call ddc#custom#patch_global('sourceParams', #{
+      \   lsp: #{
+      \     snippetEngine: denops#callback#register({
+      \           body -> vsnip#anonymous(body)
+      \     }),
+      \     enableResolveItem: v:true,
+      \     enableAdditionalTextEdit: v:true,
+      \   }
+      \ })
+
+" call ddc#custom#patch_filetype(
+"     \ ['ps1', 'dosbatch', 'autohotkey', 'registry'], {
+"     \ 'sourceOptions': {
+"     \   'file': {
+"     \     'forceCompletionPattern': '\S\/\S*',
+"     \   },
+"     \ },
+"     \ 'sourceParams': {
+"     \   'file': {
+"     \     'mode': 'unix',
+"     \   },
+"     \ }})
 
 " ddc を有効化！
 call ddc#enable()
+
 " }}}
 

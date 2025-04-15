@@ -1,5 +1,22 @@
-{config, pkgs, ... }: 
+{ config, pkgs, inputs, ... }: 
+  # open-terminal =
+  #   pkgs.writeScriptBin "open-terminal"
+  #   # bash
+  #   ''
+  #   window_count=$(hyprctl activeworkspace -j|jq .windows)
 {
+  imports = [
+    ./key-binds.nix
+  ];
+    # home.packages =
+    #   (with pkgs; [
+    #     # hypr-helper
+
+    #   ])
+    #   ++ [
+    #     inputs.hyprsome.packages.${pkgs.system}.default
+    #   ];
+
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -18,17 +35,6 @@
         "col.shadow" = "rgba(00000099)";
       };
 
-      "$mod" = "SUPER";
-
-      "$term" = "wezterm";
-
-      bindm = [
-      # mouse movements
-      "$mod, mouse:272, movewindow"
-      "$mod, mouse:273, resizewindow"
-      "$mod ALT, mouse:272, resizewindow"
-    ];
-
     env = [
       "GTK_IM_MODULE, fcitx"
       "QT_IM_MODULE, fcitx"
@@ -36,7 +42,8 @@
     ];
     exec-once = [
       "fcitx5 -D"
-      "hypr-helper start"
+      # "hypr-helper start"
+      "wezterm"
     ];
     misc = {
       disable_hyprland_logo = true;

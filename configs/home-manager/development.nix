@@ -10,6 +10,7 @@
     ruby
 
     gcc
+    # clang # error
     cmake
     ninja
 

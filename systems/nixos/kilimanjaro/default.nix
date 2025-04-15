@@ -2,7 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -17,6 +22,7 @@
     ../../../configs/nixos/desktop/fcitx5.nix
     ../../../configs/nixos/desktop/fonts.nix
     ../../../configs/nixos/desktop/sound.nix
+    ../../../configs/nixos/desktop/hyprland.nix
   ];
 
   # Bootloader.
@@ -73,7 +79,7 @@
     ];
 
     windowManager.xmonad = {
-      enable = true;
+      # enable = true;
       enableContribAndExtras = true;
       config = builtins.readFile ./../../../configs/nixos/desktop/xmonad/xmonad.hs;
       extraPackages =
@@ -82,20 +88,19 @@
           # dmenu # allowBroken?
         ];
     };
+    # Configure keymap in X11
+    xkb = {
+      layout = "jp";
+      variant = "";
+    };
   };
-  services.displayManager = {
-    defaultSession = "none+xmonad";
-    # sessionCommands = ''
-    #             xrandr --output HDMI-1 --primary --mode 1920x1080 --rotate normal --right-of --output LVDS-1 --off
-    #             ./.fehgb
-    # '';
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "jp";
-    variant = "";
-  };
+  # services.displayManager = {
+  #   defaultSession = "none+xmonad";
+  #   # sessionCommands = ''
+  #   #             xrandr --output HDMI-1 --primary --mode 1920x1080 --rotate normal --right-of --output LVDS-1 --off
+  #   #             ./.fehgb
+  #   # '';
+  # };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
