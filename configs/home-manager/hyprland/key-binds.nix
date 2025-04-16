@@ -20,6 +20,12 @@ let
       monitor=$(hyprctl activeworkspace -j | jq .monitorID)
       hyprctl dispatch movetoworkspace $(($monitor * 10 + $1))
     '';
+  open-wofi =
+    pkgs.writeScriptBin "open-wofi"
+      # bash
+    ''
+      wofi --show drun --width 512px
+    '';
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -48,6 +54,10 @@ in
 
       # system
       "$mainMod, x, exec, systemctl suspend"
+
+      # launcher
+      "$mainMod SHIFT, P, exec, ${open-wofi}/bin/open-wofi"
+      "$mainMod, period, exec, wofi-emoji"
     ] ++ (
       lib.flatten (
         lib.genList (n:
