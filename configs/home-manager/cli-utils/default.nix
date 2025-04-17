@@ -9,7 +9,5 @@
     
     texlive.combined.scheme-basic
     devenv
-
-    alsa-utils
   ];
 }

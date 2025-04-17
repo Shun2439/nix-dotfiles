@@ -112,6 +112,24 @@ in
       "$mainMod, mouse:272, movewindow"
       "$mainMod, mouse:273, resizewindow"
     ];
+    bindl = [
+      # media control
+      ", XF86AudioPlay, exec, playerctl play-pause"
+      ", XF86AudioPrev, exec, playerctl previous"
+      ", XF86AudioNext, exec, playerctl next"
+
+      # volume control: mute
+      ", XF86AudioMute, exec, pamixer -t"
+    ];
+    bindle = [
+      # volume control
+      ", XF86AudioRaiseVolume, exec, pamixer -i 1"
+      ", XF86AudioLowerVolume, exec, pamixer -d 1"
+
+      # brightness control
+      ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
+      ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+    ];
   };
 }
 

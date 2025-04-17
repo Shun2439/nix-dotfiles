@@ -14,6 +14,8 @@
       url = "github:tadfisher/android-nixpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprsome.url = "github:sopa0/hyprsome";
   };
 
   outputs = inputs: {

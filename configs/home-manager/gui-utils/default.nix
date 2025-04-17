@@ -17,10 +17,6 @@
     flameshot
 
     rpi-imager
-
-    wl-clipboard
   ];
-
-  services.cliphist.enable = true;
 }
 
