@@ -19,6 +19,8 @@
       "XMODIFIERS, @im=fcitx"
     ];
     exec-once = [
+      "swww init && swww img ~/.config/hypr/wallpaper/main.jpg"
+      "waybar"
       "fcitx5 -D"
       # "hypr-helper start"
     ];

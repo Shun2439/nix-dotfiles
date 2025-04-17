@@ -14,7 +14,7 @@
     inkscape
     audacity
 
-    flameshot
+    # flameshot
 
     rpi-imager
   ];

@@ -88,6 +88,13 @@ in
       # clipboard
       "$mainMod, v, exec, cliphist list | wofi -S dmenu | cliphist decode | wl-copy"
 
+      # filer
+      "$mainMod, e, exec, pcmanfm"
+
+      # screen shot
+      ", Print, exec, grimblast --notify copy output"
+      ''$mainMod SHIFT, s, exec, grimblast --notify copysave area "$HOME/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"''
+
       # monitor
       # "$mainMod, p, exec, ${monitor-switch}/bin/monitor-switch"
     ] ++ (
