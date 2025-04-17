@@ -85,6 +85,9 @@ in
       "$mainMod SHIFT, P, exec, ${open-wofi}/bin/open-wofi"
       "$mainMod, period, exec, wofi-emoji"
 
+      # clipboard
+      "$mainMod, v, exec, cliphist list | wofi -S dmenu | cliphist decode | wl-copy"
+
       # monitor
       # "$mainMod, p, exec, ${monitor-switch}/bin/monitor-switch"
     ] ++ (

@@ -11,5 +11,9 @@
     devenv
 
     alsa-utils
+
+    wl-clipboard
   ];
+
+  services.cliphist.enable = true;
 }
