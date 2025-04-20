@@ -1,8 +1,16 @@
 { inputs, ... }:
 {
   wayland.windowManager.hyprland.settings = {
+    general = {
+      gaps_in = 5;
+      gaps_out = 5;
+      border_size = 2;
+      # "col.inactive_border" = "rgb(${colors.bg})";
+      # "col.active_border" = "rgb(${colors.blue})";
+      resize_on_border = true;
+    };
     decoration = {
-      rounding = 5;
+      rounding = 10;
       blur = {
         enabled = true;
         size = 3;

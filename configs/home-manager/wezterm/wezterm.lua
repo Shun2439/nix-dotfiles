@@ -14,8 +14,7 @@ wezterm.on('toggle-colorscheme', function(window, pane)
 end)
 
 local config = {
-	-- windowの枠を消す
-	window_decorations = "RESIZE",
+	window_decorations = "NONE",
 
 	hide_tab_bar_if_only_one_tab = true,
 
