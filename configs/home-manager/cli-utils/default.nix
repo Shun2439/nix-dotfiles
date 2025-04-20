@@ -9,5 +9,7 @@
     
     texlive.combined.scheme-basic
     devenv
+
+    moc
   ];
 }
