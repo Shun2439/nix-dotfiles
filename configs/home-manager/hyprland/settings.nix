@@ -2,7 +2,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     decoration = {
-      rounding = 10;
+      rounding = 5;
       blur = {
         enabled = true;
         size = 3;

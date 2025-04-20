@@ -4,16 +4,20 @@
     ./settings.nix
     ./key-binds.nix
     ./wofi.nix
+    ./waybar.nix
   ];
 
   home.packages =
     (with pkgs; [
       # hypr-helper
+      alsa-utils
       pamixer
       playerctl
+
       wl-clipboard
+
       swww
-      waybar
+
       grimblast
     ])
     ++ [
