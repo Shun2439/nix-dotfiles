@@ -19,6 +19,7 @@
       swww
 
       grimblast
+      peek
     ])
     ++ [
       inputs.hyprsome.packages.${pkgs.system}.default

@@ -95,6 +95,8 @@ in
       ", Print, exec, grimblast --notify copy output"
       ''$mainMod SHIFT, s, exec, grimblast --notify copysave area "$HOME/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"''
 
+      "$mainMod SHIFT, g, exec, peek"
+
       # monitor
       # "$mainMod, p, exec, ${monitor-switch}/bin/monitor-switch"
     ] ++ (
