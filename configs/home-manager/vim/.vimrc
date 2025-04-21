@@ -48,7 +48,7 @@ call ddc#custom#patch_global('ui', 'native')
 call ddc#custom#patch_global('sources', [
     \ 'around',
     \ 'file',
-    \ 'vim-lsp',
+    \ 'lsp',
     \ ])
 
 " 保管時のオプションを管理
