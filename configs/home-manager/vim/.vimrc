@@ -7,6 +7,9 @@ nnoremap <silent> <c-k> :bnext<CR>
 " ESCキー2度押しでハイライトの切り替え
 nnoremap <silent> <Esc><Esc> :<C-u>set nohlsearch!<CR>
 
+" clipboard
+set clipboard+=unnamed
+
 " https://zenn.dev/vim_jp/articles/67ec77641af3f2 ----- {{{
 nmap zz zz<sid>(z1)
 nnoremap <script> <sid>(z1)z zt<sid>(z2)
@@ -28,7 +31,13 @@ noremap <c-right> <c-w><
 
 " color ----- {{{
 colorscheme nord
-hi CocInlayHint ctermfg=green ctermbg=242 guifg=#15aabf guibg=Grey
+aug nord-fix
+    au!
+    au ColorScheme nord hi LineNr ctermfg=14
+    au ColorScheme nord hi Comment ctermfg=10
+    au ColorScheme nord hi Visual ctermbg=15
+    au ColorScheme nord hi CocInlayHint ctermfg=green ctermbg=242 guifg=#15aabf guibg=Grey
+aug END
 " }}}
 
 " denops ----- {{{
@@ -99,5 +108,13 @@ call ddc#custom#patch_global('sourceParams', #{
 " ddc を有効化！
 call ddc#enable()
 
+" }}}
+
+" clangd ----- {{{
+let g:lsp_settings = {
+            \ 'clangd': {
+            \   'cmd': ['clangd', '--enable-config'],
+            \ }
+            \}
 " }}}
 

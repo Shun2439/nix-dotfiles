@@ -14,8 +14,7 @@ let
         hyprctl dispatch workspace $(($monitor * 10 + $1))
       '';
   ws-move =
-    pkgs.writeScriptBin "ws-move"
-      # bash
+    pkgs.writeScriptBin "ws-move" # bash
       ''
         monitor=$(hyprctl activeworkspace -j | jq .monitorID)
         hyprctl dispatch movetoworkspace $(($monitor * 10 + $1))
@@ -96,6 +95,8 @@ in
       ''$mainMod SHIFT, s, exec, grimblast --notify copysave area "$HOME/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"''
 
       "$mainMod SHIFT, g, exec, peek"
+
+      "$mainMod, space, layoutmsg, inherit_fullscreen"
 
       # monitor
       # "$mainMod, p, exec, ${monitor-switch}/bin/monitor-switch"

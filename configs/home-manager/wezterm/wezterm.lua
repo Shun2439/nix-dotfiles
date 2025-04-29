@@ -8,7 +8,7 @@ wezterm.on('toggle-colorscheme', function(window, pane)
 		overrides.window_background_opacity = 1.0
 	else
 		overrides.color_scheme = nil
-		overrides.window_background_opacity = 0.8
+		overrides.window_background_opacity = 0.7
 	end
 	window:set_config_overrides(overrides)
 end)
@@ -20,7 +20,7 @@ local config = {
 
 	color_scheme = 'Nord (base16)',
 
-	window_background_opacity = 0.5,
+	window_background_opacity = 0.7,
 
 	-- 使うフォントを指定する
 	-- font = wezterm.font 'Moralerspace Radon HWNF',
