@@ -10,6 +10,7 @@
 
     ../../configs/home-manager/wezterm
     ../../configs/home-manager/vim
+    ../../configs/home-manager/emacs
     ../../configs/home-manager/fzf
 
     ../../configs/home-manager/git
