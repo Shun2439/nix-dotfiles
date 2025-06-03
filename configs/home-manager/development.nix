@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     vscode
+    eclipses.eclipse-java
 
     gdb
     gef

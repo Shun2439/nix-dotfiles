@@ -33,6 +33,13 @@
 (load-theme 'nord t)
 
 ;;
+;;; tree-sitter
+;;
+; (require 'tree-sitter)
+; (require 'tree-sitter-langs)
+; (global-tree-sitter-mode)
+
+;;
 ;;; loat-path
 ;;
 
