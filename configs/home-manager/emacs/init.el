@@ -133,6 +133,16 @@
 ; (setq org-babel-inline-result-wrap "")
 (setq org-confirm-babel-evaluate nil)
 
+(require 'org)
+(require 'ob-ruby)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (ruby . t) ; これを追加または確認
+   ;; 他の言語も必要に応じて追加
+   ))
+
 ;; (global-set-key "\C-cl" 'org-store-link)
 ;; (global-set-key "\C-cc" 'org-capture)
 ;; (global-set-key "\C-ca" 'org-agenda)
