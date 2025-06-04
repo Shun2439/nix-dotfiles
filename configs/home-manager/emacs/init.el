@@ -143,6 +143,15 @@
    ;; 他の言語も必要に応じて追加
    ))
 
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            ;; スペースインデントと幅の設定 (Rubyの一般的な慣習)
+            (setq indent-tabs-mode nil) ; タブではなくスペースを使用
+            (setq tab-width 2)          ; インデント幅を2スペースに設定
+
+            ;; これが重要: 'end' のインデントを修正
+            (setq ruby-deep-indent-paren nil)))
+
 ;; (global-set-key "\C-cl" 'org-store-link)
 ;; (global-set-key "\C-cc" 'org-capture)
 ;; (global-set-key "\C-ca" 'org-agenda)
