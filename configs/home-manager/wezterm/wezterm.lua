@@ -18,7 +18,7 @@ local config = {
 
 	hide_tab_bar_if_only_one_tab = true,
 
-	color_scheme = 'Nord (base16)',
+	color_scheme = 'Catppuccin Mocha',
 
 	window_background_opacity = 0.7,
 
