@@ -17,6 +17,8 @@
     # flameshot
 
     rpi-imager
+
+    thunderbird
   ];
 }
 
