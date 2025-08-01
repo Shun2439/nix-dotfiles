@@ -13,6 +13,10 @@
     # rust-bin.stable.latest.default
 
     ruby
+    
+    glibc
+    gcc
+    nodejs
   ];
 }
 

@@ -10,6 +10,8 @@
       la = "ls -al";
 
       em = "emacs -nw";
+
+      z = "zoxide";
     };
   };
 }

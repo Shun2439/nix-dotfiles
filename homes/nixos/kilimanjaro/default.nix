@@ -1,6 +1,7 @@
 { configs, pkgs, lib, ... }:
 let
-  mainMonitor = "VGA-1";
+  # mainMonitor = "VGA-1";
+  mainMonitor = "HDMI-A-1";
   subMonitor = "LVDS-1";
 in
 {
@@ -15,7 +16,8 @@ in
 
   wayland.windowManager.hyprland.settings = {
     monitor = [
-      "${mainMonitor}, 1920x1080@60, 1366x0, 1"
+      # "${mainMonitor}, 1920x1080@60, 1366x0, 1"
+      "${mainMonitor}, 2560x1440@60, 1366x0, 1"
       "${subMonitor}, 1366x768@60, 0x0, 1"
     ];
     input.kb_layout = "jp";

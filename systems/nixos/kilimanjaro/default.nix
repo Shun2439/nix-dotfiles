@@ -170,6 +170,8 @@
     blueman
 
     qemu
+
+    zlib # for bundle install
   ];
 
   services.blueman.enable = true;
