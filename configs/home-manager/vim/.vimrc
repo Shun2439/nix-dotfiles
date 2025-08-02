@@ -37,6 +37,7 @@ aug nord-fix
     au ColorScheme nord hi Comment ctermfg=10
     au ColorScheme nord hi Visual ctermbg=15
     au ColorScheme nord hi CocInlayHint ctermfg=green ctermbg=242 guifg=#15aabf guibg=Grey
+    au ColorScheme nord hi Error ctermfg=0
 aug END
 " }}}
 
