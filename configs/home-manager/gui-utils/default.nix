@@ -19,6 +19,8 @@
     rpi-imager
 
     thunderbird
+
+    plasma5Packages.kdeconnect-kde
   ];
 }
 
