@@ -25,6 +25,23 @@ let
       ''
         wofi --show drun --width 512px
       '';
+
+  close-window =
+    pkgs.writeScriptBin "close-window"
+      # bash
+      ''
+        hyprctl dispatch killactive
+        sleep 0.01
+
+        window_count=$(hyprctl activeworkspace -j | jq .windows)
+        is_fullscreen=$(hyprctl activeworkspace -j | jq .hasfullscreen)
+        if [ "$window_count" -eq 1 ] && [ "$is_fullscreen" = "false" ]; then
+          hyprctl dispatch fullscreen
+        elif [ "$window_count" -gt 1 ] && [ "$is_fullscreen" = "true" ]; then
+          hyprctl dispatch fullscreen
+        fi
+      '';
+
   # monitor-switch = 
   #   pkgs.writeScriptBin "monitor-switch"
   #   # bash
@@ -61,6 +78,7 @@ in
     bind = [
       # general
       "$mainMod SHIFT, Q, exit"
+      "$mainMod, Q, exec, ${close-window}/bin/close-window"
 
       # focus
       "$subMod, Tab, cyclenext"
