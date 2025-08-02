@@ -32,14 +32,6 @@ let
       ''
         hyprctl dispatch killactive
         sleep 0.01
-
-        window_count=$(hyprctl activeworkspace -j | jq .windows)
-        is_fullscreen=$(hyprctl activeworkspace -j | jq .hasfullscreen)
-        if [ "$window_count" -eq 1 ] && [ "$is_fullscreen" = "false" ]; then
-          hyprctl dispatch fullscreen
-        elif [ "$window_count" -gt 1 ] && [ "$is_fullscreen" = "true" ]; then
-          hyprctl dispatch fullscreen
-        fi
       '';
 
   # monitor-switch = 
