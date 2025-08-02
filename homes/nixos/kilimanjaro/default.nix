@@ -1,7 +1,7 @@
 { configs, pkgs, lib, ... }:
 let
-  mainMonitor = "VGA-1";
-  # mainMonitor = "HDMI-A-1";
+  # mainMonitor = "VGA-1";
+  mainMonitor = "HDMI-A-1";
   subMonitor = "LVDS-1";
 in
 {
