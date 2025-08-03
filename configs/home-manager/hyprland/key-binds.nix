@@ -83,6 +83,9 @@ in
       "$mainMod, mouse_down, workspace, m+1"
       "$mainMod, mouse_up, workspace, m-1"
 
+      "$subMod, right, pass"
+      "$subMod, left, pass"
+
       # window
       "$mainMod SHIFT, right, movetoworkspace, m+1"
       "$mainMod SHIFT, left, movetoworkspace, m-1"

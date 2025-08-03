@@ -8,10 +8,6 @@
     shellAliases = {
       ls = "eza --icons";
       la = "ls -al";
-
-      em = "emacs -nw";
-
-      z = "zoxide";
     };
   };
 }
