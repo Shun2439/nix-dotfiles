@@ -119,3 +119,7 @@ let g:lsp_settings = {
             \}
 " }}}
 
+if has('patch-9.1.1590')
+  set autocomplete
+endif
+
