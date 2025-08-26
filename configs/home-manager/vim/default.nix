@@ -35,6 +35,8 @@
       emmet-vim
 
       # skk
+
+      vim-prettier
     ];
 
     # emmet-vim = {

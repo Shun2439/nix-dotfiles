@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm'
+local act = wezterm.action
 
 -- <https://github.com/wez/wezterm/issues/4429#issuecomment-1774827062>
 wezterm.on('toggle-colorscheme', function(window, pane)
@@ -34,7 +35,31 @@ local config = {
 		action = wezterm.action({
 			EmitEvent = "toggle-colorscheme"
 		})
-	}}
+	}, {
+        key = 'h', -- Home
+        mods = 'ALT',
+        action = act.SwitchToWorkspace {
+            name = 'default'
+        }
+    }, -- Create a new workspace with a random name and switch to it
+    {
+        key = 'n',
+        mods = 'ALT',
+        action = act.SwitchToWorkspace
+    }, -- Show the launcher in fuzzy selection mode and have it list all workspaces
+    -- and allow activating one.
+    {
+        key = 'f', -- find
+        mods = 'ALT',
+        action = act.ShowLauncherArgs {
+            flags = 'FUZZY|WORKSPACES'
+        }
+    }, {
+        key = 'F',
+        mods = 'ALT|SHIFT',
+        action = wezterm.action.ShowTabNavigator
+    }, { key = 'j', mods = 'CTRL|SHIFT', action = act.SwitchWorkspaceRelative(1) },
+  { key = 'k', mods = 'CTRL|SHIFT', action = act.SwitchWorkspaceRelative(-1) },}
 }
 
 return config

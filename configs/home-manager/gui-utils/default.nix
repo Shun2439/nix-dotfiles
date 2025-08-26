@@ -20,7 +20,7 @@
 
     thunderbird
 
-    plasma5Packages.kdeconnect-kde
+    # plasma5Packages.kdeconnect-kde
   ];
 }
 
