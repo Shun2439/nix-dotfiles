@@ -58,8 +58,15 @@ local config = {
         key = 'F',
         mods = 'ALT|SHIFT',
         action = wezterm.action.ShowTabNavigator
-    }, { key = 'j', mods = 'CTRL|SHIFT', action = act.SwitchWorkspaceRelative(1) },
-  { key = 'k', mods = 'CTRL|SHIFT', action = act.SwitchWorkspaceRelative(-1) },}
+    }, {
+        key = 'J',
+        mods = 'ALT|SHIFT',
+        action = act.SwitchWorkspaceRelative(1)
+    }, {
+        key = 'K',
+        mods = 'ALT|SHIFT',
+        action = act.SwitchWorkspaceRelative(-1)
+    },}
 }
 
 return config
