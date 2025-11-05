@@ -2,17 +2,20 @@
 {
   programs.git = {
     enable = true;
-    userName = "Shun2439";
-    userEmail = "shunta.kobayashi24@gmail.com";
-    signing = {
-      key = "C16DBB4D559C7413";
-      signByDefault = true;
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Shun2439";
+        email = "shunta.kobayashi24@gmail.com";
+      };
+
       init.defaultBranch = "main";
       commit.gpgsign = true;
       core.editor = "vim";
       core.autocrlf = "true";
+    };
+    signing = {
+      key = "C16DBB4D559C7413";
+      signByDefault = true;
     };
   };
   programs.gpg.enable = true;
