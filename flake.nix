@@ -1,5 +1,8 @@
 {
   inputs = {
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
@@ -18,32 +21,49 @@
     hyprsome.url = "github:sopa0/hyprsome";
   };
 
-  outputs = inputs: {
-    nixosConfigurations = {
-      kilimanjaro = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./systems/nixos/kilimanjaro
-        ];
+  outputs = { self, nixpkgs, flake-parts, ... } @ inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+       "x86_64-linux"
+      ];
+    flake =
+    {
+      overlays = {
+        default = import inputs.rust-overlay;
+        # rust-overlay = import inputs.rust-overlay;
       };
-    };
-    homeConfigurations = {
-      myHome = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.nixpkgs {
+      lib = import ./lib inputs;
+
+      nixosConfigurations = {
+        kilimanjaro = inputs.nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          modules = [
+            ./systems/nixos/kilimanjaro
+          ];
+        };
+      };
 
-          config.allowUnfree = true;
+      homeManagerModules.default = import ./modules/home-manager;
+      homeConfigurations = {
+        "shun2439@LAPTOP-N9FF5EU1" = self.lib.makeHomeManagerConfig {
+          system = "x86_64-linux";
+          username = "shun2439";
+          modules = [];
 
-          overlays = [(import inputs.rust-overlay)];
+          # config.allowUnfree = true;
+        };
+        "shun2439@kilimanjaro" = self.lib.makeHomeManagerConfig {
+          system = "x86_64-linux";
+          hostname = "kilimanjaro";
+          username = "shun2439";
+          modules = [
+            ./homes/nixos/kilimanjaro
+          ];
         };
         extraSpecialArgs = {
           inherit inputs;
         };
-        modules = [
-          ./homes/nixos/kilimanjaro
-        ];
       };
     };
   };
 }
-

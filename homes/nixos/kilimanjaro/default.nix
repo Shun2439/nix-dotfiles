@@ -7,6 +7,15 @@ in
 {
   imports = [
     ../../../modules/home-manager
+    ../../configs/nixos/core/nixos.nix
+    ../../configs/home-manager/wezterm
+    # ../../configs/home-manager/tmux
+    ../../configs/home-manager/browser
+    ../../configs/home-manager/hyprland
+    ../../configs/home-manager/development.nix
+    ../../configs/home-manager/gui-utils/default.nix
+    # ../../configs/home-manager/xmobar
+    # ../../configs/home-manager/x
   ];
   home = rec {
     username = "shun2439";
