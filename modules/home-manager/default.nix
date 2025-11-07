@@ -2,6 +2,7 @@
 {
   imports = [
     ../../configs/home-manager/cli-utils
+    ../../configs/home-manager/development.nix
 
     ../../configs/home-manager/vim
     ../../configs/home-manager/emacs

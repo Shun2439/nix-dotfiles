@@ -6,13 +6,11 @@
     fd
 
     jq
-    
+
     texlive.combined.scheme-basic
     devenv
 
     # moc
-
-    zoxide
   ];
 
   programs.zoxide = {

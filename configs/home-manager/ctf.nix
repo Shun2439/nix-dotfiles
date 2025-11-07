@@ -1,15 +1,13 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
-	home.packages = with pkgs; [
+  home.packages = with pkgs; [
     # open-jdk
-		ghidra
+    ghidra
 
     file
     unzip
     binwalk
-    
-    python3
-    gef
+
     pwninit
     pwntools
 	];
