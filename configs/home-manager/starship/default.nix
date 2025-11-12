@@ -1,112 +1,145 @@
-{ pkgs, lib, ... }:
-{
+{ config, lib, pkgs, ... }:
+
+let
+  # Catppuccin Mocha Palette
+  # See https://github.com/catppuccin/catppuccin#-palettes
+  # Define colors as a separate attribute set
+  catppuccinMocha = {
+    rosewater = "#f5e0dc";
+    flamingo = "#f2cdcd";
+    pink = "#f5c2e7";
+    mauve = "#cba6f7";
+    red = "#f38ba8";
+    maroon = "#eba0ac";
+    peach = "#fab387";
+    yellow = "#f9e2af";
+    green = "#a6e3a1";
+    teal = "#94e2d5";
+    sky = "#89dceb";
+    sapphire = "#74c7ec";
+    blue = "#89b4fa";
+    lavender = "#b4befe";
+    text = "#cdd6f4";
+    subtext1 = "#bac2de";
+    subtext0 = "#a6adc8";
+    overlay2 = "#9399b2";
+    overlay1 = "#7f849c";
+    overlay0 = "#6c7086";
+    surface2 = "#585b70";
+    surface1 = "#45475a";
+    surface0 = "#313244";
+    base = "#1e1e2e";
+    mantle = "#181825";
+    crust = "#11111b";
+  };
+in {
+  # Enable Starship
   programs.starship = {
     enable = true;
-    enableBashIntegration = true;
-    enableFishIntegration = true;
-    settings = {
-      # 1. 全体設定
-      add_newline = false; # ターミナルは一行で表示
-      scan_timeout = 10;
+    # Using lib.mkForce to ensure our settings override any defaults
+    settings = lib.mkForce {
+      format = lib.mkForce "[░▒▓](bold $lavender)$username$hostname$directory$git_branch$git_status$cmd_duration$python$nix_shell$memory_usage$battery$time$line_break$character";
+      add_newline = true;
 
-      # 2. プロンプトのフォーマット定義
-      format = lib.concatStrings [
-        # OSシンボルと最初の区切り
-        "$os"
-        "$shell"
+      character = {
+        success_symbol = "[❯](fg:${catppuccinMocha.green})";
+        error_symbol = "[❯](fg:${catppuccinMocha.red})";
+        vicmd_mode_symbol = "[❮](fg:${catppuccinMocha.lavender})";
+      };
 
-        # ディレクトリ
-        "[](fg:#629dd6)" # ディレクトリの区切り (青)
-        "$directory"
+      username = {
+        show_always = true;
+        format = "[ $user]($style)[](fg:${catppuccinMocha.lavender} bg:${catppuccinMocha.sapphire})";
+        style_user = "fg:${catppuccinMocha.surface0} bg:${catppuccinMocha.lavender} bold";
+        style_root = "fg:${catppuccinMocha.red} bg:${catppuccinMocha.base} bold";
+      };
 
-        # Gitステータス
-        "[](fg:#4a824e bg:#629dd6)" # Gitモジュールへの区切り (緑 on 青)
-        "$git_branch"
-        "$git_status"
+      hostname = {
+        ssh_only = false;
+        format = "[ @$hostname]($style)[](fg:${catppuccinMocha.sapphire} bg:${catppuccinMocha.blue})";
+        style = "fg:${catppuccinMocha.surface0} bg:${catppuccinMocha.sapphire} bold";
+        trim_at = ".local";
+      };
 
-        # 言語モジュール (Node.js, Rustなどを代表として使用)
-        "[](fg:#1a1b26 bg:#4a824e)" # 言語モジュールへの区切り (背景色 on 緑)
-        "$nodejs"
-        "$rust"
-
-        # コマンドの実行時間
-        "[](fg:#629dd6 bg:#1a1b26)" # 実行時間への区切り (青 on 背景色)
-        "$cmd_duration"
-
-        # 右側のモジュール（表示されない場合はコメントアウト）
-        # "$all"
-
-        # 改行と文字のプロンプト
-        "$line_break"
-        "$character"
-      ];
-
-      # 3. モジュールごとのカスタマイズ
-
-      # ディレクトリ設定
       directory = {
+        format = "[ $path]($style)[$read_only]($read_only_style)[](fg:${catppuccinMocha.blue} bg:${catppuccinMocha.pink})";
+        style = "fg:${catppuccinMocha.surface0} bg:${catppuccinMocha.blue} bold";
+        read_only_style = "fg:${catppuccinMocha.red}";
         truncation_length = 3;
-        truncate_to_repo = false;
-        # ディレクトリ名: 明るい青 on ターミナル背景色
-        style = "fg:#ffffff bg:#629dd6";
-        format = "[ $path ]($style)";
+        truncation_symbol = "…/";
+        fish_style_pwd_dir_length = 1;
       };
 
-      # Git ブランチ
       git_branch = {
-        symbol = ""; # Gitアイコン
-        style = "fg:black bg:#4a824e"; # 文字色:黒 on 背景色:濃い緑
-        format = "[ $symbol $branch ]($style)";
+        symbol = " ";
+        format = "[ $symbol$branch]($style)[](fg:${catppuccinMocha.pink} bg:${catppuccinMocha.yellow})";
+        style = "fg:${catppuccinMocha.surface0} bg:${catppuccinMocha.pink} bold";
       };
 
-      # Git ステータス
       git_status = {
-        style = "fg:#ffffff bg:#4a824e"; # 白 on 濃い緑
-        format = "[[($all_status$ahead_behind )](fg:white bg:#4a824e)]($style)";
-        stashed = " 📦";
-        conflicted = " 💥";
-        modified = " ";
-        untracked = " ";
+        disabled = true;
+        format = "( $all_status$ahead_behind)[](fg:${catppuccinMocha.pink} bg:${catppuccinMocha.yellow})";
+        style = "fg:${catppuccinMocha.surface0} bg:${catppuccinMocha.pink} bold";
+        conflicted = "=";
+        # ahead = "↑${count}";
+        # behind = "↓${count}";
+        diverged = "⇕$ahead_count$behind_count";
+        untracked = "?";
+        stashed = "$";
+        modified = "!";
+        staged = "+";
+        renamed = "»";
+        deleted = "✘";
       };
 
-      # OS シンボル (Fish/Bashの場合は表示されないことも多い)
-      os = {
-        format = "[$symbol]($style)";
-        style = "bold white";
-        symbol = ""; # Linuxアイコン
-        disabled = false;
-      };
-
-      # Node.js
-      nodejs = {
-        symbol = "";
-        style = "fg:#c678dd bg:#1a1b26"; # 紫 on 背景色
-        format = "[[ $symbol ($version) ](fg:white bg:#1a1b26)]($style)";
-      };
-
-      # Rust
-      rust = {
-        symbol = "🦀";
-        style = "fg:#c678dd bg:#1a1b26";
-        format = "[[ $symbol ($version) ](fg:white bg:#1a1b26)]($style)";
-      };
-
-      # コマンド実行時間
       cmd_duration = {
         min_time = 500;
-        style = "fg:#98c379 bg:#1a1b26"; # 明るい緑 on 背景色
-        format = "[  $duration ]($style)";
+        format = "[ $duration]($style)[](fg:${catppuccinMocha.yellow} bg:${catppuccinMocha.green})";
+        style = "fg:${catppuccinMocha.surface0} bg:${catppuccinMocha.yellow} bold";
       };
 
-      # 4. キャラクター設定 (プロンプトの最終行)
-      character = {
-        # 成功時は明るい青の矢印
-        success_symbol = "[](bold #629dd6)";
-        # エラー時は鮮やかな赤の矢印
-        error_symbol = "[](bold #e06c75)";
+      python = {
+        symbol = "   R ";
+        format = "[ $symbol($virtualenv)($version)]($style)[](fg:${catppuccinMocha.green} bg:${catppuccinMocha.teal})";
+        style = "fg:${catppuccinMocha.surface0} bg:${catppuccinMocha.green} bold";
+      };
 
-        # 二行目に移るため、文字本体は空欄にする
-        format = "$symbol";
+      nix_shell = {
+        format = "[ $symbol(NixOS)]($style)[](fg:${catppuccinMocha.base} bg:${catppuccinMocha.teal})";
+        symbol = "❄";
+        style = "fg:${catppuccinMocha.surface0} bg:${catppuccinMocha.base} bold";
+      };
+
+      memory_usage = {
+        disabled = false;
+        threshold = -1;
+        format = "[ $symbol$ram]($style)[](fg:${catppuccinMocha.teal} bg:${catppuccinMocha.green})";
+        symbol = "󰍛 ";
+        style = "fg:${catppuccinMocha.surface0} bg:${catppuccinMocha.teal} bold";
+      };
+
+      battery = {
+        disabled = false;
+        format = "[ $symbol$percentage]($style)[](fg:${catppuccinMocha.green} bg:${catppuccinMocha.overlay1})";
+        style = "fg:${catppuccinMocha.surface0} bg:${catppuccinMocha.green} bold";
+        full_symbol = "󰁹 ";
+        charging_symbol = "󰂄 ";
+        discharging_symbol = "󰂃 ";
+        unknown_symbol = "󰂑 ";
+        empty_symbol = "󰂎 ";
+        display = [
+          { threshold = 10; style = "bold fg:${catppuccinMocha.base} bg:${catppuccinMocha.red}"; }
+          { threshold = 30; style = "bold fg:${catppuccinMocha.base} bg:${catppuccinMocha.yellow}"; }
+          { threshold = 100; style = "bold fg:${catppuccinMocha.base} bg:${catppuccinMocha.green}"; }
+        ];
+      };
+
+      time = {
+        disabled = false;
+        format = "[ $time]($style)[](fg:${catppuccinMocha.overlay1} bg:${catppuccinMocha.base})";
+        style = "fg:${catppuccinMocha.surface0} bg:${catppuccinMocha.overlay1} bold";
+        use_truncated_time = false;
+        time_format = "%R"; # H:M format
       };
     };
   };
