@@ -37,6 +37,12 @@
       # skk
 
       vim-prettier
+
+      # Elixir
+      vim-elixir
+
+      # Elm
+      elm-vim
     ];
 
     # emmet-vim = {
