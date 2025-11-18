@@ -30,15 +30,18 @@ noremap <c-right> <c-w><
 " }}}
 
 " color ----- {{{
-colorscheme nord
-aug nord-fix
-    au!
-    au ColorScheme nord hi LineNr ctermfg=14
-    au ColorScheme nord hi Comment ctermfg=10
-    au ColorScheme nord hi Visual ctermbg=15
-    au ColorScheme nord hi CocInlayHint ctermfg=green ctermbg=242 guifg=#15aabf guibg=Grey
-    au ColorScheme nord hi Error ctermfg=0
-aug END
+" colorscheme nord
+set termguicolors
+colorscheme catppuccin_mocha
+let g:airline_theme = 'catppuccin_mocha'
+" aug nord-fix
+"     au!
+"     au ColorScheme nord hi LineNr ctermfg=14
+"     au ColorScheme nord hi Comment ctermfg=10
+"     au ColorScheme nord hi Visual ctermbg=15
+"     au ColorScheme nord hi CocInlayHint ctermfg=green ctermbg=242 guifg=#15aabf guibg=Grey
+"     au ColorScheme nord hi Error ctermfg=0
+" aug END
 " }}}
 
 " denops ----- {{{

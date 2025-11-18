@@ -6,7 +6,8 @@
     plugins = with pkgs.vimPlugins; [
       vim-airline
       vim-devicons
-      nord-vim
+      # nord-vim
+      catppuccin-vim
 
       # skk-vim
 
