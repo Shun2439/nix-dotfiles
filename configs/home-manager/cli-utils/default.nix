@@ -7,7 +7,7 @@
 
     jq
 
-    texlive.combined.scheme-basic
+    texlive.combined.scheme-medium
     devenv
 
     # moc

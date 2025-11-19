@@ -9,6 +9,13 @@
       emacs --daemon &
       end
     '';
+
+    plugins = with pkgs.fishPlugins; [
+      { name = "grc"; src = grc.src; }
+      { name = "forgit"; src = forgit.src; }
+      # TODO { name = "autols"; src = autols.src; }
+      # TODO { name = "cdf"; src = cdf.src; }
+    ];
     shellAliases = {
       ls = "eza --icons";
       la = "ls -al";
