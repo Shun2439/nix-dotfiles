@@ -44,6 +44,11 @@
 
       # Elm
       elm-vim
+
+      # fzf
+      fzf-vim
+
+      vim-polyglot
     ];
 
     # emmet-vim = {

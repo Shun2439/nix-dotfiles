@@ -4,6 +4,7 @@
     bat
     # z
     fd
+    ripgrep
 
     jq
 
