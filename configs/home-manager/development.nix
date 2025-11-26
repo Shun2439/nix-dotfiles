@@ -13,7 +13,8 @@
 
     # rust-bin.stable.latest.default
 
-    ruby
+    # ruby
+    # due to vscode extensions requires version manager like rbenv
 
     glibc
     gcc

@@ -8,6 +8,11 @@
       if not pgrep -f "emacs --daemon" > /dev/null
       emacs --daemon &
       end
+
+      # rbenv
+      set -Ux RBENV_ROOT $HOME/.rbenv
+      set -U fish_user_paths $RBENV_ROOT/bin $fish_user_paths
+      status --is-interactive; and source (rbenv init -|psub)
     '';
 
     plugins = with pkgs.fishPlugins; [
