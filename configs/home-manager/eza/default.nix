@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.eza = {
-    enable = true;
+    enable = false;
 
     icons = "auto";
     enableBashIntegration = true;

@@ -6,7 +6,7 @@
       set -gx GPG_TTY (tty)
 
       if not pgrep -f "emacs --daemon" > /dev/null
-      emacs --daemon &
+        emacs --daemon &
       end
 
       # rbenv
@@ -25,8 +25,8 @@
       # TODO { name = "cdf"; src = cdf.src; }
     ];
     shellAliases = {
-      ls = "eza --icons";
-      la = "ls -al";
+      # ls = "lsd";
+      # la = "ls -al";
       cat = "bat -p";
 
       e = "emacsclient";
