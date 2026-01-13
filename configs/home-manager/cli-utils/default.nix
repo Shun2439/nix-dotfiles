@@ -8,7 +8,10 @@
 
     jq
 
-    texlive.combined.scheme-medium
+    texlive.combined.scheme-full
+    # texlive.jlreq
+    # texlivePackages.jlreq
+
     devenv
 
     # moc
