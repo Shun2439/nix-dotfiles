@@ -13,6 +13,7 @@
     # texlivePackages.jlreq
 
     devenv
+    direnv
 
     # moc
   ];
@@ -31,11 +32,11 @@
     enableFishIntegration = true;
     enableBashIntegration = true;
 
-    settings = {
-      color = {
-        theme = "custom";
-      };
-    };
+    # settings = {
+    #   color = {
+    #     theme = "custom";
+    #   };
+    # };
   };
 
   home.file = {
