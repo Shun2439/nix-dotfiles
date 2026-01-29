@@ -19,6 +19,11 @@
     };
 
     hyprsome.url = "github:sopa0/hyprsome";
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, flake-parts, ... } @ inputs:
@@ -48,21 +53,20 @@
         "shun2439@LAPTOP-N9FF5EU1" = self.lib.makeHomeManagerConfig {
           system = "x86_64-linux";
           username = "shun2439";
-          modules = [];
-
-          # config.allowUnfree = true;
+          modules = [
+            ./modules/home-manager
+          ];
         };
         "shun2439@kilimanjaro" = self.lib.makeHomeManagerConfig {
           system = "x86_64-linux";
-          hostname = "kilimanjaro";
           username = "shun2439";
           modules = [
             ./homes/nixos/kilimanjaro
           ];
         };
-        extraSpecialArgs = {
-          inherit inputs;
-        };
+      };
+      extraSpecialArgs = {
+        inherit inputs;
       };
     };
   };
