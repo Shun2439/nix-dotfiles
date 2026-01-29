@@ -42,6 +42,7 @@ in
       )
     ]
     ++ [ inputs.self.homeManagerModules.default ]
+    ++ [ inputs.nixvim.homeModules.nixvim ]
     ++ modules;
   };
 }
