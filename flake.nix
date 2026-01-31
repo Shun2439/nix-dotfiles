@@ -24,6 +24,10 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # nix-doom-emacs = {
+    #   url = "github:nix-community/nix-doom-emacs";
+    # };
   };
 
   outputs = { self, nixpkgs, flake-parts, ... } @ inputs:
