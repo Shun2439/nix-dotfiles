@@ -1,29 +1,42 @@
-# Git integration
+# Git integration - temporarily disabled during snacks migration (commented out)
 { ... }:
 {
   programs.nixvim.plugins = {
-    # Git signs in gutter
+    # Git signs in gutter (snacks.git provides complementary features)
     gitsigns = {
       enable = true;
       settings = {
         signs = {
-          add = { text = "│"; };
-          change = { text = "│"; };
-          delete = { text = "_"; };
-          topdelete = { text = "‾"; };
-          changedelete = { text = "~"; };
-          untracked = { text = "┆"; };
+          add = {
+            hl = "GitSignsAdd";
+            text = "│";
+          };
+          change = {
+            hl = "GitSignsChange";
+            text = "│";
+          };
+          delete = {
+            hl = "GitSignsDelete";
+            text = "│";
+          };
+          topdelete = {
+            hl = "GitSignsTopDelete";
+            text = "‾";
+          };
+          changedelete = {
+            hl = "GitSignsChangeDelete";
+            text = "~";
+          };
+          untracked = {
+            hl = "GitSignsUntracked";
+            text = "│";
+          };
         };
+        signcolumn = false;
+        numhl = true;
+        linehl = true;
         current_line_blame = true;
-        current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>";
-        signcolumn = true;
-        numhl = false;
-        linehl = false;
-        watch_gitdir = {
-          follow_files = true;
-        };
         attach_to_untracked = true;
-        sign_priority = 6;
         update_debounce = 100;
         status_formatter = null;
         max_file_length = 40000;
@@ -37,16 +50,13 @@
         trouble = false;
       };
     };
-
-    # Git commands
-    fugitive.enable = true;
-    
-    # GitHub integration
-    gitlinker = {
-      enable = true;
-      settings = {
-        mappings = "<leader>gy";
-      };
-    };
+    # Git commands (snacks.gitbrowse and snacks.lazygit provide these)
+    # fugitive.enable = false;
+    # gitlinker = {
+    #   enable = false;
+    #   settings = {
+    #     mappings = "<leader>gy";
+    #   };
+    # };
   };
 }

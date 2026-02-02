@@ -1,70 +1,7 @@
-# Keymaps configuration
+# Keybindings - simplified version for snacks.nvim
 { ... }:
 {
   programs.nixvim.keymaps = [
-    # Better escape
-    {
-      mode = "i";
-      key = "jk";
-      action = "<Esc>";
-      options = {
-        desc = "Better escape";
-      };
-    }
-    {
-      mode = "i";
-      key = "kj";
-      action = "<Esc>";
-      options = {
-        desc = "Better escape";
-      };
-    }
-
-    # Navigation
-    {
-      mode = "n";
-      key = "<C-h>";
-      action = "<C-w>h";
-      options = {
-        desc = "Navigate left";
-      };
-    }
-    {
-      mode = "n";
-      key = "<C-j>";
-      action = "<C-w>j";
-      options = {
-        desc = "Navigate down";
-      };
-    }
-    {
-      mode = "n";
-      key = "<C-k>";
-      action = "<C-w>k";
-      options = {
-        desc = "Navigate up";
-      };
-    }
-    {
-      mode = "n";
-      key = "<C-l>";
-      action = "<C-w>l";
-      options = {
-        desc = "Navigate right";
-      };
-    }
-
-    # Window management
-    {
-      mode = "n";
-      key = "<leader>w";
-      action = "<C-w>";
-      options = {
-        desc = "Window commands";
-      };
-    }
-
-    # Clear search
     {
       mode = "n";
       key = "<leader>h";
@@ -73,8 +10,6 @@
         desc = "Clear search highlight";
       };
     }
-
-    # Save
     {
       mode = "n";
       key = "<leader>s";
@@ -91,8 +26,6 @@
         desc = "Save file";
       };
     }
-
-    # Quit
     {
       mode = "n";
       key = "<leader>q";
@@ -102,45 +35,155 @@
       };
     }
 
-    # Enhanced lazygit integration
+    {
+      mode = "n";
+      key = "<leader><space>";
+      action = "<cmd>lua Snacks.picker.smart()<CR>";
+      options = {
+        desc = "Smart Find Files";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>,";
+      action = "<cmd>lua Snacks.picker.buffers()<CR>";
+      options = {
+        desc = "Buffers";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>/";
+      action = "<cmd>lua Snacks.picker.grep()<CR>";
+      options = {
+        desc = "Grep";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>e";
+      action = "<cmd>lua Snacks.explorer()<CR>";
+      options = {
+        desc = "File Explorer";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>ff";
+      action = "<cmd>lua Snacks.picker.files()<CR>";
+      options = {
+        desc = "Find Files";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>fg";
+      action = "<cmd>lua Snacks.picker.git_files()<CR>";
+      options = {
+        desc = "Find Git Files";
+      };
+    }
     {
       mode = "n";
       key = "<leader>gg";
-      action = "<cmd>LazyGit<CR>";
+      action = "<cmd>lua Snacks.lazygit()<CR>";
       options = {
-        desc = "Open lazygit in current directory";
+        desc = "Lazygit";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>gb";
+      action = "<cmd>lua Snacks.picker.git_branches()<CR>";
+      options = {
+        desc = "Git Branches";
       };
     }
     {
       mode = "n";
-      key = "<leader>gG";
-      action = "<cmd>LazyGitCurrentFile<CR>";
+      key = "<leader>gl";
+      action = "<cmd>lua Snacks.picker.git_log()<CR>";
       options = {
-        desc = "Open lazygit in current file's project root";
+        desc = "Git Log";
+      };
+    }
+
+    # LSP
+    {
+      mode = "n";
+      key = "gd";
+      action = "<cmd>lua Snacks.picker.lsp_definitions()<CR>";
+      options = {
+        desc = "Goto Definition";
       };
     }
     {
       mode = "n";
-      key = "<leader>gc";
-      action = "<cmd>LazyGitConfig<CR>";
+      key = "gr";
+      action = "<cmd>lua Snacks.picker.lsp_references()<CR>";
       options = {
-        desc = "Open lazygit configuration";
+        desc = "References";
+        nowait = true;
+      };
+    }
+
+    # Other & Utilities
+    {
+      mode = "n";
+      key = "<leader>z";
+      action = "<cmd>lua Snacks.zen()<CR>";
+      options = {
+        desc = "Toggle Zen Mode";
       };
     }
     {
       mode = "n";
-      key = "<leader>gf";
-      action = "<cmd>LazyGitFilter<CR>";
+      key = "<leader>.";
+      action = "<cmd>lua Snacks.scratch()<CR>";
       options = {
-        desc = "Open lazygit filter (project commits)";
+        desc = "Toggle Scratch Buffer";
       };
     }
     {
       mode = "n";
-      key = "<leader>gF";
-      action = "<cmd>LazyGitFilterCurrentFile<CR>";
+      key = "<leader>n";
+      action = "<cmd>lua Snacks.notifier.show_history()<CR>";
       options = {
-        desc = "Open lazygit filter (current file commits)";
+        desc = "Notification History";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>bd";
+      action = "<cmd>lua Snacks.bufdelete()<CR>";
+      options = {
+        desc = "Delete Buffer";
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-/>";      
+      action = "<cmd>lua Snacks.terminal()<CR>";
+      options = {
+        desc = "Toggle Terminal";
+      };
+    }
+    {
+      mode = "n";
+      key = "]";
+      action = "<cmd>lua Snacks.words.jump(vim.v.count1)<CR>";
+      options = {
+        desc = "Next Reference";
+      };
+    }
+    {
+      mode = "n";
+      key = "[";
+      action = "<cmd>lua Snacks.words.jump(-vim.v.count1)<CR>";
+      options = {
+        desc = "Prev Reference";
       };
     }
   ];

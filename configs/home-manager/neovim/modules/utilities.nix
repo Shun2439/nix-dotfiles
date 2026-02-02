@@ -1,17 +1,9 @@
-# Utilities and quality of life plugins
 { ... }:
 {
   programs.nixvim.plugins = {
-    # Auto close brackets, quotes, etc.
     autoclose.enable = true;
-    
-    # Surround actions
     vim-surround.enable = true;
-    
-    # Auto pairs
     nvim-autopairs.enable = true;
-    
-    # Comment plugin
     comment-nvim = {
       enable = true;
       settings = {
@@ -38,81 +30,43 @@
       };
     };
 
-    # Better notifications
-    notify = {
+    snacks = {
       enable = true;
       settings = {
-        level = 1;  # 1 = INFO level
-        minimum_width = 50;
-        maximum_width = 50;
-        render = "default";
-        stages = "slide";
-        timeout = 3000;
-        background_colour = "#000000";
-        icons = {
-          ERROR = "󰅚";
-          WARN = "󰀪";
-          INFO = "";
-          DEBUG = "";
-          TRACE = "✎";
-        };
-        on_open = null;
-        on_close = null;
-        fps = 60;
+        # Core features
+        bigfile = { enabled = true; };
+        dashboard = { enabled = false; }; # TODO
+        explorer = { enabled = true; };
+        terminal = { enabled = true; };
+        lazygit = { enabled = true; };
+        notifier = { enabled = true; };
+        picker = { enabled = true; };
+        indent = { enabled = true; };
+        input = { enabled = true; };
+        scope = { enabled = true; };
+        scroll = { enabled = true; };
+        statuscolumn = { enabled = true; };
+        words = { enabled = true; };
+        zen = { enabled = true; };
+        quickfile = { enabled = true; };
+        
+        git = { enabled = true; };
+        gitbrowse = { enabled = true; };
+        gh = { enabled = true; };
+        toggle = { enabled = true; };
+        win = { enabled = true; };
+        
+        util = { enabled = true; };
+        scratch = { enabled = true; };
+        dim = { enabled = true; };
+        rename = { enabled = true; };
+        profiler = { enabled = true; };
+        image = { enabled = true; };
       };
     };
 
-    # Indent guides
-    indent-blankline = {
-      enable = true;
-      settings = {
-        indent = {
-          char = "│";
-          tab_char = "│";
-        };
-        scope = {
-          enabled = true;
-          char = "│";
-          show_start = false;
-          show_end = false;
-        };
-        exclude = {
-          filetypes = [
-            "help"
-            "alpha"
-            "dashboard"
-            "neo-tree"
-            "Trouble"
-            "lazy"
-            "mason"
-            "notify"
-            "toggleterm"
-            "lazyterm"
-          ];
-        };
-      };
-    };
-
-    # Better terminal
-    toggleterm = {
-      enable = true;
-      # lazyLoad.enable = true;
-      settings = {
-        direction = "float";
-        float_opts = {
-          border = "curved";
-          height = 30;
-          width = 130;
-        };
-        open_mapping = "[[<C-t>]]";
-        size = 20;
-      };
-    };
-
-    # Enhanced lazygit integration - temporarily disabled
     lazygit = {
       enable = true;
-      # lazyLoad.enable = true;
       settings = {
         floating_window_border_chars = [
           "╭"
