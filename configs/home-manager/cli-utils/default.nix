@@ -5,6 +5,7 @@
     # z
     fd
     ripgrep
+    grc
 
     jq
 

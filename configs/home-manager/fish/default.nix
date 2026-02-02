@@ -14,8 +14,7 @@
       set -U fish_user_paths $RBENV_ROOT/bin $fish_user_paths
       status --is-interactive; and source (rbenv init -|psub)
 
-      # grc
-      source /usr/local/etc/grc.fish
+      direnv hook fish | source
     '';
 
     plugins = with pkgs.fishPlugins; [
