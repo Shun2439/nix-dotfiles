@@ -101,5 +101,47 @@
         desc = "Quit";
       };
     }
+
+    # Enhanced lazygit integration
+    {
+      mode = "n";
+      key = "<leader>gg";
+      action = "<cmd>LazyGit<CR>";
+      options = {
+        desc = "Open lazygit in current directory";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>gG";
+      action = "<cmd>LazyGitCurrentFile<CR>";
+      options = {
+        desc = "Open lazygit in current file's project root";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>gc";
+      action = "<cmd>LazyGitConfig<CR>";
+      options = {
+        desc = "Open lazygit configuration";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>gf";
+      action = "<cmd>LazyGitFilter<CR>";
+      options = {
+        desc = "Open lazygit filter (project commits)";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>gF";
+      action = "<cmd>LazyGitFilterCurrentFile<CR>";
+      options = {
+        desc = "Open lazygit filter (current file commits)";
+      };
+    }
   ];
 }

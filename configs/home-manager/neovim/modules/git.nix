@@ -25,7 +25,7 @@
         attach_to_untracked = true;
         sign_priority = 6;
         update_debounce = 100;
-        status_formatter = nil;
+        status_formatter = null;
         max_file_length = 40000;
         preview_config = {
           border = "rounded";
@@ -34,7 +34,7 @@
           row = 0;
           col = 1;
         };
-        trouble = true;
+        trouble = false;
       };
     };
 

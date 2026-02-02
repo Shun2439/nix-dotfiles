@@ -6,7 +6,7 @@
     autoclose.enable = true;
     
     # Surround actions
-    surround.enable = true;
+    vim-surround.enable = true;
     
     # Auto pairs
     nvim-autopairs.enable = true;
@@ -42,7 +42,7 @@
     notify = {
       enable = true;
       settings = {
-        level = "INFO";
+        level = 1;  # 1 = INFO level
         minimum_width = 50;
         maximum_width = 50;
         render = "default";
@@ -56,8 +56,8 @@
           DEBUG = "";
           TRACE = "✎";
         };
-        on_open = nil;
-        on_close = nil;
+        on_open = null;
+        on_close = null;
         fps = 60;
       };
     };
@@ -93,39 +93,42 @@
       };
     };
 
-    # Start screen
-    alpha = {
-      enable = true;
-      layout = {
-        type = "padding";
-        val = 2;
-      };
-    };
-
     # Better terminal
     toggleterm = {
       enable = true;
+      # lazyLoad.enable = true;
       settings = {
-        size = 20;
-        open_mapping = [[ "<C-t>" ]];
-        hide_numbers = true;
-        shade_filetypes = {};
-        shade_terminals = true;
-        shading_factor = 2;
-        start_in_insert = true;
-        insert_mappings = true;
-        persist_size = true;
         direction = "float";
-        close_on_exit = true;
-        shell = null;
         float_opts = {
           border = "curved";
-          winblend = 0;
-          highlights = {
-            border = "Normal";
-            background = "Normal";
-          };
+          height = 30;
+          width = 130;
         };
+        open_mapping = "[[<C-t>]]";
+        size = 20;
+      };
+    };
+
+    # Enhanced lazygit integration - temporarily disabled
+    lazygit = {
+      enable = true;
+      # lazyLoad.enable = true;
+      settings = {
+        floating_window_border_chars = [
+          "╭"
+          "─"
+          "╮"
+          "│"
+          "╯"
+          "─"
+          "╰"
+          "│"
+        ];
+        floating_window_scaling_factor = 0.9;
+        floating_window_use_plenary = 0;
+        floating_window_winblend = 0;
+        use_custom_config_file_path = 0;
+        use_neovim_remote = 1;
       };
     };
   };

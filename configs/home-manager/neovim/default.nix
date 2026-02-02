@@ -6,6 +6,8 @@
     ./modules/file-explorer.nix
     ./modules/statusline.nix
     ./modules/keymaps.nix
+    ./modules/git.nix
+    ./modules/utilities.nix
   ];
 
   programs.nixvim = {
