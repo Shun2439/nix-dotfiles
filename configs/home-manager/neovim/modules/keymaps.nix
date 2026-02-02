@@ -35,6 +35,8 @@
       };
     }
 
+    # snacks
+    # Top Pickers & Explorer
     {
       mode = "n";
       key = "<leader><space>";
@@ -68,6 +70,15 @@
       };
     }
 
+    # find
+    {
+      mode = "n";
+      key = "<leader>fb";
+      action = "<cmd>lua Snacks.picker.buffers()<CR>";
+      options = {
+        desc = "Buffers";
+      };
+    }
     {
       mode = "n";
       key = "<leader>ff";
@@ -86,13 +97,22 @@
     }
     {
       mode = "n";
-      key = "<leader>gg";
-      action = "<cmd>lua Snacks.lazygit()<CR>";
+      key = "<leader>fp";
+      action = "<cmd>lua Snacks.picker.projects()<CR>";
       options = {
-        desc = "Lazygit";
+        desc = "Projects";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>fr";
+      action = "<cmd>lua Snacks.picker.recent()<CR>";
+      options = {
+        desc = "Recent";
       };
     }
 
+    # git
     {
       mode = "n";
       key = "<leader>gb";
@@ -109,8 +129,48 @@
         desc = "Git Log";
       };
     }
+    {
+      mode = "n";
+      key = "<leader>gL";
+      action = "<cmd>lua Snacks.picker.git_log_line()<CR>";
+      options = {
+        desc = "Git Log Line";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>gs";
+      action = "<cmd>lua Snacks.picker.git_status()<CR>";
+      options = {
+        desc = "Git Status";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>gS";
+      action = "<cmd>lua Snacks.picker.git_stash()<CR>";
+      options = {
+        desc = "Git Stash";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>gd";
+      action = "<cmd>lua Snacks.picker.git_diff()<CR>";
+      options = {
+        desc = "Git Diff (Hunks)";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>gf";
+      action = "<cmd>lua Snacks.picker.git_log_file()<CR>";
+      options = {
+        desc = "Git Log File";
+      };
+    }
 
-    # LSP
+    # TODO LSP
     {
       mode = "n";
       key = "gd";
@@ -129,7 +189,15 @@
       };
     }
 
-    # Other & Utilities
+    # TODO Other
+    {
+      mode = "n";
+      key = "<leader>gg";
+      action = "<cmd>lua Snacks.lazygit()<CR>";
+      options = {
+        desc = "Lazygit";
+      };
+    }
     {
       mode = "n";
       key = "<leader>z";
@@ -165,14 +233,14 @@
     {
       mode = "n";
       key = "<C-/>";      
-      action = "<cmd>lua Snacks.terminal()<CR>";
+      action = "<cmd>lua Snacks.terminal.toggle()<CR>";
       options = {
         desc = "Toggle Terminal";
       };
     }
     {
       mode = "n";
-      key = "]";
+      key = "]]";
       action = "<cmd>lua Snacks.words.jump(vim.v.count1)<CR>";
       options = {
         desc = "Next Reference";
@@ -180,7 +248,7 @@
     }
     {
       mode = "n";
-      key = "[";
+      key = "[[";
       action = "<cmd>lua Snacks.words.jump(-vim.v.count1)<CR>";
       options = {
         desc = "Prev Reference";
