@@ -3,6 +3,12 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
+      # Fisher bootstrap - runs once on first shell startup
+      if not functions -q fisher
+        set --export fisher_path $HOME/.config/fish
+        curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source
+      end
+
       set -gx GPG_TTY (tty)
 
       if not pgrep -f "emacs --daemon" > /dev/null
@@ -18,11 +24,14 @@
     '';
 
     plugins = with pkgs.fishPlugins; [
+      { name = "spark"; src = spark.src; }
+      { name = "puffer"; src = puffer.src; }
+      # { name = "async-prompt"; src = async-prompt.src; } # Not work correctly, no idea
+      { name = "sponge"; src = sponge.src; }
       { name = "grc"; src = grc.src; }
       { name = "forgit"; src = forgit.src; }
-      # TODO { name = "autols"; src = autols.src; }
-      # TODO { name = "cdf"; src = cdf.src; }
     ];
+
     shellAliases = {
       # ls = "lsd";
       # la = "ls -al";
@@ -30,5 +39,13 @@
 
       e = "emacsclient";
     };
+  };
+
+  home.file = {
+    ".config/fish/fish_plugins".text = ''
+      kpbaks/autols.fish
+      yuys13/fish-gcd
+      yuys13/fish-ghq-fzf
+    '';
   };
 }

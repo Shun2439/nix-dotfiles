@@ -7,6 +7,9 @@
     ripgrep
     grc
 
+    fzf
+    ghq
+
     jq
 
     texlive.combined.scheme-full
