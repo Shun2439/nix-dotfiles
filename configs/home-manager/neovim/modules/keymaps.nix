@@ -170,6 +170,26 @@
       };
     }
 
+    # TODO gh
+    {
+      mode = "n";
+      key = "<leader>gi";
+      action = "<cmd>lua Snacks.picker.gh_issue()<CR>";
+      options = {
+        desc = "GitHub Issues (open)";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>gp";
+      action = "<cmd>lua Snacks.picker.gh_pr()<CR>";
+      options = {
+        desc = "GitHub Pull Requests (open)";
+      };
+    }
+    # TODO Grep
+    # TODO search
+
     # TODO LSP
     {
       mode = "n";
@@ -232,7 +252,7 @@
     }
     {
       mode = "n";
-      key = "<C-/>";      
+      key = "<leader>t"; # <C-/>
       action = "<cmd>lua Snacks.terminal.toggle()<CR>";
       options = {
         desc = "Toggle Terminal";

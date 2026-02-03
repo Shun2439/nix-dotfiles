@@ -4,7 +4,7 @@
   programs.nixvim.plugins = {
     # Git signs in gutter (snacks.git provides complementary features)
     gitsigns = {
-      enable = true;
+      enable = false;
       settings = {
         signs = {
           add = {
