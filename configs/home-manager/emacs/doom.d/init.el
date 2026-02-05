@@ -10,7 +10,7 @@
 
         :ui
         doom-dashboard
-        doom-modeline
+        modeline
         (vc-gutter +pretty)
         workspaces
 
@@ -27,8 +27,11 @@
         (lookup +docsets)
         lsp
         magit
-        (vterm +toggle)
+        ;; vterm module moved to :term in Doom 3
         tree-sitter
+
+        :term
+        (vterm +toggle)
 
         :lang
         (javascript +typescript)
@@ -37,7 +40,10 @@
         (cc +lsp +tree-sitter)
         (nix +tree-sitter)
         (markdown +grip)
-        (org +pretty +roam2)
+        (org +pretty +roam)
+
+        :input
+        japanese
 
         :config
         (default +bindings +smartparens))

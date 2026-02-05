@@ -44,3 +44,9 @@
 
 ;; Org mode enhancements
 (package! org-journal)
+
+;; Catppuccin theme
+(package! catppuccin-theme)
+
+;; Org -> Typst exporter
+(package! ox-typst)
