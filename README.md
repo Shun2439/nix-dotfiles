@@ -6,7 +6,7 @@
 
 ### Doom Emacs
 
--SKK
+- SKK
 
 ### Nixvim
 
