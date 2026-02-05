@@ -25,12 +25,17 @@
     git = ./modules/git.nix;
     treesitter = ./modules/treesitter.nix;
     utilities = ./modules/utilities.nix;
+    ime = ./modules/ime.nix;
 
     # Advanced features
     autocmd = ./modules/autocmd.nix;
 
     # Presets
-    minimal = [ ./modules/core.nix ./modules/theme.nix ./modules/keymaps.nix ];
+    minimal = [
+      ./modules/core.nix
+      ./modules/theme.nix
+      ./modules/keymaps.nix
+    ];
     standard = [
       ./modules/core.nix
       ./modules/theme.nix
@@ -40,6 +45,7 @@
       ./modules/statusline.nix
       ./modules/treesitter.nix
       ./modules/utilities.nix
+      ./modules/ime.nix
     ];
     full = [
       ./modules/core.nix
@@ -54,6 +60,7 @@
       ./modules/treesitter.nix
       ./modules/utilities.nix
       ./modules/autocmd.nix
+      ./modules/ime.nix
     ];
   };
 }

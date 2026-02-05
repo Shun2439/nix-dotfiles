@@ -20,6 +20,14 @@
     }
     {
       mode = "i";
+      key = "<C-j>";
+      action = "<Plug>(skkeleton-toggle)";
+      options = {
+        desc = "Toggle SKK";
+      };
+    }
+    {
+      mode = "i";
       key = "<C-s>";
       action = "<cmd>w<CR>";
       options = {

@@ -10,6 +10,7 @@
     ./modules/git.nix
     ./modules/treesitter.nix
     ./modules/utilities.nix
+    ./modules/ime.nix
   ];
 
   programs.nixvim = {
