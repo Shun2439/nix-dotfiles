@@ -25,53 +25,54 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix-doom-emacs = {
-    #   url = "github:nix-community/nix-doom-emacs";
-    # };
-  };
-
-  outputs = { self, nixpkgs, flake-parts, ... } @ inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [
-       "x86_64-linux"
-      ];
-    flake =
-    {
-      overlays = {
-        default = import inputs.rust-overlay;
-        # rust-overlay = import inputs.rust-overlay;
-      };
-      lib = import ./lib inputs;
-
-      nixosConfigurations = {
-        kilimanjaro = inputs.nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./systems/nixos/kilimanjaro
-          ];
-        };
-      };
-
-      homeManagerModules.default = import ./modules/home-manager;
-      homeConfigurations = {
-        "shun2439@LAPTOP-N9FF5EU1" = self.lib.makeHomeManagerConfig {
-          system = "x86_64-linux";
-          username = "shun2439";
-          modules = [
-            ./modules/home-manager
-          ];
-        };
-        "shun2439@kilimanjaro" = self.lib.makeHomeManagerConfig {
-          system = "x86_64-linux";
-          username = "shun2439";
-          modules = [
-            ./homes/nixos/kilimanjaro
-          ];
-        };
-      };
-      extraSpecialArgs = {
-        inherit inputs;
-      };
+    nix-doom-emacs-unstraightened = {
+      url = "github:marienz/nix-doom-emacs-unstraightened";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
+  outputs = inputs @ { self, nixpkgs, flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+      ];
+      flake =
+      {
+        overlays = {
+          default = import inputs.rust-overlay;
+          # rust-overlay = import inputs.rust-overlay;
+        };
+        lib = import ./lib inputs;
+
+        nixosConfigurations = {
+          kilimanjaro = inputs.nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./systems/nixos/kilimanjaro
+            ];
+          };
+        };
+
+        homeManagerModules.default = import ./modules/home-manager;
+        homeConfigurations = {
+          "shun2439@LAPTOP-N9FF5EU1" = self.lib.makeHomeManagerConfig {
+            system = "x86_64-linux";
+            username = "shun2439";
+            modules = [
+              ./modules/home-manager
+            ];
+          };
+          "shun2439@kilimanjaro" = self.lib.makeHomeManagerConfig {
+            system = "x86_64-linux";
+            username = "shun2439";
+            modules = [
+              ./homes/nixos/kilimanjaro
+            ];
+          };
+        };
+      };
+    };
 }
+  
+
+

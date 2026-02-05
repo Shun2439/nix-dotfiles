@@ -22,5 +22,19 @@
         };
       };
     };
+
+    plugins = {
+      colorizer = {
+        enable = true;
+        settings = {
+          filetypes = {};
+          user_default_options = {
+            rgb_fn = true;
+            hsl_fn = true;
+            tailwind = true;
+          };
+        };
+      };
+    };
   };
 }

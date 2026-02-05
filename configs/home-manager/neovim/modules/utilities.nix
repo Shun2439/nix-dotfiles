@@ -1,7 +1,6 @@
 { ... }:
 {
   programs.nixvim.plugins = {
-    autoclose.enable = true;
     vim-surround.enable = true;
     nvim-autopairs.enable = true;
     comment-nvim = {
@@ -35,33 +34,37 @@
       settings = {
         # Core features
         bigfile = { enabled = true; };
-        dashboard = { enabled = false; }; # TODO
-        explorer = { enabled = true; };
-        terminal = { enabled = true; };
-        lazygit = { enabled = true; };
         notifier = { enabled = true; };
+        quickfile = { enabled = true; };
+        statuscolumn = { enabled = true; };
+        words = { enabled = true; };
+
+        dashboard = { enabled = false; }; # TODO
+        dim = { enabled = true; };
+        explorer = { enabled = true; };
+        lazygit = { enabled = true; };
         picker = { enabled = true; };
         indent = { enabled = true; };
         input = { enabled = true; };
         scope = { enabled = true; };
         scroll = { enabled = true; };
-        statuscolumn = { enabled = true; };
-        words = { enabled = true; };
-        zen = { enabled = true; };
-        quickfile = { enabled = true; };
+        terminal = { enabled = true; };
+        zen = { enabled = true; }; # ?
         
         git = { enabled = true; };
-        gitbrowse = { enabled = true; };
-        gh = { enabled = true; };
-        toggle = { enabled = true; };
         win = { enabled = true; };
         
         util = { enabled = true; };
         scratch = { enabled = true; };
-        dim = { enabled = true; };
+        image = { enabled = true; };
+        # -----
+
+        gitbrowse = { enabled = true; };
+        gh = { enabled = true; };
+        toggle = { enabled = true; };
+
         rename = { enabled = true; };
         profiler = { enabled = true; };
-        image = { enabled = true; };
       };
     };
 
@@ -83,6 +86,22 @@
         floating_window_winblend = 0;
         use_custom_config_file_path = 0;
         use_neovim_remote = 1;
+      };
+    };
+
+    ufo = {
+      enable = true;
+    };
+
+    treesj = {
+      enable = true;
+      settings = {
+        use_default_keymaps = false;
+        max_join_length = 1024;
+      };
+      keymaps = {
+        split = "gS";
+        join = "gJ";
       };
     };
   };

@@ -11,9 +11,8 @@
 
       set -gx GPG_TTY (tty)
 
-      if not pgrep -f "emacs --daemon" > /dev/null
-        emacs --daemon &
-      end
+      # Emacs daemon is managed by nix-doom-emacs-unstraightened
+      # Do not start daemon manually here
 
       # rbenv
       set -Ux RBENV_ROOT $HOME/.rbenv

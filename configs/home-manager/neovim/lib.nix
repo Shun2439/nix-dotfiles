@@ -15,8 +15,9 @@
     core = ./modules/core.nix;
     theme = ./modules/theme.nix;
     keymaps = ./modules/keymaps.nix;
-    
+
     # Plugins
+    navigation = ./modules/navigation.nix;
     fileExplorer = ./modules/file-explorer.nix;
     statusline = ./modules/statusline.nix;
     lsp = ./modules/lsp.nix;
@@ -24,25 +25,33 @@
     git = ./modules/git.nix;
     treesitter = ./modules/treesitter.nix;
     utilities = ./modules/utilities.nix;
-    
+    ime = ./modules/ime.nix;
+
     # Advanced features
     autocmd = ./modules/autocmd.nix;
-    
+
     # Presets
-    minimal = [ ./modules/core.nix ./modules/theme.nix ./modules/keymaps.nix ];
+    minimal = [
+      ./modules/core.nix
+      ./modules/theme.nix
+      ./modules/keymaps.nix
+    ];
     standard = [
       ./modules/core.nix
       ./modules/theme.nix
       ./modules/keymaps.nix
+      ./modules/navigation.nix
       ./modules/file-explorer.nix
       ./modules/statusline.nix
       ./modules/treesitter.nix
       ./modules/utilities.nix
+      ./modules/ime.nix
     ];
     full = [
       ./modules/core.nix
       ./modules/theme.nix
       ./modules/keymaps.nix
+      ./modules/navigation.nix
       ./modules/file-explorer.nix
       ./modules/statusline.nix
       ./modules/lsp.nix
@@ -51,6 +60,7 @@
       ./modules/treesitter.nix
       ./modules/utilities.nix
       ./modules/autocmd.nix
+      ./modules/ime.nix
     ];
   };
 }

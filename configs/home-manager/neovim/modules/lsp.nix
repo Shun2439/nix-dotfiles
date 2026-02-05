@@ -2,6 +2,21 @@
 { ... }:
 {
   programs.nixvim.plugins = {
+    fidget = {
+      enable = true;
+      settings = {
+        progress = {
+          display.done_style = "✔ ";
+          display.done_icon_overridden = false;
+        };
+        notification = {
+          window = {
+            winblend = 0;
+          };
+        };
+      };
+    };
+
     lsp = {
       enable = true;
       servers = {

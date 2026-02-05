@@ -43,6 +43,8 @@ in
     ]
     ++ [ inputs.self.homeManagerModules.default ]
     ++ [ inputs.nixvim.homeModules.nixvim ]
+    ++ [ inputs.nix-doom-emacs-unstraightened.homeModule ]
     ++ modules;
   };
 }
+
