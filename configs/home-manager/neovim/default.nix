@@ -1,17 +1,9 @@
-{ inputs, ... }:
+{ pkgs, lib, ... }:
+let
+  neovim_lib = import ./lib.nix { inherit pkgs lib; };
+in
 {
-  imports = [
-    ./modules/core.nix
-    ./modules/theme.nix
-    ./modules/statusline.nix
-    ./modules/keymaps.nix
-    ./modules/navigation.nix
-    # ./modules/telescope.nix
-    ./modules/git.nix
-    ./modules/treesitter.nix
-    ./modules/utilities.nix
-    ./modules/ime.nix
-  ];
+  imports = neovim_lib.neovimModules.full;
 
   programs.nixvim = {
     enable = true;

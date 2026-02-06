@@ -17,9 +17,9 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Moralerspace Krypton HWNF" :size 14 :weight 'regular)
-      doom-big-font (font-spec :family "Moralerspace Krypton HWNF" :size 20 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "Noto Sans" :size 14))
+(setq doom-font (font-spec :family "Moralerspace Radon HWNF" :size 16 :weight 'regular)
+      doom-big-font (font-spec :family "Moralerspace Radon HWNF" :size 20 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "Noto Sans" :size 16))
 ;;
 ;; If you or Emacs can't find your font, use 'Mx describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font'
