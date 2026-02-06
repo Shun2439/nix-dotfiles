@@ -176,18 +176,25 @@
 (org-babel-do-load-languages
    'org-babel-load-languages
    '(
-     ;; (prolog . t)
-     (C . t)
-     (ruby . t)
-     (octave . t)
-     (python . t)
-     (js . t)
-     (java . t)
-     ;; (dart . t)
-     (haskell . t)
-     (shell . t)
-     (go . t)
-     ))
+      ;; (prolog . t)
+      (C . t)
+      (ruby . t)
+      (octave . t)
+      (python . t)
+      (js . t)
+      (java . t)
+      ;; (dart . t)
+      (haskell . t)
+      (shell . t)
+      (go . t)
+      ))
+
+(after! skk
+  (define-key skk-j-mode-map (kbd "C-j") #'skk-kakutei)
+  (define-key skk-abbrev-mode-map (kbd "C-j") #'skk-kakutei)
+  (global-set-key (kbd "C-x C-j") #'skk-mode)
+  (global-set-key (kbd "C-x j") #'skk-auto-fill-mode)
+  (global-set-key (kbd "C-x t") #'skk-tutorial))
 
 ;; Whitespace cleanup
 (after! whitespace
