@@ -2,6 +2,7 @@
 { ... }:
 {
   programs.nixvim.plugins = {
+    web-devicons.enable = true;
     fidget = {
       enable = true;
       settings = {
@@ -36,16 +37,17 @@
             };
           };
         };
-        lua-ls.enable = true;
-        rust-analyzer = {
+        lua_ls.enable = true;
+        rust_analyzer = {
           enable = true;
           installCargo = true;
+          installRustc = true;
         };
-        ts-ls.enable = true;
+        ts_ls.enable = true;
         pyright.enable = true;
         nil_ls.enable = true;
       };
-      
+
       keymaps = {
         lspBuf = {
           "gD" = "references";
