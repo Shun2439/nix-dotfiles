@@ -35,7 +35,11 @@
     black
     isort
     prettier
-    nixpkgs-fmt
+    nixfmt-rfc-style
+
+    # Linters
+    deadnix
+    statix
 
     # Debuggers
     lldb

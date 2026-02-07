@@ -29,13 +29,47 @@
       url = "github:marienz/nix-doom-emacs-unstraightened";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.pre-commit-hooks.flakeModule
+      ];
       systems = [
         "x86_64-linux"
       ];
+      perSystem = { config, self', inputs', pkgs, system, ... }: {
+        pre-commit = {
+          check.enable = true;
+          settings.hooks = {
+            nixfmt-rfc-style.enable = true;
+            deadnix.enable = true;
+            statix.enable = true;
+          };
+        };
+
+        devShells.default = pkgs.mkShell {
+          name = "nix-dotfiles";
+          nativeBuildInputs = with pkgs; [
+            nixfmt-rfc-style
+            nil
+            git
+            deadnix
+            statix
+          ];
+          shellHook = ''
+            ${config.pre-commit.installationScript}
+          '';
+        };
+
+        formatter = pkgs.nixfmt-rfc-style;
+      };
       flake =
       {
         overlays = {
