@@ -36,7 +36,13 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, flake-parts, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      flake-parts,
+      ...
+    }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         inputs.pre-commit-hooks.flakeModule
@@ -44,34 +50,42 @@
       systems = [
         "x86_64-linux"
       ];
-      perSystem = { config, self', inputs', pkgs, system, ... }: {
-        pre-commit = {
-          check.enable = true;
-          settings.hooks = {
-            nixfmt-rfc-style.enable = true;
-            deadnix.enable = true;
-            statix.enable = true;
+      perSystem =
+        {
+          config,
+          self',
+          inputs',
+          pkgs,
+          system,
+          ...
+        }:
+        {
+          pre-commit = {
+            check.enable = true;
+            settings.hooks = {
+              nixfmt.enable = true;
+              deadnix.enable = true;
+              statix.enable = true;
+            };
           };
-        };
 
-        devShells.default = pkgs.mkShell {
-          name = "nix-dotfiles";
-          nativeBuildInputs = with pkgs; [
-            nixfmt-rfc-style
-            nil
-            git
-            deadnix
-            statix
-          ];
-          shellHook = ''
-            ${config.pre-commit.installationScript}
-          '';
-        };
+          devShells.default = pkgs.mkShell {
+            name = "nix-dotfiles";
+            nativeBuildInputs = with pkgs; [
+              nixfmt
+              nil
+              git
+              deadnix
+              statix
+            ];
+            shellHook = ''
+              ${config.pre-commit.installationScript}
+            '';
+          };
 
-        formatter = pkgs.nixfmt-rfc-style;
-      };
-      flake =
-      {
+          formatter = pkgs.nixfmt;
+        };
+      flake = {
         overlays = {
           default = import inputs.rust-overlay;
           # rust-overlay = import inputs.rust-overlay;
@@ -107,6 +121,3 @@
       };
     };
 }
-  
-
-

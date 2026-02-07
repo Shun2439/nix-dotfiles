@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     # vscode
@@ -35,7 +35,7 @@
     black
     isort
     prettier
-    nixfmt-rfc-style
+    nixfmt
 
     # Linters
     deadnix
@@ -45,5 +45,3 @@
     lldb
   ];
 }
- 
-

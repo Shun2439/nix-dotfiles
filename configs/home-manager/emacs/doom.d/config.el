@@ -190,8 +190,11 @@
       ))
 
 (after! skk
-  (define-key skk-j-mode-map (kbd "C-j") #'skk-kakutei)
-  (define-key skk-abbrev-mode-map (kbd "C-j") #'skk-kakutei)
+  (add-hook 'skk-load-hook
+            (lambda ()
+              (define-key skk-j-mode-map (kbd "C-j") #'skk-kakutei)
+              (define-key skk-abbrev-mode-map (kbd "C-j") #'skk-kakutei)
+              (define-key skk-henkan-mode-map (kbd "C-j") #'skk-kakutei)))
   (global-set-key (kbd "C-x C-j") #'skk-mode)
   (global-set-key (kbd "C-x j") #'skk-auto-fill-mode)
   (global-set-key (kbd "C-x t") #'skk-tutorial))

@@ -38,6 +38,14 @@
     # Org -> Typst (native exporter uses this CLI)
     typst
 
+    cmigemo
+    pipenv
+    python3Packages.nose2
+
+    (pkgs.writeShellScriptBin "nosetests" ''
+      exec ${pkgs.python3Packages.nose2}/bin/nose2 "$@"
+    '')
+
     (stdenvNoCC.mkDerivation rec {
       pname = "moralerspace";
       version = "2.0.0";

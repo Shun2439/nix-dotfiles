@@ -34,7 +34,7 @@
         (vterm +toggle)
 
         :lang
-        (javascript +typescript)
+        (javascript +typescript +tree-sitter)
         (python +lsp +pyright)
         (rust +lsp +rust-analyzer)
         (cc +lsp +tree-sitter)
