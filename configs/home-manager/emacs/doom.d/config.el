@@ -53,11 +53,11 @@
 [NO-DEFAULT-PACKAGES]
 \\usepackage{luatexja}
 \\usepackage{luatexja-fontspec}
-\\usepackage{amsmath}
-\\usepackage{newtxtext,newtxmath}
+% \\usepackage{amsmath}
+% \\usepackage{newtxtext,newtxmath}
 \\usepackage{graphicx}
 \\usepackage{hyperref}
-\\usepackage{bm}
+% \\usepackage{bm}
 \\hypersetup{pdfencoding=auto,colorlinks=true}"
                  ("\\section{%s}" . "\\section*{%s}")
                  ("\\subsection{%s}" . "\\subsection*{%s}")
@@ -144,7 +144,8 @@
         org-journal-file-type 'monthly
         org-journal-enable-agenda-integration t
         org-journal-encrypt-journal t
-        epa-file-select-keys 'silent))
+        ;; epa-file-select-keys 'silent
+        ))
 
 (setq epa-file-encrypt-to '("shunta.kobayashi24@gmail.com"))
 
