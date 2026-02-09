@@ -18,8 +18,9 @@
 ;; accept. For example:
 ;;
 (setq doom-font (font-spec :family "Moralerspace Radon HWNF" :size 16 :weight 'regular)
+      doom-unicode-font (font-spec :family "Moralerspace Radon HWNF")
       doom-big-font (font-spec :family "Moralerspace Radon HWNF" :size 20 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "Noto Sans" :size 16))
+      doom-variable-pitch-font (font-spec :family "Moralerspace Radon HWNF" :size 16))
 ;;
 ;; If you or Emacs can't find your font, use 'Mx describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font'
@@ -147,7 +148,9 @@
         ;; epa-file-select-keys 'silent
         ))
 
+(setq epa-file-cache-passphrase-for-symmetric-encryption t)
 (setq epa-file-encrypt-to '("shunta.kobayashi24@gmail.com"))
+(setq epa-pinentry-mode 'loopback)
 
 ;; Org roam configuration
 (after! org-roam
