@@ -44,8 +44,11 @@
 
 ;; Org -> LaTeX: register jlreq class (#+LATEX_CLASS: jlreq-article)
 (after! ox-latex
+  (setq org-latex-listings t)
+  ;; (setq org-latex-listings 'minted)
+
   (setq org-latex-default-class "jlreq-article")
-  (setq org-latex-pdf-process '("latexmk -lualatex %f"))
+  (setq org-latex-pdf-process '("latexmk -lualatex -pdflatex='pdflatex -shell-escape' %f"))
   ;; jlreq's actual LaTeX class name is "jlreq"; the Org class name can be
   ;; anything. Add both for convenience.
   (add-to-list 'org-latex-classes
@@ -141,7 +144,7 @@
 ;; Org journal with GPG encryption
 (after! org-journal
   (setq org-journal-dir "~/org/journals/"
-        org-journal-file-format "%Y%m%d.org"
+        org-journal-file-format "%Y%m%d.org.gpg"
         org-journal-file-type 'monthly
         org-journal-enable-agenda-integration t
         org-journal-encrypt-journal t

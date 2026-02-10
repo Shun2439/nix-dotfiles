@@ -35,6 +35,12 @@
 
     python3
 
+    jdk25
+    gradle
+
+    jdt-language-server
+    google-java-format
+
     # Org -> Typst (native exporter uses this CLI)
     typst
 
