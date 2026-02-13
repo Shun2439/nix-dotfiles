@@ -48,6 +48,13 @@
     pipenv
     python3Packages.nose2
 
+    # Haskell
+    ghc
+    stack
+    cabal-install
+    haskell-language-server
+    fourmolu
+
     (pkgs.writeShellScriptBin "nosetests" ''
       exec ${pkgs.python3Packages.nose2}/bin/nose2 "$@"
     '')

@@ -72,16 +72,16 @@
   ;; jlreq is not compatible with pdfTeX/pdflatex (you'll get epTeX/JY1 font
   ;; errors). Default to LuaLaTeX + latexmk so jlreq exports work out of the box.
   ;; (setq org-latex-compiler "lualatex"
-        ;; org-latex-pdf-process
-        ;; NOTE: Do NOT pass latexmk's -pdf flag here; -pdf forces pdflatex.
-        ;; '("latexmk -lualatex -interaction=nonstopmode -f -output-directory=%o %f"))
+  ;; org-latex-pdf-process
+  ;; NOTE: Do NOT pass latexmk's -pdf flag here; -pdf forces pdflatex.
+  ;; '("latexmk -lualatex -interaction=nonstopmode -f -output-directory=%o %f"))
 
   ;; Remove XeLaTeX-only packages when using LuaLaTeX.
   ;; (setq org-latex-default-packages-alist
-        ;; (seq-remove
-         ;; (lambda (pkg) (and (listp pkg) (string= (nth 1 pkg) "zxjatype")))
-         ;; org-latex-default-packages-alist))
-         )
+  ;; (seq-remove
+  ;; (lambda (pkg) (and (listp pkg) (string= (nth 1 pkg) "zxjatype")))
+  ;; org-latex-default-packages-alist))
+  )
 
 ;; Minimal, borderless GUI frames (esp. for emacsclient -c)
 (defun shun/apply-borderless-frame (&optional frame)
@@ -170,41 +170,35 @@
       '((sequence "TODO(t)" "SOMEDAY(s)" "WAITING(w)" "|" "DONE(d)"))
       org-agenda-files
       (directory-files-recursively
-        "~/org/"
-        "\\.org$")
+       "~/org/"
+       "\\.org$")
       org-agenda-files
       (seq-filter
-        (lambda (file)
-          ;; Check if the file path contains "/org-roam.bak/"
-          (and (not (string-match-p "/org-roam\\.bak/" file))
-               (not (string-match-p "/bak/" file))))
-        org-agenda-files))
+       (lambda (file)
+         ;; Check if the file path contains "/org-roam.bak/"
+         (and (not (string-match-p "/org-roam\\.bak/" file))
+              (not (string-match-p "/bak/" file))))
+       org-agenda-files))
 
 (org-babel-do-load-languages
-   'org-babel-load-languages
-   '(
-      ;; (prolog . t)
-      (C . t)
-      (ruby . t)
-      (octave . t)
-      (python . t)
-      (js . t)
-      (java . t)
-      ;; (dart . t)
-      (haskell . t)
-      (shell . t)
-      (go . t)
-      ))
+ 'org-babel-load-languages
+ '(
+   ;; (prolog . t)
+   (C . t)
+   (ruby . t)
+   (octave . t)
+   (python . t)
+   (js . t)
+   (java . t)
+   ;; (dart . t)
+   (haskell . t)
+   (shell . t)
+   (go . t)
+   ))
 
-(after! skk
-  (add-hook 'skk-load-hook
-            (lambda ()
-              (define-key skk-j-mode-map (kbd "C-j") #'skk-kakutei)
-              (define-key skk-abbrev-mode-map (kbd "C-j") #'skk-kakutei)
-              (define-key skk-henkan-mode-map (kbd "C-j") #'skk-kakutei)))
-  (global-set-key (kbd "C-x C-j") #'skk-mode)
-  (global-set-key (kbd "C-x j") #'skk-auto-fill-mode)
-  (global-set-key (kbd "C-x t") #'skk-tutorial))
+(global-set-key "\C-x\C-j" 'skk-mode)
+(global-set-key "\C-xj" 'skk-auto-fill-mode)
+(global-set-key "\C-xt" 'skk-tutorial)
 
 ;; Whitespace cleanup
 (after! whitespace

@@ -45,6 +45,7 @@
        (markdown +grip)
        (org +pretty +roam +brain +gnuplot +journal +pandoc +pomodoro +present +pretty)
        (java +lsp)
+       (haskell +lsp)
 
        :input
        japanese
