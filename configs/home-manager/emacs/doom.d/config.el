@@ -224,3 +224,9 @@
       lsp-ui-sideline-show-diagnostics nil
       lsp-ui-sideline-show-hover nil
       lsp-ui-sideline-show-code-actions nil)
+
+(use-package! org-drill
+  :config
+  (setq org-drill-scope 'directory) ; 現在のディレクトリ内の全ファイルから出題
+  ;; 必要に応じて追加設定
+  )

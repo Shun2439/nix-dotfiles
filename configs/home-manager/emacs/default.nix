@@ -54,6 +54,7 @@
     cabal-install
     haskell-language-server
     fourmolu
+    haskellPackages.hoogle
 
     (pkgs.writeShellScriptBin "nosetests" ''
       exec ${pkgs.python3Packages.nose2}/bin/nose2 "$@"

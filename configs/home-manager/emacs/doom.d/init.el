@@ -15,6 +15,8 @@
        (popup +defaults)
        (vc-gutter +pretty)
        workspaces
+       (treemacs +lsp)
+       tabs
 
        :editor
        (evil +everywhere)
