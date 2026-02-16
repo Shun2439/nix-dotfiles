@@ -30,11 +30,16 @@
     grip
     graphviz
     glslang
+
+    # Python
+    python3
+    pyright
     python3Packages.pyflakes
     python3Packages.pytest
+    pipenv
+    python3Packages.nose2
 
-    python3
-
+    # Java
     jdk25
     gradle
 
@@ -45,8 +50,6 @@
     typst
 
     cmigemo
-    pipenv
-    python3Packages.nose2
 
     # Haskell
     ghc
