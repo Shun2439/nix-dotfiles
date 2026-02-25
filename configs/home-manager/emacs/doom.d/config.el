@@ -38,6 +38,9 @@
 (setq-default explicit-shell-file-name (or (getenv "SHELL") explicit-shell-file-name))
 (setq-default vterm-shell (or (getenv "SHELL") vterm-shell))
 
+(after! company
+  (define-key company-active-map (kbd "C-y") #'company-complete-selection))
+
 ;; Typst export for Org
 (after! org
   (require 'ox-typst))
@@ -48,7 +51,8 @@
   ;; (setq org-latex-listings 'minted)
 
   (setq org-latex-default-class "jlreq-article")
-  (setq org-latex-pdf-process '("latexmk -lualatex -pdflatex='pdflatex -shell-escape' %f"))
+  ;; (setq org-latex-pdf-process '("latexmk -lualatex -pdflatex='pdflatex -shell-escape' %f"))
+  (setq org-latex-pdf-process '("latexmk -pdflua %f"))
   ;; jlreq's actual LaTeX class name is "jlreq"; the Org class name can be
   ;; anything. Add both for convenience.
   (add-to-list 'org-latex-classes
@@ -68,7 +72,7 @@
                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
+  (setq org-latex-src-block-backend 'listings)
   ;; jlreq is not compatible with pdfTeX/pdflatex (you'll get epTeX/JY1 font
   ;; errors). Default to LuaLaTeX + latexmk so jlreq exports work out of the box.
   ;; (setq org-latex-compiler "lualatex"
@@ -166,19 +170,17 @@
       auto-revert-interval 5
       auto-revert-check-vc-info t)
 
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "SOMEDAY(s)" "WAITING(w)" "|" "DONE(d)"))
-      org-agenda-files
-      (directory-files-recursively
-       "~/org/"
-       "\\.org$")
-      org-agenda-files
-      (seq-filter
-       (lambda (file)
-         ;; Check if the file path contains "/org-roam.bak/"
-         (and (not (string-match-p "/org-roam\\.bak/" file))
-              (not (string-match-p "/bak/" file))))
-       org-agenda-files))
+(after! org
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "SOMEDAY(s)" "WAITING(w)" "|" "DONE(d)")))
+
+  (setq org-agenda-files
+        (seq-filter
+         (lambda (file)
+           (not (or (string-match-p "/org-roam\\.bak/" file)
+                    (string-match-p "/_archive/" file)
+                    (string-match-p "/bak/" file))))
+         (directory-files-recursively "~/org/" "\\.org$"))))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
