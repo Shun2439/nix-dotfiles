@@ -174,6 +174,10 @@
   (setq org-todo-keywords
         '((sequence "TODO(t)" "SOMEDAY(s)" "WAITING(w)" "|" "DONE(d)")))
 
+  ;; (setq org-log-done 'time)
+  (setq org-log-done 'note)
+  (setq org-log-into-drawer t)
+
   (setq org-agenda-files
         (seq-filter
          (lambda (file)
