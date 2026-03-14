@@ -52,3 +52,5 @@
 (package! ox-typst)
 
 (package! org-drill)
+
+(package! pinentry)

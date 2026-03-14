@@ -3,7 +3,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Shun2439"
-      user-mail-address "shun2439@duck.com")
+      user-mail-address "Shun2439@duck.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -145,6 +145,10 @@
   (when (fboundp '+org-cycle-only-current-subtree-h)
     (remove-hook 'org-tab-first-hook #'+org-cycle-only-current-subtree-h)))
 
+(use-package! pinentry
+  :config
+  (pinentry-start))
+
 ;; Org journal with GPG encryption
 (after! org-journal
   (setq org-journal-dir "~/org/journals/"
@@ -158,11 +162,13 @@
 (setq epa-file-cache-passphrase-for-symmetric-encryption t)
 (setq epa-file-encrypt-to '("shunta.kobayashi24@gmail.com"))
 (setq epa-pinentry-mode 'loopback)
+(setq epg-pinentry-mode 'loopback)
 
 ;; Org roam configuration
 (after! org-roam
   (setq org-roam-directory "~/org/roam/"
-        org-roam-db-location "~/.local/share/roam.db"))
+        ;; org-roam-db-location "~/.local/share/roam.db"
+        ))
 
 ;; Custom settings
 (setq global-auto-revert-mode t
@@ -201,10 +207,6 @@
    (shell . t)
    (go . t)
    ))
-
-(global-set-key "\C-x\C-j" 'skk-mode)
-(global-set-key "\C-xj" 'skk-auto-fill-mode)
-(global-set-key "\C-xt" 'skk-tutorial)
 
 ;; Whitespace cleanup
 (after! whitespace

@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   programs.git = {
     enable = true;
@@ -18,14 +18,4 @@
       signByDefault = true;
     };
   };
-  programs.gpg.enable = true;
-  # services.pcscd.enable = true;
-  # services.gpg-agent = {
-  #   enable = true;
-  #   pinentryPackage = curses;
-  #   enableSshSupport = true;
-  #   enableFishIntegration = true;
-  # };
-  # programs.pinentry.enable = true;
 }
-

@@ -1,6 +1,13 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
+    ../../configs/home-manager/gpg
+
     ../../configs/home-manager/cli-utils
     ../../configs/home-manager/development.nix
 
@@ -25,6 +32,3 @@
 
   programs.home-manager.enable = true;
 }
-  
-
-
