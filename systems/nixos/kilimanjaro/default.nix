@@ -69,8 +69,7 @@
     enable = true;
     xrandrHeads = [
       {
-        # output = "HDMI-1";
-        output = "VGA-1";
+        output = "HDMI-1";
         primary = true;
       }
       {
@@ -133,8 +132,6 @@
     ignoreShellProgramCheck = true; # should not use home manager?
   };
 
-  programs.gnupg.agent.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -178,11 +175,11 @@
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
+  programs.mtr.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
   #   enableSSHSupport = true;
-  # };
+  };
 
   # List services that you want to enable:
 

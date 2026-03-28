@@ -3,6 +3,7 @@
   programs.nixvim.plugins = {
     vim-surround.enable = true;
     nvim-autopairs.enable = true;
+
     comment-nvim = {
       enable = true;
       settings = {
