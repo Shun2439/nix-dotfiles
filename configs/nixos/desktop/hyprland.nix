@@ -4,6 +4,6 @@
     enable = true;
     xwayland.enable = true;
   };
-  services.xserver.displayManager.gdm.wayland = true;
+  services.displayManager.gdm.wayland = true;
 }
 
