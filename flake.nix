@@ -56,7 +56,6 @@
           self',
           inputs',
           pkgs,
-          system,
           ...
         }:
         {
@@ -94,7 +93,7 @@
 
         nixosConfigurations = {
           kilimanjaro = inputs.nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
+            stdenv.hostPlatform.system = "x86_64-linux";
             modules = [
               ./systems/nixos/kilimanjaro
             ];

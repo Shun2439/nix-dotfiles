@@ -23,7 +23,7 @@
     # Language servers for LSP support in Emacs
     typescript-language-server
     pyright
-    python311Packages.python-lsp-server
+    python312Packages.python-lsp-server
     clang-tools
     ccls
 
