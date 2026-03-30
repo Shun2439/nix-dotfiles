@@ -3,51 +3,45 @@
 {
   programs.nixvim.plugins.lualine = {
     enable = true;
-    settings = {
-      options = {
-        theme = "catppuccin";
-        component_separators = {
-          left = "";
-          right = "";
-        };
-        section_separators = {
-          left = "";
-          right = "";
-        };
-        disabled_filetypes = {
-          statusline = [ ];
-          winbar = [ ];
-        };
-        ignore_focus = [ ];
-        always_divide_middle = true;
-        globalstatus = false;
-        refresh = {
-          statusline = 1000;
-          tabline = 1000;
-          winbar = 1000;
-        };
+    options = {
+      disabled_filetypes = {
+        __unkeyed-1 = "startify";
+        __unkeyed-2 = "neo-tree";
+        statusline = [
+          "dap-repl"
+        ];
+        winbar = [
+          "aerial"
+          "dap-repl"
+          "neotest-summary"
+        ];
       };
+      globalstatus = true;
+    };
+    settings = {
       sections = {
         lualine_a = [ "mode" ];
         lualine_b = [
           "branch"
-          "diff"
-          "diagnostics"
         ];
         lualine_c = [
           "filename"
+          "diff"
         ];
         lualine_x = [
-          "encoding"
-          "fileformat"
-          "filetype"
           {
             __raw = "function() return vim.fn['skkeleton#mode']() end";
           }
+          "diagnostics"
+          "encoding"
+          "fileformat"
+          "filetype"
         ];
         lualine_y = [ "progress" ];
-        lualine_z = [ "location" ];
+        lualine_z = [ { __unkeyed-1 = "location"; } ];
       };
+      tabline = { };
+      winbar = { };
       inactive_sections = {
         lualine_a = [ ];
         lualine_b = [ ];
@@ -56,8 +50,6 @@
         lualine_y = [ ];
         lualine_z = [ ];
       };
-      tabline = { };
-      winbar = { };
       inactive_winbar = { };
       extensions = [ ];
     };

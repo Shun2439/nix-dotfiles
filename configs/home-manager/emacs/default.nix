@@ -9,7 +9,7 @@
     enable = true;
     doomDir = ./doom.d;
     doomLocalDir = "${config.xdg.dataHome}/nix-doom";
-    emacs = pkgs.emacs;
+    emacs = pkgs.emacs-pgtk;
     extraPackages = epkgs: [
       epkgs.treesit-grammars.with-all-grammars
     ];
@@ -24,6 +24,14 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
+    aspell
+    sqlite
+    gnumake
+    cargo
+    rustc
+    pandoc
+    gnuplot
+
     gnutls
     cmake
     nixfmt

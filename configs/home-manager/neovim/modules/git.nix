@@ -6,36 +6,30 @@
     gitsigns = {
       enable = false;
       settings = {
+        current_line_blame = true;
+        signcolumn = true;
         signs = {
           add = {
-            hl = "GitSignsAdd";
             text = "│";
           };
           change = {
-            hl = "GitSignsChange";
             text = "│";
-          };
-          delete = {
-            hl = "GitSignsDelete";
-            text = "│";
-          };
-          topdelete = {
-            hl = "GitSignsTopDelete";
-            text = "‾";
           };
           changedelete = {
-            hl = "GitSignsChangeDelete";
             text = "~";
           };
+          delete = {
+            text = "_";
+          };
+          topdelete = {
+            text = "‾";
+          };
           untracked = {
-            hl = "GitSignsUntracked";
-            text = "│";
+            text = "┆";
           };
         };
-        signcolumn = false;
         numhl = true;
         linehl = true;
-        current_line_blame = true;
         attach_to_untracked = true;
         update_debounce = 100;
         status_formatter = null;

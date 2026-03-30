@@ -45,15 +45,6 @@
         };
       }
 
-      # Format on save for specific file types
-      {
-        event = "BufWritePre";
-        pattern = [ "*.nix" ];
-        callback = {
-          __raw = "function() vim.lsp.buf.format() end";
-        };
-      }
-
       # Remove trailing whitespace on save
       {
         event = "BufWritePre";

@@ -19,6 +19,14 @@
       };
     }
     {
+      mode = "n";
+      key = "<leader>q";
+      action = "<cmd>q<CR>";
+      options = {
+        desc = "Quit";
+      };
+    }
+    {
       mode = "i";
       key = "<C-j>";
       action = "<Plug>(skkeleton-toggle)";
@@ -34,15 +42,6 @@
         desc = "Save file";
       };
     }
-    {
-      mode = "n";
-      key = "<leader>q";
-      action = "<cmd>q<CR>";
-      options = {
-        desc = "Quit";
-      };
-    }
-
     # snacks
     # Top Pickers & Explorer
     {

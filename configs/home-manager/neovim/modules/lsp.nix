@@ -2,72 +2,62 @@
 { ... }:
 {
   programs.nixvim.plugins = {
-    web-devicons.enable = true;
+    mini-icons = {
+      enable = true;
+      mockDevIcons = true;
+    };
     fidget = {
       enable = true;
       settings = {
-        progress = {
-          display.done_style = "✔ ";
-          display.done_icon_overridden = false;
-        };
         notification = {
           window = {
             winblend = 0;
           };
+        };
+        progress = {
+          display.done_style = "";
         };
       };
     };
 
     lsp = {
       enable = true;
+      inlayHints = true;
       servers = {
-        nixd = {
-          enable = true;
-          settings = {
-            nixpkgs = {
-              expr = "import <nixpkgs> { }";
-            };
-            options = {
-              nixos = {
-                expr = "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.kilimanjaro.options";
-              };
-              home-manager = {
-                expr = "(builtins.getFlake \"/etc/nixos\").homeConfigurations.\"shun2439@kilimanjaro\".options";
-              };
-            };
-          };
-        };
-        lua_ls.enable = true;
-        rust_analyzer = {
-          enable = true;
-          installCargo = true;
-          installRustc = true;
-        };
-        ts_ls.enable = true;
-        pyright.enable = true;
-        nil_ls.enable = true;
+        clangd.enable = true;
+        dockerls.enable = true;
         hls = {
           enable = true;
           installGhc = false;
         };
+        lua_ls.enable = true;
+        # nixd.enable = true;
+        pyright.enable = true;
+        rust_analyzer = {
+          enable = true;
+          installCargo = true;
+          installRustc = true;
+          installRustfmt = true;
+        };
+        ts_ls.enable = true;
       };
 
       keymaps = {
+        diagnostic = {
+          "<leader>j" = "goto_next";
+          "<leader>k" = "goto_prev";
+          "<leader>e" = "open_float";
+          "<leader>q" = "setloclist";
+        };
         lspBuf = {
+          "K" = "hover";
           "gD" = "references";
           "gd" = "definition";
           "gi" = "implementation";
           "gt" = "type_definition";
-          "K" = "hover";
-          "<leader>ca" = "code_action";
-          "<leader>rn" = "rename";
-          "<leader>fm" = "format";
-        };
-        diagnostic = {
-          "[d" = "goto_next";
-          "]d" = "goto_prev";
-          "<leader>e" = "open_float";
-          "<leader>q" = "setloclist";
+          # "<leader>ca" = "code_action";
+          # "<leader>rn" = "rename";
+          # "<leader>fm" = "format";
         };
       };
     };
@@ -76,22 +66,50 @@
     cmp = {
       enable = true;
       autoEnableSources = true;
+      cmdline = {
+        "/" = {
+          mapping = {
+            __raw = "cmp.mapping.preset.cmdline()";
+          };
+          sources = [
+            { name = "buffer"; }
+            # { name = "cmdline_history"; }
+          ];
+        };
+        ":" = {
+          mapping = {
+            __raw = "cmp.mapping.preset.cmdline()";
+          };
+          sources = [
+            { name = "path"; }
+            {
+              name = "cmdline";
+              option = {
+                ignore_cmds = [
+                  "Man"
+                  "!"
+                ];
+              };
+            }
+          ];
+        };
+      };
       settings = {
-        sources = [
-          { name = "nvim_lsp"; }
-          { name = "path"; }
-          { name = "buffer"; }
-          { name = "luasnip"; }
-        ];
         mapping = {
           "<C-Space>" = "cmp.mapping.complete()";
           "<C-d>" = "cmp.mapping.scroll_docs(-4)";
-          "<C-u>" = "cmp.mapping.scroll_docs(4)";
           "<C-e>" = "cmp.mapping.close()";
-          "<Tab>" = "cmp.mapping.confirm({ select = true })";
-          "<Down>" = "cmp.mapping.select_next_item()";
-          "<Up>" = "cmp.mapping.select_prev_item()";
+          "<C-f>" = "cmp.mapping.scroll_docs(4)";
+          "<CR>" = "cmp.mapping.confirm({ select = true })";
+          "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+          "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
         };
+        sources = [
+          { name = "nvim_lsp"; }
+          { name = "luasnip"; }
+          { name = "path"; }
+          { name = "buffer"; }
+        ];
       };
     };
   };

@@ -178,7 +178,7 @@
   programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
-  #   enableSSHSupport = true;
+    #   enableSSHSupport = true;
   };
 
   # List services that you want to enable:
@@ -186,10 +186,11 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  services.emacs = {
-    enable = true;
-    package = pkgs.emacs; # replace with emacs-gtk, or a version provided by the community overlay if desired.
-  };
+  # disable server
+  # services.emacs = {
+  # enable = true;
+  # package = pkgs.emacs-gtk; # replace with emacs-gtk, or a version provided by the community overlay if desired.
+  # };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

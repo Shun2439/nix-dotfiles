@@ -1,16 +1,7 @@
-{ pkgs, lib, ... }:
-{
-  # Create a function to easily import neovim modules
-  makeNeovimConfig = modules: {
-    imports = modules;
-    programs.nixvim = {
-      enable = true;
-      version.enableNixpkgsReleaseCheck = false;
-    };
-  };
+{ ... }:
+let
+mods = {
 
-  # Predefined module collections
-  neovimModules = {
     # Core functionality
     core = ./modules/core.nix;
     theme = ./modules/theme.nix;
@@ -30,37 +21,30 @@
     # Advanced features
     autocmd = ./modules/autocmd.nix;
 
+  };
+  in
+{
+  # Predefined module collections
+  neovimModules = rec {
     # Presets
-    minimal = [
-      ./modules/core.nix
-      ./modules/theme.nix
-      ./modules/keymaps.nix
+    minimal = with mods; [
+      core
+      theme
+      keymaps
     ];
-    standard = [
-      ./modules/core.nix
-      ./modules/theme.nix
-      ./modules/keymaps.nix
-      ./modules/navigation.nix
-      ./modules/file-explorer.nix
-      ./modules/statusline.nix
-      ./modules/treesitter.nix
-      ./modules/utilities.nix
-      ./modules/ime.nix
-    ];
-    full = [
-      ./modules/core.nix
-      ./modules/theme.nix
-      ./modules/keymaps.nix
-      ./modules/navigation.nix
-      ./modules/file-explorer.nix
-      ./modules/statusline.nix
-      ./modules/lsp.nix
-      ./modules/telescope.nix
-      ./modules/git.nix
-      ./modules/treesitter.nix
-      ./modules/utilities.nix
-      ./modules/autocmd.nix
-      ./modules/ime.nix
-    ];
+    standard = minimal ++ (with mods; [
+      navigation
+      fileExplorer
+      statusline
+      treesitter
+      utilities
+      ime
+    ]);
+    full = standard ++ (with mods; [
+      lsp
+      telescope
+      git
+      autocmd
+    ]);
   };
 }

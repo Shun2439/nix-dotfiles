@@ -8,6 +8,10 @@
 
       nerd-fonts.hack # error?
 
+      # Emacs
+      symbola
+      nerd-fonts.symbols-only
+
       ipafont
 
       # (pkgs.callPackage (fetchFromGitHub {
