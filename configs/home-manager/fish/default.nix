@@ -23,12 +23,27 @@
     '';
 
     plugins = with pkgs.fishPlugins; [
-      { name = "spark"; src = spark.src; }
-      { name = "puffer"; src = puffer.src; }
+      {
+        name = "spark";
+        src = spark.src;
+      }
+      {
+        name = "puffer";
+        src = puffer.src;
+      }
       # { name = "async-prompt"; src = async-prompt.src; } # Not work correctly, no idea
-      { name = "sponge"; src = sponge.src; }
-      { name = "grc"; src = grc.src; }
-      { name = "forgit"; src = forgit.src; }
+      {
+        name = "sponge";
+        src = sponge.src;
+      }
+      {
+        name = "grc";
+        src = grc.src;
+      }
+      {
+        name = "forgit";
+        src = forgit.src;
+      }
     ];
 
     shellAliases = {

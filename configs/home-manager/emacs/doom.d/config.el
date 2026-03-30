@@ -152,7 +152,7 @@
 ;; Org journal with GPG encryption
 (after! org-journal
   (setq org-journal-dir "~/org/journals/"
-        org-journal-file-format "%Y%m%d.org.gpg"
+        org-journal-file-format "%Y%m%d.org"
         org-journal-file-type 'monthly
         org-journal-enable-agenda-integration t
         org-journal-encrypt-journal t
