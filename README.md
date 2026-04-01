@@ -20,21 +20,6 @@
 
 - SKK
 
-## Development
-
-Use `nix develop` to enter a development shell with all necessary tools (formatter, LSP, etc.).
-
-```bash
-nix develop
-```
-
-This project uses `pre-commit` hooks to ensure code quality. The hooks are automatically installed when you enter the dev shell.
-You can run them manually with:
-
-```bash
-pre-commit run --all-files
-```
-
 ### Apply Configuration
 
 To apply the home-manager configuration:
