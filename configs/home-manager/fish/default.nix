@@ -66,6 +66,9 @@
       cat = "bat -p";
 
       e = "emacsclient";
+      lg = "lazygit";
+
+      proot="cd $(git rev-parse --show-toplevel)";
     };
   };
 
