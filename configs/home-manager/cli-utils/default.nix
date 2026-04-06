@@ -23,6 +23,8 @@
 
     # GitHub CLI (without extensions for now)
     gh
+
+    presenterm
   ];
 
   programs.zoxide = {
