@@ -14,11 +14,12 @@
     inkscape
     audacity
 
+    kicad
+    freecad-wayland
+
     # flameshot
 
     rpi-imager
-
-    thunderbird
 
     # plasma5Packages.kdeconnect-kde
   ];
