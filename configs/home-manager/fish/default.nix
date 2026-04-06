@@ -2,6 +2,18 @@
 {
   programs.fish = {
     enable = true;
+
+    functions = {
+      ghq_fzf = {
+        body = ''
+          set -l src (ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 (ghq root)/{}/README.*")
+          if test -n "$src"
+            cd (ghq root)/$src
+            commandline -f repaint
+          end
+        '';
+      };
+    };
     interactiveShellInit = ''
       # Fisher bootstrap - runs once on first shell startup
       if not functions -q fisher
@@ -20,6 +32,8 @@
       status --is-interactive; and source (rbenv init -|psub)
 
       direnv hook fish | source
+
+      bind \cg ghq_fzf
     '';
 
     plugins = with pkgs.fishPlugins; [
