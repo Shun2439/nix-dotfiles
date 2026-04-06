@@ -64,7 +64,7 @@
 
     # LSP completion
     cmp = {
-      enable = true;
+      enable = false;
       autoEnableSources = true;
       cmdline = {
         "/" = {
@@ -110,6 +110,42 @@
           { name = "path"; }
           { name = "buffer"; }
         ];
+      };
+    };
+    blink-cmp = {
+      enable = true;
+      settings = {
+        appearance = {
+          nerd_font_variant = "normal";
+          use_nvim_cmp_as_default = true;
+        };
+        completion = {
+          accept = {
+            auto_brackets = {
+              enabled = true;
+              semantic_token_resolution = {
+                enabled = false;
+              };
+            };
+          };
+          documentation = {
+            auto_show = true;
+          };
+          ghost_text.enabled = true;
+        };
+        signature = {
+          enabled = true;
+        };
+        sources = {
+          providers = {
+            buffer = {
+              score_offset = -7;
+            };
+            lsp = {
+              fallbacks = [ ];
+            };
+          };
+        };
       };
     };
   };
