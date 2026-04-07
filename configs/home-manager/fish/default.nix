@@ -67,6 +67,7 @@
 
       e = "emacsclient";
       lg = "lazygit";
+      nv="nvim";
 
       proot="cd $(git rev-parse --show-toplevel)";
     };
