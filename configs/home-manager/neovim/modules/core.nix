@@ -7,13 +7,15 @@
     relativenumber = true;
     
     # Indentation
-    tabstop = 2;
-    shiftwidth = 2;
     expandtab = true;
+    shiftround = true;
+    shiftwidth = 2;
+    softtabstop = 2;
+    tabstop = 2;
     smartindent = true;
     
     # Search
-    ignorecase = true;
+    # ignorecaoe = true;
     smartcase = true;
     hlsearch = false;
     incsearch = true;
@@ -27,9 +29,11 @@
     # Behavior
     hidden = true;
     mouse = "a";
-    clipboard = "unnamedplus";
+    clipboard = "unnamedplus,unnamed";
     splitbelow = true;
     splitright = true;
+    scrolloff = 3;
+    whichwrap = "b,s,h,l,<,>,[,],~";
     
     # Timeout
     timeoutlen = 500;

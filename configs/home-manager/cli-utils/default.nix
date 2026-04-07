@@ -8,7 +8,6 @@
     grc
 
     fzf
-    ghq
 
     jq
 
@@ -23,6 +22,7 @@
 
     # GitHub CLI (without extensions for now)
     gh
+    ghq
 
     presenterm
   ];

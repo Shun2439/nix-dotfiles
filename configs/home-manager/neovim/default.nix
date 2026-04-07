@@ -8,5 +8,7 @@ in
   programs.nixvim = {
     enable = true;
     version.enableNixpkgsReleaseCheck = false;
+
+    loader.enable = true;
   };
 }
