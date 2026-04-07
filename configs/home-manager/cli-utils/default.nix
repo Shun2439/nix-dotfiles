@@ -25,6 +25,8 @@
     ghq
 
     presenterm
+
+    chafa
   ];
 
   programs.zoxide = {
