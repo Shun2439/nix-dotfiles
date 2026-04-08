@@ -27,6 +27,8 @@
     presenterm
 
     chafa
+
+    terminaltexteffects
   ];
 
   programs.zoxide = {
