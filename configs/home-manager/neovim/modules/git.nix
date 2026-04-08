@@ -4,9 +4,13 @@
   programs.nixvim.plugins = {
     # Git signs in gutter (snacks.git provides complementary features)
     gitsigns = {
-      enable = false;
+      enable = true;
       settings = {
-        current_line_blame = true;
+        current_line_blame = false;
+        current_line_blame_opts = {
+          virt_text = true;
+          virt_text_pos = "eol";
+        };
         signcolumn = true;
         signs = {
           add = {
@@ -28,20 +32,9 @@
             text = "┆";
           };
         };
-        numhl = true;
-        linehl = true;
-        attach_to_untracked = true;
-        update_debounce = 100;
-        status_formatter = null;
-        max_file_length = 40000;
-        preview_config = {
-          border = "rounded";
-          style = "minimal";
-          relative = "cursor";
-          row = 0;
-          col = 1;
+        watch_gitdir = {
+          follow_files = true;
         };
-        trouble = false;
       };
     };
     # Git commands (snacks.gitbrowse and snacks.lazygit provide these)
