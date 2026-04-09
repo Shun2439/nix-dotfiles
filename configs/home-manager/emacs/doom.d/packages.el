@@ -54,3 +54,9 @@
 (package! org-drill)
 
 (package! pinentry)
+
+(package! auto-sudoedit)
+
+(package! beacon)
+
+(package! nyan-mode)

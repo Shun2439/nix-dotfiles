@@ -1,5 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
+(setq fancy-splash-image (concat doom-private-dir "splash.png"))
+
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Shun2439"
@@ -40,6 +42,13 @@
 
 (after! company
   (define-key company-active-map (kbd "C-y") #'company-complete-selection))
+
+;; SKK
+(after! skk
+  (require 'skk-study))
+
+;; imeの選択をしなくて済む
+(setq default-input-method "japanese-skk")
 
 ;; Typst export for Org
 (after! org
@@ -151,7 +160,7 @@
 
 ;; Org journal with GPG encryption
 (after! org-journal
-  (setq org-journal-dir "~/org/journals/"
+  (setq org-journal-dir "~/org/journals/" ;; logseq
         org-journal-file-format "%Y%m%d.org"
         org-journal-file-type 'monthly
         org-journal-enable-agenda-integration t
@@ -238,3 +247,19 @@
   (setq org-drill-scope 'directory) ; 現在のディレクトリ内の全ファイルから出題
   ;; 必要に応じて追加設定
   )
+
+(use-package! auto-sudoedit
+  :config
+  (auto-sudoedit-mode 1))
+
+(use-package! beacon
+  :config
+  (beacon-mode 1))
+
+(use-package! nyan-mode
+  :config
+  (nyan-mode 1)
+  (setq nyan-animate-nyancat t))
+
+(use-package! org-modern
+  :hook (org-mode . org-modern-mode))

@@ -17,6 +17,7 @@
        workspaces
        (treemacs +lsp)
        tabs
+       (indent-guides +balanced)
 
        :editor
        (evil +everywhere)
@@ -31,7 +32,7 @@
        (eval +overlay)
        (lookup +docsets)
        lsp
-       magit
+       (magit +forge)
        ;; vterm module moved to :term in Doom 3
        tree-sitter
 
@@ -49,6 +50,7 @@
        (java +lsp)
        (haskell +lsp)
        (clojure +lsp)
+       (fsharp +lsp)
 
        :input
        japanese
