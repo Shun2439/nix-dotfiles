@@ -2,7 +2,7 @@
 { pkgs, ... }:
 {
   programs.nixvim.plugins.telescope = {
-    enable = true;
+    enable = false;
     keymaps = {
       "<C-p>" = "find_files";
       "<leader>fg" = "live_grep";

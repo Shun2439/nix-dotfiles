@@ -80,7 +80,7 @@
       _G.toggle_wrap = toggle_wrap
 
       -- Set up additional keymaps
-      vim.keymap.set('n', '<leader>n', toggle_numbers, { desc = 'Toggle line numbers' })
+      vim.keymap.set('n', '<leader>l', toggle_numbers, { desc = 'Toggle line numbers' })
       vim.keymap.set('n', '<leader>w', toggle_wrap, { desc = 'Toggle line wrap' })
 
       -- Set up folds

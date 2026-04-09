@@ -8,19 +8,24 @@ mods = {
     keymaps = ./modules/keymaps.nix;
 
     # Plugins
-    navigation = ./modules/navigation.nix;
-    fileExplorer = ./modules/file-explorer.nix;
+    flash = ./modules/plugins/flash.nix;
+    oil = ./modules/plugins/oil.nix;
+    snacks = ./modules/plugins/snacks.nix;
+    lazygit = ./modules/plugins/lazygit.nix;
+    which-key = ./modules/plugins/which-key.nix;
+    toggleterm = ./modules/plugins/toggleterm.nix;
     statusline = ./modules/statusline.nix;
     lsp = ./modules/lsp.nix;
-    telescope = ./modules/telescope.nix;
-    git = ./modules/git.nix;
-    treesitter = ./modules/treesitter.nix;
+    telescope = ./modules/plugins/telescope.nix;
+    gitsigns = ./modules/plugins/gitsigns.nix;
+    treesitter = ./modules/plugins/treesitter.nix;
+    nvim-ufo = ./modules/plugins/nvim-ufo.nix;
     utilities = ./modules/utilities.nix;
+    treesj = ./modules/plugins/treesj.nix;
     ime = ./modules/ime.nix;
 
     # Advanced features
     autocmd = ./modules/autocmd.nix;
-
   };
   in
 {
@@ -31,19 +36,25 @@ mods = {
       core
       theme
       keymaps
+      which-key
     ];
     standard = minimal ++ (with mods; [
-      navigation
-      fileExplorer
+      flash
+      oil
       statusline
       treesitter
+      toggleterm
+      treesj
       utilities
+      nvim-ufo
       ime
+      snacks
+      lazygit
     ]);
     full = standard ++ (with mods; [
       lsp
       telescope
-      git
+      gitsigns
       autocmd
     ]);
   };

@@ -35,16 +35,4 @@
       autoLoad = true;
     };
   };
-
-  programs.nixvim.keymaps = [
-    {
-      mode = "n";
-      key = "-";
-      action = "<cmd>Oil<cr>";
-      options = {
-        silent = true;
-        desc = "Open parent directory in oil";
-      };
-    }
-  ];
 }
