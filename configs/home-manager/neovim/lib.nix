@@ -3,7 +3,7 @@ let
 mods = {
 
     # Core functionality
-    core = ./modules/core.nix;
+    options = ./modules/options.nix;
     theme = ./modules/theme.nix;
     keymaps = ./modules/keymaps.nix;
 
@@ -14,7 +14,7 @@ mods = {
     lazygit = ./modules/plugins/lazygit.nix;
     which-key = ./modules/plugins/which-key.nix;
     toggleterm = ./modules/plugins/toggleterm.nix;
-    statusline = ./modules/statusline.nix;
+    lualine = ./modules/plugins/lualine.nix;
     lsp = ./modules/lsp.nix;
     telescope = ./modules/plugins/telescope.nix;
     gitsigns = ./modules/plugins/gitsigns.nix;
@@ -33,7 +33,7 @@ mods = {
   neovimModules = rec {
     # Presets
     minimal = with mods; [
-      core
+      options
       theme
       keymaps
       which-key
@@ -41,7 +41,7 @@ mods = {
     standard = minimal ++ (with mods; [
       flash
       oil
-      statusline
+      lualine
       treesitter
       toggleterm
       treesj
