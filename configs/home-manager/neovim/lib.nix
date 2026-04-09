@@ -22,7 +22,7 @@ mods = {
     nvim-ufo = ./modules/plugins/nvim-ufo.nix;
     utilities = ./modules/utilities.nix;
     treesj = ./modules/plugins/treesj.nix;
-    ime = ./modules/ime.nix;
+    skkeleton = ./modules/plugins/skkeleton.nix;
 
     # Advanced features
     autocmd = ./modules/autocmd.nix;
@@ -47,7 +47,7 @@ mods = {
       treesj
       utilities
       nvim-ufo
-      ime
+      skkeleton
       snacks
       lazygit
     ]);
