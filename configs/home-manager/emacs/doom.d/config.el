@@ -263,3 +263,8 @@
 
 (use-package! org-modern
   :hook (org-mode . org-modern-mode))
+
+;; transparent
+(set-frame-parameter nil 'alpha-background 85)
+(add-to-list 'default-frame-alist '(alpha-background . 85))
+
