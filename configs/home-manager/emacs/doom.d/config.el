@@ -1,6 +1,6 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-(setq fancy-splash-image (concat doom-private-dir "splash.png"))
+(setq fancy-splash-image (concat doom-private-dir "splash.svg"))
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
@@ -265,18 +265,19 @@
   :hook (org-mode . org-modern-mode))
 
 ;; transparent
-(set-frame-parameter nil 'alpha-background 80)
-(add-to-list 'default-frame-alist '(alpha-background . 80))
+(set-frame-parameter nil 'alpha-background 75)
+(add-to-list 'default-frame-alist '(alpha-background . 75))
 
 (custom-set-faces!
   ;; コメントの色を明るめに変更
-  `(font-lock-comment-face :foreground "#a6adc8" :slant italic)
+  `(font-lock-comment-face :foreground "#a6adc8" :slant italic) ;; Subtext 0
 
   ;; 行番号（現在行以外）を明るく
-  `(line-number :foreground "#6c7086")
+  `(line-number :foreground "#6c7086") ;; Overlay 0
 
   ;; 現在行の行番号をさらに強調
-  `(line-number-current-line :foreground "#fab387" :weight bold))
+  `(line-number-current-line :foreground "#fab387" :weight bold) ;; Peach
+  `(org-table :foreground "#b4befe")) ;; Lavender
 
 ;; rainbow
 (add-hook 'prog-mode-hook #'rainbow-mode)
@@ -287,3 +288,9 @@
   (setq lsp-headerline-breadcrumb-enable t
         lsp-headerline-breadcrumb-icons-enable t
         lsp-headerline-breadcrumb-segments '(file symbols)))
+
+(setq scroll-margin 3)
+(setq evil-cross-lines t)
+
+(after! doom-dashboard
+  (set-face-background 'doom-dashboard-banner nil))
