@@ -60,3 +60,5 @@
 (package! beacon)
 
 (package! nyan-mode)
+
+(package! rainbow-mode)

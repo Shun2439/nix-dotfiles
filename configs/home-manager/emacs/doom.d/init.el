@@ -30,8 +30,8 @@
 
        :tools
        (eval +overlay)
-       (lookup +docsets)
-       lsp
+       (lookup +dictionary +docsets +offline)
+       (lsp +peek)
        (magit +forge)
        ;; vterm module moved to :term in Doom 3
        tree-sitter

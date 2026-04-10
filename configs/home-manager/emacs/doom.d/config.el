@@ -265,6 +265,25 @@
   :hook (org-mode . org-modern-mode))
 
 ;; transparent
-(set-frame-parameter nil 'alpha-background 85)
-(add-to-list 'default-frame-alist '(alpha-background . 85))
+(set-frame-parameter nil 'alpha-background 80)
+(add-to-list 'default-frame-alist '(alpha-background . 80))
 
+(custom-set-faces!
+  ;; コメントの色を明るめに変更
+  `(font-lock-comment-face :foreground "#a6adc8" :slant italic)
+
+  ;; 行番号（現在行以外）を明るく
+  `(line-number :foreground "#6c7086")
+
+  ;; 現在行の行番号をさらに強調
+  `(line-number-current-line :foreground "#fab387" :weight bold))
+
+;; rainbow
+(add-hook 'prog-mode-hook #'rainbow-mode)
+(add-hook 'text-mode-hook #'rainbow-mode)
+
+;; breadcrumb
+(after! lsp-mode
+  (setq lsp-headerline-breadcrumb-enable t
+        lsp-headerline-breadcrumb-icons-enable t
+        lsp-headerline-breadcrumb-segments '(file symbols)))
