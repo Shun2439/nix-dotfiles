@@ -20,6 +20,8 @@ mods = {
     gitsigns = ./modules/plugins/gitsigns.nix;
     treesitter = ./modules/plugins/treesitter.nix;
     nvim-ufo = ./modules/plugins/nvim-ufo.nix;
+    navic = ./modules/plugins/navic.nix;
+    barbecue = ./modules/plugins/barbecue.nix;
     utilities = ./modules/utilities.nix;
     treesj = ./modules/plugins/treesj.nix;
     skkeleton = ./modules/plugins/skkeleton.nix;
@@ -42,6 +44,8 @@ mods = {
       flash
       oil
       lualine
+      navic
+      barbecue
       treesitter
       toggleterm
       treesj
