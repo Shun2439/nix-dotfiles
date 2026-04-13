@@ -1,6 +1,6 @@
 { ... }:
 let
-mods = {
+  mods = {
 
     # Core functionality
     options = ./modules/options.nix;
@@ -17,6 +17,7 @@ mods = {
     lualine = ./modules/plugins/lualine.nix;
     lsp = ./modules/lsp.nix;
     telescope = ./modules/plugins/telescope.nix;
+    persistence = ./modules/plugins/persistence.nix;
     gitsigns = ./modules/plugins/gitsigns.nix;
     treesitter = ./modules/plugins/treesitter.nix;
     nvim-ufo = ./modules/plugins/nvim-ufo.nix;
@@ -29,7 +30,7 @@ mods = {
     # Advanced features
     autocmd = ./modules/autocmd.nix;
   };
-  in
+in
 {
   # Predefined module collections
   neovimModules = rec {
@@ -40,26 +41,31 @@ mods = {
       keymaps
       which-key
     ];
-    standard = minimal ++ (with mods; [
-      flash
-      oil
-      lualine
-      navic
-      barbecue
-      treesitter
-      toggleterm
-      treesj
-      utilities
-      nvim-ufo
-      skkeleton
-      snacks
-      lazygit
-    ]);
-    full = standard ++ (with mods; [
-      lsp
-      telescope
-      gitsigns
-      autocmd
-    ]);
+    standard =
+      minimal
+      ++ (with mods; [
+        flash
+        oil
+        lualine
+        navic
+        barbecue
+        treesitter
+        toggleterm
+        treesj
+        utilities
+        nvim-ufo
+        skkeleton
+        snacks
+        lazygit
+      ]);
+    full =
+      standard
+      ++ (with mods; [
+        lsp
+        telescope
+        gitsigns
+        autocmd
+        persistence
+      ]);
   };
 }
