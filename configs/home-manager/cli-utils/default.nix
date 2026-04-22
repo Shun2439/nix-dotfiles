@@ -29,6 +29,10 @@
     chafa
 
     terminaltexteffects
+
+    fortune
+    toilet
+    qrencode
   ];
 
   programs.zoxide = {
