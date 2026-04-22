@@ -59,30 +59,6 @@
     extraConfigLua = ''
       -- Set up custom functions
 
-      -- Function to toggle numbers
-      local function toggle_numbers()
-        if vim.opt.number:get() then
-          vim.opt.number = false
-          vim.opt.relativenumber = false
-        else
-          vim.opt.number = true
-          vim.opt.relativenumber = true
-        end
-      end
-
-      -- Function to toggle wrap
-      local function toggle_wrap()
-        vim.opt.wrap = not vim.opt.wrap:get()
-      end
-
-      -- Make functions available globally
-      _G.toggle_numbers = toggle_numbers
-      _G.toggle_wrap = toggle_wrap
-
-      -- Set up additional keymaps
-      vim.keymap.set('n', '<leader>l', toggle_numbers, { desc = 'Toggle line numbers' })
-      vim.keymap.set('n', '<leader>w', toggle_wrap, { desc = 'Toggle line wrap' })
-
       -- Set up folds
       vim.opt.foldmethod = 'indent'
       vim.opt.foldlevel = 99

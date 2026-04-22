@@ -20,6 +20,8 @@ let
     persistence = ./modules/plugins/persistence.nix;
     neotest = ./modules/plugins/neotest.nix;
     render-markdown = ./modules/plugins/render-markdown.nix;
+    image = ./modules/plugins/image.nix;
+    project-nvim = ./modules/plugins/project-nvim.nix;
     gitsigns = ./modules/plugins/gitsigns.nix;
     treesitter = ./modules/plugins/treesitter.nix;
     nvim-ufo = ./modules/plugins/nvim-ufo.nix;
@@ -70,6 +72,8 @@ in
         persistence
         neotest
         render-markdown
+        image
+        project-nvim
       ]);
   };
 }

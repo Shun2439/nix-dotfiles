@@ -28,6 +28,11 @@
           group = "goto";
           icon = "󰈄 ";
         }
+        {
+          __unkeyed-1 = "p";
+          group = "project";
+          icon = " ";
+        }
       ];
     };
   };

@@ -36,14 +36,6 @@
         desc = "Command History";
       };
     }
-    # {
-    #   mode = "n";
-    #   key = "<leader>n";
-    #   action = "<cmd>lua Snacks.notifier.show_history()<CR>";
-    #   options = {
-    #     desc = "Notification History";
-    #   };
-    # }
     {
       mode = "n";
       key = "<leader>n";
@@ -339,6 +331,12 @@
       action = "<cmd>lua Snacks.picker.colorschemes()<CR>";
       options.desc = "Colorschemes";
     }
+    {
+      mode = "n";
+      key = "<leader>uz";
+      action = "<cmd>lua Snacks.picker.zoxide()<CR>";
+      options.desc = "zoxide";
+    }
     # LSP
     {
       mode = "n";
@@ -399,21 +397,21 @@
       action = "<cmd>lua Snacks.picker.lsp_workspace_symbols()<CR>";
       options.desc = "LSP Workspace Symbols";
     }
-    # TODO Other
-    {
-      mode = "n";
-      key = "<leader>gg";
-      action = "<cmd>lua Snacks.lazygit()<CR>";
-      options = {
-        desc = "Lazygit";
-      };
-    }
+    # Other
     {
       mode = "n";
       key = "<leader>z";
       action = "<cmd>lua Snacks.zen()<CR>";
       options = {
         desc = "Toggle Zen Mode";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>Z";
+      action = "<cmd>lua Snacks.zen.zoom()<CR>";
+      options = {
+        desc = "Toggle Zoom";
       };
     }
     {
@@ -426,12 +424,161 @@
     }
     {
       mode = "n";
+      key = "<leader>S";
+      action = "<cmd>lua Snacks.scratch.select()<CR>";
+      options = {
+        desc = "Select Scratch Buffer";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>n";
+      action = "<cmd>lua Snacks.notifier.show_history()<CR>";
+      options = {
+        desc = "Notification History";
+      };
+    }
+    {
+      mode = "n";
       key = "<leader>bd";
       action = "<cmd>lua Snacks.bufdelete()<CR>";
       options = {
         desc = "Delete Buffer";
       };
     }
+    {
+      mode = "n";
+      key = "<leader>cR";
+      action = "<cmd>lua rename.rename_file()<CR>";
+      options = {
+        desc = "Rename file";
+      };
+    }
+    {
+      mode = ["n" "v"];
+      key = "<leader>gB";
+      action = "<cmd>lua Snacks.gitbrowse()<CR>";
+      options = {
+        desc = "Git Browse";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>gg";
+      action = "<cmd>lua Snacks.lazygit()<CR>";
+      options = {
+        desc = "Lazygit";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>un";
+      action = "<cmd>lua Snacks.notifier.hide()<CR>";
+      options = {
+        desc = "Dismiss All Notifications";
+      };
+    }
+    {
+      mode = "n";
+      key = "<c-/>";
+      action = "<cmd>lua Snacks.terminal()<CR>";
+      options = {
+        desc = "Toggle Terminal";
+      };
+    }
+    {
+      mode = "n";
+      key = "<c-_>"; # ?
+      action = "<cmd>lua Snacks.terminal()<CR>";
+      options = {
+        desc = "which_key_ignore";
+      };
+    }
+    {
+      mode = "n";
+      key = "]]";
+      action = "<cmd>lua Snacks.words.jump(vim.v.count1)<CR>";
+      options = {
+        desc = "Next Reference";
+      };
+    }
+    {
+      mode = "n";
+      key = "[[";
+      action = "<cmd>lua Snacks.words.jump(-vim.v.count1)<CR>";
+      options = {
+        desc = "Prev Reference";
+      };
+    }
+    # Create some toggle mappings
+    # 通知が出る
+    {
+      mode = "n";
+      key = "<leader>us";
+      action = ''<cmd>lua Snacks.toggle.option("spell", { name = "Spelling" }):toggle()<cr>'';
+      options.desc = "Toggle Spelling";
+    }
+    {
+      mode = "n";
+      key = "<leader>uw";
+      action = ''<cmd>lua Snacks.toggle.option("wrap", { name = "Wrap" }):toggle()<cr>'';
+      options.desc = "Toggle Wrap";
+    }
+    {
+      mode = "n";
+      key = "<leader>uL";
+      action = ''<cmd>lua Snacks.toggle.option("relativenumber", { name = "Relative Number" }):toggle()<cr>'';
+      options.desc = "Toggle Relative Number";
+    }
+    {
+      mode = "n";
+      key = "<leader>ud";
+      action = "<cmd>lua Snacks.toggle.diagnostics():toggle()<cr>";
+      options.desc = "Toggle Diagnostics";
+    }
+    {
+      mode = "n";
+      key = "<leader>ul";
+      action = "<cmd>lua Snacks.toggle.line_number():toggle()<cr>";
+      options.desc = "Toggle Line Number";
+    }
+    {
+      mode = "n";
+      key = "<leader>uc";
+      action = ''<cmd>lua Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):toggle()<CR>'';
+      options.desc = "Toggle Conceallevel";
+    }
+    {
+      mode = "n";
+      key = "<leader>uT";
+      action = "<cmd>lua Snacks.toggle.treesitter():toggle()<cr>";
+      options.desc = "Toggle Treesitter";
+    }
+    {
+      mode = "n";
+      key = "<leader>ub";
+      action = ''<cmd>lua Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):toggle()<cr>'';
+      options.desc = "Toggle Dark Background";
+    }
+    {
+      mode = "n";
+      key = "<leader>uh";
+      action = "<cmd>lua Snacks.toggle.inlay_hints():toggle()<cr>";
+      options.desc = "Toggle Inlay Hints";
+    }
+    {
+      mode = "n";
+      key = "<leader>ug";
+      action = "<cmd>lua Snacks.toggle.indent():toggle()<cr>";
+      options.desc = "Toggle Indent";
+    }
+    {
+      mode = "n";
+      key = "<leader>uD";
+      action = "<cmd>lua Snacks.toggle.dim():toggle()<cr>";
+      options.desc = "Toggle Dim";
+    }
+    # ToggleTerm
     {
       mode = "n";
       key = "<leader>tf";
@@ -468,22 +615,6 @@
     }
     {
       mode = "n";
-      key = "]]";
-      action = "<cmd>lua Snacks.words.jump(vim.v.count1)<CR>";
-      options = {
-        desc = "Next Reference";
-      };
-    }
-    {
-      mode = "n";
-      key = "[[";
-      action = "<cmd>lua Snacks.words.jump(-vim.v.count1)<CR>";
-      options = {
-        desc = "Prev Reference";
-      };
-    }
-    {
-      mode = "n";
       key = "<leader>o";
       action = "<cmd>Oil<cr>";
       options = {
@@ -497,22 +628,6 @@
       action = "<cmd>nohlsearch<CR>";
       options = {
         desc = "Clear search highlight";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>s";
-      action = "<cmd>w<CR>";
-      options = {
-        desc = "Save file";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>q";
-      action = "<cmd>q<CR>";
-      options = {
-        desc = "Quit";
       };
     }
     {
