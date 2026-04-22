@@ -3,7 +3,7 @@
 {
   programs.nixvim.keymaps = [
     # snacks
-    # Top Pickers & Explorer
+    ## Top Pickers & Explorer
     {
       mode = "n";
       key = "<leader><space>";
@@ -53,7 +53,7 @@
       };
     }
 
-    # TODO find
+    ## TODO find
     {
       mode = "n";
       key = "<leader>fb";
@@ -95,7 +95,7 @@
       };
     }
 
-    # git
+    ## git
     {
       mode = "n";
       key = "<leader>gb";
@@ -153,7 +153,7 @@
       };
     }
 
-    # TODO gh
+    ## TODO gh
     {
       mode = "n";
       key = "<leader>gi";
@@ -170,7 +170,7 @@
         desc = "GitHub Pull Requests (open)";
       };
     }
-    # Grep
+    ## Grep
     { 
       mode = "n";
       key = "<leader>sb";
@@ -337,7 +337,7 @@
       action = "<cmd>lua Snacks.picker.zoxide()<CR>";
       options.desc = "zoxide";
     }
-    # LSP
+    ## LSP
     {
       mode = "n";
       key = "gd";
@@ -397,7 +397,7 @@
       action = "<cmd>lua Snacks.picker.lsp_workspace_symbols()<CR>";
       options.desc = "LSP Workspace Symbols";
     }
-    # Other
+    ## Other
     {
       mode = "n";
       key = "<leader>z";
@@ -510,8 +510,8 @@
         desc = "Prev Reference";
       };
     }
-    # Create some toggle mappings
-    # 通知が出る
+    ## Create some toggle mappings
+    ### 通知が出る
     {
       mode = "n";
       key = "<leader>us";
@@ -579,6 +579,7 @@
       options.desc = "Toggle Dim";
     }
     # ToggleTerm
+    ## NOTE open_mapping = "[[<c-\\>]]"; -> toggleterm.nix
     {
       mode = "n";
       key = "<leader>tf";
@@ -594,6 +595,7 @@
       options.desc = "Toggle horizontal terminal";
     }
     {
+      # TODO Wired
       mode = "n";
       key = "<leader>tv";
       action = "<cmd>ToggleTerm direction=vertical<cr>";
@@ -613,6 +615,7 @@
         desc = "Escape from terminal with <Esc>";
       };
     }
+    # Oil
     {
       mode = "n";
       key = "<leader>o";
@@ -630,6 +633,7 @@
         desc = "Clear search highlight";
       };
     }
+    # markdown
     {
       mode = "n";
       key = "<leader>mp";
@@ -638,6 +642,7 @@
         desc = "Markdown Preview Toggle";
       };
     }
+    # SKK
     {
       mode = "i";
       key = "<C-j>";
@@ -646,6 +651,7 @@
         desc = "Toggle SKK";
       };
     }
+    # Insert
     {
       mode = "i";
       key = "<C-s>";
