@@ -18,6 +18,8 @@ let
     lsp = ./modules/lsp.nix;
     telescope = ./modules/plugins/telescope.nix;
     persistence = ./modules/plugins/persistence.nix;
+    neotest = ./modules/plugins/neotest.nix;
+    render-markdown = ./modules/plugins/render-markdown.nix;
     gitsigns = ./modules/plugins/gitsigns.nix;
     treesitter = ./modules/plugins/treesitter.nix;
     nvim-ufo = ./modules/plugins/nvim-ufo.nix;
@@ -66,6 +68,8 @@ in
         gitsigns
         autocmd
         persistence
+        neotest
+        render-markdown
       ]);
   };
 }

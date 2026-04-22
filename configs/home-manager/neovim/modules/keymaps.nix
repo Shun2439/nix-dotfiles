@@ -516,6 +516,14 @@
       };
     }
     {
+      mode = "n";
+      key = "<leader>mp";
+      action = "<cmd>RenderMarkdown toggle<cr>";
+      options = {
+        desc = "Markdown Preview Toggle";
+      };
+    }
+    {
       mode = "i";
       key = "<C-j>";
       action = "<Plug>(skkeleton-toggle)";
