@@ -7,7 +7,12 @@
         {
           __unkeyed-1 = "<leader>f";
           group = "find";
-          icon = " ";
+          icon = "󰈞 ";
+        }
+        {
+          __unkeyed-1 = "<leader>s";
+          group = "search";
+          icon = " ";
         }
         {
           __unkeyed-1 = "<leader>g";
@@ -22,6 +27,7 @@
         {
           __unkeyed-1 = "<leader>b";
           group = "buffer";
+          icon = " ";
         }
         {
           __unkeyed-1 = "g";
@@ -29,9 +35,44 @@
           icon = "󰈄 ";
         }
         {
-          __unkeyed-1 = "p";
+          __unkeyed-1 = "<leader>p";
           group = "project";
           icon = " ";
+        }
+        {
+          __unkeyed-1 = "<leader>u";
+          group = "Toggle";
+          icon = " ";
+        }
+        {
+          __unkeyed-1 = "<leader>o";
+          group = "Oil";
+          icon = " ";
+        }
+        {
+          __unkeyed-1 = "<leader>m";
+          group = "markdown";
+          icon = " ";
+        }
+        {
+          __unkeyed-1 = "<leader>c";
+          group = "Edit";
+          icon = "󱇧 ";
+        }
+        {
+          __unkeyed-1 = "<leader>N";
+          group = "Neovim News";
+          icon = "󰎕 ";
+        }
+        {
+          __unkeyed-1 = "<leader>/";
+          group = "Grep";
+          icon = "󱎸 ";
+        }
+        {
+          __unkeyed-1 = "<leader>:";
+          group = "Command History";
+          icon = " ";
         }
       ];
     };

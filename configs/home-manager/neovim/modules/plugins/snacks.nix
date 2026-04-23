@@ -42,9 +42,9 @@
           {
             section = "terminal";
             # width: 50, height: 6
-            cmd = "sh -c 'cat ${./logo.txt} | tte --anchor-canvas s --random-effect'";
+            cmd = "cat ${./logo.txt} | tte --anchor-canvas s --random-effect";
             align = "center";
-            # height = 17;
+            height = 7; # avoid showing exit status. value = text height + 1
             # indent = 5;
             padding = 1;
           }

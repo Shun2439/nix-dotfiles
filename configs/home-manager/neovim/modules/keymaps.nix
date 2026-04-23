@@ -510,6 +510,12 @@
         desc = "Prev Reference";
       };
     }
+    {
+      mode = "n";
+      key = "<leader>N";
+      action = ''<CMD>lua Snacks.win({ file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1], width = 0.6, height = 0.6, wo = { spell = false, wrap = false, signcolumn = "yes", statuscolumn = " ", conceallevel = 3, }, })<CR>'';
+      options.desc = "Neovim News";
+    }
     ## Create some toggle mappings
     ### 通知が出る
     {
@@ -658,6 +664,87 @@
       action = "<cmd>w<CR>";
       options = {
         desc = "Save file";
+      };
+    }
+    # Project
+    {
+      mode = "n";
+      key = "<leader>pp";
+      action = "<cmd>Project<CR>";
+      options = {
+        desc = "Project";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ps";
+      action = "<cmd>ProjectSession<CR>";
+      options = {
+        desc = "Project Session";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>pr";
+      action = "<cmd>ProjectRecents<CR>";
+      options = {
+        desc = "Project Recents";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>pd";
+      action = "<cmd>ProjectDelete<CR>";
+      options = {
+        desc = "Project Delete";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>pt";
+      action = "<cmd>ProjectTelescope<CR>";
+      options = {
+        desc = "Project Telescope";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>pc";
+      action = "<cmd>ProjectHealth<CR>";
+      options = {
+        desc = "Project Checkhealth";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>pC";
+      action = "<cmd>ProjectConfig<CR>";
+      options = {
+        desc = "Project Config";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ph";
+      action = "<cmd>ProjectHistory<CR>";
+      options = {
+        desc = "Project Historyfile";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>pe";
+      action = "<cmd>ProjectExport<CR>";
+      options = {
+        desc = "Project Export";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>pi";
+      action = "<cmd>ProjectImport<CR>";
+      options = {
+        desc = "Project Import";
       };
     }
   ];
