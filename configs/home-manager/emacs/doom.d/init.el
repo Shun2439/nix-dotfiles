@@ -34,7 +34,9 @@
        (lsp +peek)
        (magit +forge)
        ;; vterm module moved to :term in Doom 3
-       tree-sitter
+       ;; tree-sitter
+       direnv
+       (docker +lsp)
 
        :term
        (vterm +toggle)
@@ -51,6 +53,8 @@
        (haskell +lsp)
        (clojure +lsp)
        (fsharp +lsp)
+       (go +lsp)
+       (yaml +lsp)
 
        :input
        japanese

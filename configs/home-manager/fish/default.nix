@@ -41,10 +41,10 @@
         name = "spark";
         src = spark.src;
       }
-      {
-        name = "puffer";
-        src = puffer.src;
-      }
+      # {
+      #   name = "puffer";
+      #   src = puffer.src;
+      # }
       # { name = "async-prompt"; src = async-prompt.src; } # Not work correctly, no idea
       {
         name = "sponge";

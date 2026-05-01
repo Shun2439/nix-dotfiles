@@ -1,0 +1,41 @@
+* Issues [1/3]
+** Emacs error
+#+begin_verse
+Company: An error occurred in auto-begin
+Company: frontend company-box-frontend error "Wrong type argument: window-live-p, nil" on command show
+#+end_verse
+
+[[https://gemini.google.com/share/083c623679fe]]
+
+** DONE SKK kakutei
+CLOSED: [2026-04-15 水 11:27]
+:LOGBOOK:
+- CLOSING NOTE [2026-04-15 水 11:27] \\
+  キーバインドを無効化することで解決...
+:END:
+
+新たに割り当てても他のものが干渉してくる。
+
+[[https://qiita.com/ohtsuka/items/3a5927e8ca276692ea38][Doom EmacsでSKKを使うためのTips]]
+# なんか字が抜けてる？
+** TODO Nixvim dashboard
+:LOGBOOK:
+- Note taken on [2026-04-22 水 20:43] \\
+  #+begin_example
+  [Process exited 0]
+  #+end_example
+
+  [[https://zenn.dev/vim_jp/articles/de942e6414685e][Neovim起動時にロゴをﾋｭﾝﾋｭﾝﾋｭﾝﾋｭﾝﾋｭﾝ!!ﾌﾜﾜ~~ﾝ!!する]]
+:END:
+** TODO Nixvim Project New Error
+:LOGBOOK:
+- Note taken on [2026-04-22 水 20:42] \\
+  #+begin_example
+  vim.schedule callback: ...ovimPackages/start/project.nvim/lua/project/commands.lua:183: attempt to index local 'ctx' (a nil value)
+  stack traceback:
+          ...ovimPackages/start/project.nvim/lua/project/commands.lua:183: in function 'callback'
+          ...ovimPackages/start/project.nvim/lua/project/commands.lua:113: in function 'choice'
+          ...yNeovimPackages/start/project.nvim/lua/project/popup.lua:355: in function 'on_choice'
+          ...mPackages/start/snacks.nvim/lua/snacks/picker/select.lua:59: in function <...mPackages/start/snacks.nvim/lua/snacks/picker/select.lua:58>
+  #+end_example
+:END:

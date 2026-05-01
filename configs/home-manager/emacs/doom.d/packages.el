@@ -62,3 +62,5 @@
 (package! nyan-mode)
 
 (package! rainbow-mode)
+
+(package! vue-mode)

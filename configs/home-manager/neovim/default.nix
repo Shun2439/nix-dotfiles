@@ -7,6 +7,7 @@ in
 
   programs.nixvim = {
     enable = true;
+    defaultEditor = true;
     version.enableNixpkgsReleaseCheck = false;
 
     loader.enable = true;

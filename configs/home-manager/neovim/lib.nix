@@ -8,6 +8,7 @@ let
     keymaps = ./modules/keymaps.nix;
 
     # Plugins
+    conform = ./modules/plugins/conform.nix;
     flash = ./modules/plugins/flash.nix;
     oil = ./modules/plugins/oil.nix;
     snacks = ./modules/plugins/snacks.nix;
@@ -65,6 +66,7 @@ in
     full =
       standard
       ++ (with mods; [
+        conform
         lsp
         telescope
         gitsigns

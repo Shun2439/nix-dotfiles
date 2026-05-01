@@ -44,6 +44,12 @@
   (define-key company-active-map (kbd "C-y") #'company-complete-selection))
 
 ;; SKK
+(map! :i "C-j" nil)
+(map! :after evil-org
+      :map evil-org-mode-map
+      ;; lang/org/configでorg-down-elementに上書きされているのでnilにしておく
+      :i "C-j" (cmds! (org-at-table-p) #'org-table-next-row nil)
+      )
 (after! skk
   (require 'skk-study))
 
@@ -52,7 +58,9 @@
 
 ;; Typst export for Org
 (after! org
-  (require 'ox-typst))
+  (require 'ox-typst)
+  (setq org-adapt-indentation t)
+  )
 
 ;; Org -> LaTeX: register jlreq class (#+LATEX_CLASS: jlreq-article)
 (after! ox-latex
@@ -164,7 +172,7 @@
         org-journal-file-format "%Y%m%d.org"
         org-journal-file-type 'monthly
         org-journal-enable-agenda-integration t
-        org-journal-encrypt-journal t
+        ;; org-journal-encrypt-journal t
         ;; epa-file-select-keys 'silent
         ))
 
@@ -176,7 +184,7 @@
 ;; Org roam configuration
 (after! org-roam
   (setq org-roam-directory "~/org/roam/"
-        ;; org-roam-db-location "~/.local/share/roam.db"
+        ;; org-roam-db-location "~/.local/share/org-roam.db"
         ))
 
 ;; Custom settings
@@ -256,10 +264,10 @@
   :config
   (beacon-mode 1))
 
-(use-package! nyan-mode
-  :config
-  (nyan-mode 1)
-  (setq nyan-animate-nyancat t))
+;; (use-package! nyan-mode
+;;   :config
+;;   (nyan-mode 1)
+;;   (setq nyan-animate-nyancat t))
 
 (use-package! org-modern
   :hook (org-mode . org-modern-mode))
@@ -294,3 +302,8 @@
 
 (after! doom-dashboard
   (set-face-background 'doom-dashboard-banner nil))
+
+(after! direnv
+  (direnv-mode))
+
+(add-hook 'vue-mode-hook #'lsp!)

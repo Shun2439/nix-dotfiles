@@ -39,6 +39,10 @@
     graphviz
     glslang
 
+    # F#
+    dotnet-sdk_9
+    fsautocomplete
+
     # Python
     python3
     pyright
@@ -67,6 +71,21 @@
     fourmolu
     haskellPackages.hoogle
 
+    # TS
+    typescript
+    typescript-language-server
+
+    # Go
+    gopls
+
+    cljfmt
+
+    symbola
+
+    # Docker
+    dockerfile-language-server
+
+    # wl-clipboard
     (pkgs.writeShellScriptBin "nosetests" ''
       exec ${pkgs.python3Packages.nose2}/bin/nose2 "$@"
     '')

@@ -4,7 +4,8 @@
     extraPlugins = with pkgs.vimPlugins; [
       denops-vim
       (pkgs.vimUtils.buildVimPlugin {
-        name = "skkeleton";
+        pname = "skkeleton";
+        version = "2026-04-27";
         src = pkgs.fetchFromGitHub {
           owner = "vim-skk";
           repo = "skkeleton";

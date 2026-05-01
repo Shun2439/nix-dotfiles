@@ -2,7 +2,7 @@
 {
   programs.vim = {
     enable = true;
-    defaultEditor = true;
+    # defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
       vim-airline
       vim-devicons
