@@ -10,7 +10,7 @@
 
       init.defaultBranch = "main";
       commit.gpgsign = true;
-      core.editor = "vim";
+      core.editor = "nv";
       core.autocrlf = "true";
     };
     signing = {
