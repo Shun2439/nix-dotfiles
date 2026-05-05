@@ -27,9 +27,9 @@
       # Do not start daemon manually here
 
       # rbenv
-      set -Ux RBENV_ROOT $HOME/.rbenv
-      set -U fish_user_paths $RBENV_ROOT/bin $fish_user_paths
-      status --is-interactive; and source (rbenv init -|psub)
+      # set -Ux RBENV_ROOT $HOME/.rbenv
+      # set -U fish_user_paths $RBENV_ROOT/bin $fish_user_paths
+      # status --is-interactive; and source (rbenv init -|psub)
 
       direnv hook fish | source
 

@@ -11,13 +11,13 @@
     ../../configs/home-manager/cli-utils
     ../../configs/home-manager/development.nix
 
-    ../../configs/home-manager/vim
+    # ../../configs/home-manager/vim
     ../../configs/home-manager/neovim
-    ../../configs/home-manager/emacs
+    # ../../configs/home-manager/emacs
 
     ../../configs/home-manager/fzf
 
-    ../../configs/home-manager/tmux
+    # ../../configs/home-manager/tmux
 
     ../../configs/home-manager/git
     ../../configs/home-manager/lazygit

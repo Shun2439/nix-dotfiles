@@ -98,6 +98,12 @@
               ./systems/nixos/kilimanjaro
             ];
           };
+          manaslu = inputs.nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./systems/nixos/manaslu
+            ];
+          };
         };
 
         homeManagerModules.default = import ./modules/home-manager;
@@ -114,6 +120,13 @@
             username = "shun2439";
             modules = [
               ./homes/nixos/kilimanjaro
+            ];
+          };
+          "shun@manaslu" = self.lib.makeHomeManagerConfig {
+            system = "x86_64-linux";
+            username = "shun";
+            modules = [
+              ./homes/nixos/manaslu
             ];
           };
         };

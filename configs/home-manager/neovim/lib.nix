@@ -75,7 +75,7 @@ in
         neotest
         render-markdown
         image
-        project-nvim
+        # project-nvim
       ]);
   };
 }
