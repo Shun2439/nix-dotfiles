@@ -13,7 +13,7 @@
 
     # ../../configs/home-manager/vim
     ../../configs/home-manager/neovim
-    # ../../configs/home-manager/emacs
+    ../../configs/home-manager/emacs
 
     ../../configs/home-manager/fzf
 

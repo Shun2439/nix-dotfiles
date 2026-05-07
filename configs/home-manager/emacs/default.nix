@@ -9,6 +9,7 @@
     enable = true;
     doomDir = ./doom.d;
     doomLocalDir = "${config.xdg.dataHome}/nix-doom";
+    # emacs = pkgs.emacs;
     emacs = pkgs.emacs-pgtk;
     extraPackages = epkgs: [
       epkgs.treesit-grammars.with-all-grammars
@@ -90,18 +91,18 @@
       exec ${pkgs.python3Packages.nose2}/bin/nose2 "$@"
     '')
 
-    (stdenvNoCC.mkDerivation rec {
-      pname = "moralerspace";
-      version = "2.0.0";
-      src = fetchzip {
-        url = "https://github.com/yuru7/moralerspace/releases/download/v${version}/MoralerspaceHW_v${version}.zip";
-        hash = "sha256-gd195o0acZL8AhGvcLLQYxd1VWvUYjpVRMOT5D7zDME=";
-      };
-      installPhase = ''
-        mkdir -p $out/share/fonts/truetype
-        cp *.ttf $out/share/fonts/truetype/
-      '';
-    })
+    # (stdenvNoCC.mkDerivation rec {
+    #   pname = "moralerspace";
+    #   version = "2.0.0";
+    #   src = fetchzip {
+    #     url = "https://github.com/yuru7/moralerspace/releases/download/v${version}/MoralerspaceHW_v${version}.zip";
+    #     hash = "sha256-gd195o0acZL8AhGvcLLQYxd1VWvUYjpVRMOT5D7zDME=";
+    #   };
+    #   installPhase = ''
+    #     mkdir -p $out/share/fonts/truetype
+    #     cp *.ttf $out/share/fonts/truetype/
+    #   '';
+    # })
   ];
 
 }

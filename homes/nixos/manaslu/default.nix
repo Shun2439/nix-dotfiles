@@ -8,8 +8,10 @@ in
     ../../../modules/home-manager
     # ../../../configs/nixos/core/nixos.nix
     ../../../configs/home-manager/wezterm
+    ../../../configs/home-manager/ghostty
     ../../../configs/home-manager/browser
     # ../../../configs/home-manager/hyprland
+    ../../../configs/home-manager/niri
     ../../../configs/home-manager/development.nix
     ../../../configs/home-manager/gui-utils/default.nix
   ];
@@ -28,5 +30,8 @@ in
   #   workspace =
   #     (lib.genList (n: "${toString (n+1)}, monitor:${mainMonitor}") 10);
   # };
+  home.sessionVariables = {
+    GTK_USE_PORTAL = "1";
+  };
 }
 

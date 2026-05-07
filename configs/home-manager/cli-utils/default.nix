@@ -33,6 +33,8 @@
     fortune
     toilet
     qrencode
+
+    playerctl
   ];
 
   programs.zoxide = {

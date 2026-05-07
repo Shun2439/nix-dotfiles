@@ -14,12 +14,18 @@
 
       ipafont
 
-      # (pkgs.callPackage (fetchFromGitHub {
-      #   owner = "yuru7";
-      #   repo = "moralerspace";
-      #   rev = "main";
-      #   sha256 = "sha256-UMLC9fuGxUbA2k7yAOlXjeQBswXkb4t6b3r62mQph4o=";
-      # }) {}) # not worked
+      (stdenvNoCC.mkDerivation rec {
+        pname = "moralerspace";
+        version = "2.0.0";
+        src = fetchzip {
+          url = "https://github.com/yuru7/moralerspace/releases/download/v${version}/MoralerspaceHW_v${version}.zip";
+          hash = "sha256-gd195o0acZL8AhGvcLLQYxd1VWvUYjpVRMOT5D7zDME=";
+        };
+        installPhase = ''
+        mkdir -p $out/share/fonts/truetype
+        cp *.ttf $out/share/fonts/truetype/
+        '';
+      })
     ];
 
     fontDir.enable = true;
@@ -35,7 +41,7 @@
           "Noto Color Emoji"
         ];
         monospace = [
-          "Hack Nerd Font"
+          "Moralerspace Radon HW"
           "Noto Color Emoji"
         ];
         emoji = [ "Noto Color Emoji" ];
