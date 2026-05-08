@@ -16,6 +16,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.loader.systemd-boot.extraEntries = {
+    "windows.conf" = ''
+    title Windows 11
+    efi /EFI/Microsoft/Boot/bootmgfw.efi
+    '';
+  };
+
   # networking.hostName = "nixos"; # Define your hostname.
   networking.hostName = "manaslu"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
