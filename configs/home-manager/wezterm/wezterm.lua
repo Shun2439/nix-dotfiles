@@ -30,13 +30,14 @@ function tab_title(tab_info)
 end
 
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
-  local background = "#1e1e2e" -- Base
+  local background = "#6c7086" -- overlay0
   local foreground = "#cdd6f4" -- Text
   local edge_background = "none"
 
   if tab.is_active then
     background = "#b4befe" -- Lavender
-    foreground = "#1e1e2e"
+    -- foreground = "#1e1e2e"
+    foreground = "#11111b" -- crust
   end
 
   local edge_foreground = background
