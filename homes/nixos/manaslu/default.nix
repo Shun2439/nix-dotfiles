@@ -1,4 +1,9 @@
-{ configs, pkgs, lib, ... }:
+{
+  configs,
+  pkgs,
+  lib,
+  ...
+}:
 let
   mainMonitor = "HDMI-A-1";
   subMonitor = "LVDS-1";
@@ -14,6 +19,8 @@ in
     ../../../configs/home-manager/niri
     ../../../configs/home-manager/development.nix
     ../../../configs/home-manager/gui-utils/default.nix
+
+    ../../../configs/home-manager/ssh
   ];
   home = rec {
     username = "shun";
