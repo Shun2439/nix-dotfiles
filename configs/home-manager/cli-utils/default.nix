@@ -35,6 +35,7 @@
     qrencode
 
     playerctl
+    brightnessctl
   ];
 
   programs.zoxide = {
