@@ -2,15 +2,20 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../../configs/nixos/desktop/fcitx5.nix
-      ../../../configs/nixos/desktop/fonts.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../../configs/nixos/desktop/fcitx5.nix
+    ../../../configs/nixos/desktop/fonts.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -18,10 +23,13 @@
 
   boot.loader.systemd-boot.extraEntries = {
     "windows.conf" = ''
-    title Windows 11
-    efi /EFI/Microsoft/Boot/bootmgfw.efi
+      title Windows 11
+      efi /EFI/Microsoft/Boot/bootmgfw.efi
     '';
   };
+
+  # サスペンドの方式を変える
+  # boot.kernelParams = [ "mem_sleep_default=deep" ]; # 変化しなかった
 
   # networking.hostName = "nixos"; # Define your hostname.
   networking.hostName = "manaslu"; # Define your hostname.
@@ -74,7 +82,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -96,9 +104,12 @@
   users.users.shun = {
     isNormalUser = true;
     description = "Shun";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
 
     shell = pkgs.fish;
@@ -130,8 +141,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+    cloudflare-warp
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -146,6 +158,13 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  systemd.services.warp-svc = {
+    enable = true;
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.cloudflare-warp}/bin/warp-svc";
+    };
+  };
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -159,5 +178,8 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }
