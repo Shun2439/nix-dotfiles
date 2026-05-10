@@ -158,6 +158,8 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  services.tailscale.enable = true;
+
   systemd.services.warp-svc = {
     enable = true;
     wantedBy = [ "multi-user.target" ];
@@ -169,7 +171,11 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall = {
+    enable = true;
+    trustedInterfaces = [ "tailscale0" ];
+    allowedUDPPorts = [ config.services.tailscale.port ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

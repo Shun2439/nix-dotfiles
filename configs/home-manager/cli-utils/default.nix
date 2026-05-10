@@ -35,6 +35,9 @@
     qrencode
 
     playerctl
+
+    tailscale
+
     brightnessctl
   ];
 
