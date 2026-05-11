@@ -28,6 +28,13 @@
     '';
   };
 
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 4096;
+    }
+  ];
+
   # サスペンドの方式を変える
   # boot.kernelParams = [ "mem_sleep_default=deep" ]; # 変化しなかった
 
@@ -133,7 +140,7 @@
   programs.niri.enable = true;
 
   # Install firefox.
-  # programs.firefox.enable = true;
+  # programs.firefox.enable = true; # Use HM, for Rustfinity
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
