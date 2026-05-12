@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }: 
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
     ../waybar
@@ -9,11 +14,11 @@
     tlp
 
     # fuzzel
-    swaylock
+    # swaylock
+    swaylock-effects
     mako
     swaybg
   ];
 
   home.file.".config/niri/config.kdl".source = ./config.kdl;
 }
-
