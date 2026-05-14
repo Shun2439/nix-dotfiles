@@ -16,8 +16,9 @@
     # fuzzel
     # swaylock
     swaylock-effects
-    mako
-    swaybg
+    mako # notification
+    swaybg # wallpaper
+    wlogout
   ];
 
   home.file.".config/niri/config.kdl".source = ./config.kdl;
