@@ -181,6 +181,16 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  services.logind = {
+    # lidSwitch = "ignore";
+    settings.Login = {
+      HandleLidSwitch = "ignore";
+      HandleLidSwitchExternalPower = "ignore";
+      # サスペンド自体を無効化したい場合
+      # AllowSuspend = "no";
+    };
+  };
+
   services.tailscale.enable = true;
 
   systemd.services.warp-svc = {
