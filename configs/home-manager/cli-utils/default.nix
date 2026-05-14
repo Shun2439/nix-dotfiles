@@ -43,7 +43,7 @@
 
   programs.zoxide = {
     enable = true;
-    enableFishIntegration= true;
+    enableFishIntegration = true;
     # replace cd
     options = [
       "--cmd cd"
