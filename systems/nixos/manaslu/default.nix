@@ -54,6 +54,8 @@
   # Enable network manager applet
   programs.nm-applet.enable = true;
 
+  hardware.bluetooth.enable = true;
+
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
 
