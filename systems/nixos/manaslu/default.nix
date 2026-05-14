@@ -151,6 +151,20 @@
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
     cloudflare-warp
+
+    # sddm-astronaut
+    # catppuccin-sddm-corners
+    (catppuccin-sddm.override {
+      flavor = "mocha";
+      accent = "mauve";
+      # font  = "Noto Sans";
+      # font = "JetBrainsMono Nerd Font";
+      # font = "Moralerspace Argon HW";
+      font = "Moralerspace Neon HW";
+      # fontSize = "9";
+      # background = "${./wallpaper.png}";
+      loginBackground = true;
+    })
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -172,6 +186,18 @@
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = "${pkgs.cloudflare-warp}/bin/warp-svc";
+    };
+  };
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    theme = "catppuccin-mocha-mauve";
+
+    settings = {
+      Users = {
+        RememberLastUser = true;
+        DefaultUser = "shun";
+      };
     };
   };
   # Open ports in the firewall.
