@@ -8,6 +8,7 @@
   imports = [
     ../waybar
     ../fuzzel
+    ../mako
   ];
 
   home.packages = with pkgs; [
@@ -16,7 +17,6 @@
     # fuzzel
     # swaylock
     swaylock-effects
-    mako # notification
     swaybg # wallpaper
     wlogout
   ];
