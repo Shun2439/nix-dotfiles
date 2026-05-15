@@ -5,7 +5,8 @@
     settings = {
       # source: https://github.com/catppuccin/mako/blob/main/themes/catppuccin-mocha/catppuccin-mocha-lavender
 
-      font = "Noto Sans CJK JP 10";
+      font = "Noto Sans CJK JP";
+      # font = "Moralerspace Neon HW";
       background-color = "#1e1e2e";
       text-color = "#cdd6f4";
       # width = 300; # px
