@@ -8,6 +8,11 @@
         User git
         IdentityFile ~/.ssh/id_ed25519_github
 
+      Host gitlab.com
+        Hostname gitlab.com
+        User git
+        IdentityFile ~/.ssh/id_ed25519_gitlab
+
       Host codeberg.org
         Hostname codeberg.org
         User git
