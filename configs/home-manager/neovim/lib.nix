@@ -28,6 +28,7 @@ let
     nvim-ufo = ./modules/plugins/nvim-ufo.nix;
     navic = ./modules/plugins/navic.nix;
     barbecue = ./modules/plugins/barbecue.nix;
+    dropbar = ./modules/plugins/dropbar.nix;
     utilities = ./modules/utilities.nix;
     treesj = ./modules/plugins/treesj.nix;
     skkeleton = ./modules/plugins/skkeleton.nix;
@@ -53,12 +54,13 @@ in
         oil
         lualine
         navic
-        barbecue
+        barbecue # Disabled
+        dropbar
         treesitter
         toggleterm
         treesj
         utilities
-        nvim-ufo
+        nvim-ufo # Disabled
         skkeleton
         snacks
         lazygit
@@ -70,7 +72,7 @@ in
         lsp
         telescope
         gitsigns
-        autocmd
+        # autocmd
         persistence
         neotest
         render-markdown

@@ -1,7 +1,7 @@
 { ... }:
 {
   programs.nixvim.plugins.barbecue = {
-    enable = true;
+    enable = false;
     settings = {
       show_modified = true;
     };
