@@ -12,4 +12,14 @@ in
 
     loader.enable = true;
   };
+  programs.neovide = {
+    enable = true;
+    settings = {
+      font = {
+        normal = ["Moralerspace Radon HW"];
+        size = 14.0;
+      };
+      title-hidden = true;
+    };
+  };
 }

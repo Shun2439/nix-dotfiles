@@ -32,6 +32,7 @@ let
     utilities = ./modules/utilities.nix;
     treesj = ./modules/plugins/treesj.nix;
     skkeleton = ./modules/plugins/skkeleton.nix;
+    neovide = ./modules/neovide.nix;
 
     # Advanced features
     autocmd = ./modules/autocmd.nix;
@@ -78,6 +79,7 @@ in
         render-markdown
         image
         # project-nvim
+        neovide
       ]);
   };
 }
