@@ -64,3 +64,5 @@
 (package! rainbow-mode)
 
 (package! vue-mode)
+
+(package! org-cliplink)

@@ -166,7 +166,7 @@
   :config
   (pinentry-start))
 
-;; Org journal with GPG encryption
+;; Org journal
 (after! org-journal
   (setq org-journal-dir "~/org/journals/" ;; logseq
         org-journal-file-format "%Y%m%d.org"
@@ -307,3 +307,10 @@
   (direnv-mode))
 
 (add-hook 'vue-mode-hook #'lsp!)
+(use-package! org-cliplink
+  :after org
+  :config
+  ;; DoomのLocalleader (SPC m や 、) の下にバインドを定義
+  (map! :map org-mode-map
+        :localleader
+        :desc "Insert link from clipboard" "l l" #'org-cliplink))
