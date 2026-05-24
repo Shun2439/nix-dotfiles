@@ -17,6 +17,9 @@
         Hostname codeberg.org
         User git
         IdentityFile ~/.ssh/id_ed25519_codeberg
+      Host raspberrypi-2
+        Hostname 100.116.42.31
+        User pi
     '';
   };
 }

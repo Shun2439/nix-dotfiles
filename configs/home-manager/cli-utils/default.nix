@@ -62,8 +62,6 @@
     };
   };
 
-  
-
   home.file = {
     ".config/lsd/colors.yaml".text = ''
       user: "#cba6f7"

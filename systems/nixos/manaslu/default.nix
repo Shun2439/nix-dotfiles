@@ -116,6 +116,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
     packages = with pkgs; [
       #  thunderbird
@@ -212,6 +213,12 @@
       };
     };
   };
+
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "btrfs";
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
