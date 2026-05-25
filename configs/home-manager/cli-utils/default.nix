@@ -39,6 +39,8 @@
     tailscale
 
     brightnessctl
+
+    rip2
   ];
 
   programs.zoxide = {
