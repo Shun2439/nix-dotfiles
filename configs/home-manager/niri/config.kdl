@@ -190,9 +190,9 @@ layout {
         // Changing the color space is also supported, check the wiki for more info.
         //
         // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
-    // active-gradient from="#fab387e5" to="#89b4fae5" angle=45 // Mocha
-    // active-gradient from="#d20f39e5" to="#179299e5" angle=45 // Latte
-    active-gradient from="#fe640bb0" to="#1e66f5b0" angle=30 // Latte
+        active-gradient from="#fab387" to="#b4befe" angle=45 // Mocha
+        // active-gradient from="#d20f39e5" to="#179299e5" angle=45 // Latte
+        // active-gradient from="#fe640bb0" to="#1e66f5b0" angle=30 // Latte
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
         // To do that, set relative-to="workspace-view".
