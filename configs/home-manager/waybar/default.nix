@@ -19,7 +19,7 @@
           "memory"
           "temperature"
           "battery"
-          "clock"
+          # "clock"
           "tray"
           "custom/lock"
           "custom/power"
@@ -45,17 +45,17 @@
           # format-connected-battery = " {device_alias} {icon} {device_battery_percentage}%";
           format-connected-battery = " {device_alias} {icon}";
           format-icons = [
-            "󰥇 "
-            "󰤾 "
-            "󰤿 "
-            "󰥀 "
-            "󰥁 "
-            "󰥂 "
-            "󰥃 "
-            "󰥄 "
-            "󰥅 "
-            "󰥆 "
-            "󰥈 "
+            "󰥇"
+            "󰤾"
+            "󰤿"
+            "󰥀"
+            "󰥁"
+            "󰥂"
+            "󰥃"
+            "󰥄"
+            "󰥅"
+            "󰥆"
+            "󰥈"
           ];
           on-click = "${pkgs.blueman}/bin/blueman-manager";
           tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
@@ -66,7 +66,6 @@
         };
 
         "network" = {
-          # format-wifi = "{icon} {essid}({signalStrength}%)";
           format-wifi = "{icon} {essid}";
           format-icons = [
             "󰤯"
@@ -78,8 +77,8 @@
         };
 
         "cpu" = {
-          "format" = "{icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7}";
-          "format-icons" = [
+          format = "{icon} {usage}%";
+          format-icons = [
             "▁"
             "▂"
             "▃"
@@ -96,7 +95,14 @@
         };
 
         "temperature" = {
-          format = "󱩅 {temperatureC}°C";
+          format = "{icon} {temperatureC}°C";
+          format-icons = [
+            "" # empty
+            ""
+            "" # half
+            ""
+            "" # full
+          ];
         };
 
         # IME?
@@ -105,10 +111,10 @@
           spacing = 10;
         };
         "custom/music" = {
-          format = "  {}";
+          format = " {}";
           escape = true;
           interval = 5;
-          # tooltip = false;
+          tooltip = false;
           exec = "playerctl metadata --format='{{ artist }} / {{ title }}'";
           on-click = "playerctl play-pause";
           max-length = 50;
@@ -141,26 +147,40 @@
             critical = 15;
           };
           format = "{icon} {capacity}%";
-          format-charging = "󰂄 {capacity}%";
-          format-plugged = "󱐥 {capacity}%";
-          # "format-alt" = "{icon}";
-          format-icons = [
-            "󰂃 "
-            "󰁺 "
-            "󰁻 "
-            "󰁼 "
-            "󰁽 "
-            "󰁾 "
-            "󰁿 "
-            "󰂀 "
-            "󰂁 "
-            "󰂂 "
-            "󰁹 "
-          ];
+          "format-alt" = "{time} remaining";
+          format-icons = {
+            default = [
+              "󰂃"
+              "󰁺"
+              "󰁻"
+              "󰁼"
+              "󰁽"
+              "󰁾"
+              "󰁿"
+              "󰂀"
+              "󰂁"
+              "󰂂"
+              "󰁹"
+            ];
+            # charging = [
+            plugged = [
+              "󰢟"
+              "󰢜"
+              "󰂆"
+              "󰂇"
+              "󰂈"
+              "󰢝"
+              "󰂉"
+              "󰢞"
+              "󰂊"
+              "󰂋"
+              "󰂅"
+            ];
+          };
         };
         "pulseaudio" = {
-          "scroll-step" = 1; # %, can be a float
-          format = "{icon} {volume}%";
+          scroll-step = 1; # %, can be a float
+          format = "{icon} {desc} {volume}%";
           format-muted = "";
           format-icons = {
             default = [

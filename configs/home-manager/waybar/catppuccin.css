@@ -1,37 +1,38 @@
 * {
-  font-family: Moralerspace Radon HW;
-  font-size: 15px;
-  min-height: 0;
+    font-family: Moralerspace Neon HW;
+    /* font-family: Noto Sans CJK JP; */
+    font-size: 15px;
+    min-height: 0;
 }
 
 #waybar {
-  background: transparent;
-  color: @text;
-  /* margin: 5px 5px; */
-  margin: 5px 5px 0px 5px;
+    background: transparent;
+    color: @text;
+    /* margin: 5px 5px; */
+    margin: 5px 5px 0px 5px;
 }
 
 #workspaces {
-  border-radius: 1rem;
-  margin: 5px;
-  background-color: @surface0;
-  margin-left: 1rem;
+    border-radius: 1rem;
+    margin: 5px;
+    background-color: @surface0;
+    margin-left: 1rem;
 }
 
 #workspaces button {
-  color: @lavender;
-  border-radius: 1rem;
-  padding: 0.4rem;
+    color: @lavender;
+    border-radius: 1rem;
+    padding: 0.4rem;
 }
 
 #workspaces button.active {
-  color: @sky;
-  border-radius: 1rem;
+    color: @sky;
+    border-radius: 1rem;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
-  border-radius: 1rem;
+    color: @sapphire;
+    border-radius: 1rem;
 }
 
 #custom-music,
@@ -47,80 +48,85 @@
 #tray,
 #custom-lock,
 #custom-power {
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
 }
 
 #custom-music {
-  color: @pink;
-  border-radius: 1rem;
+    color: @pink;
+    border-radius: 1rem;
 }
 
 #pulseaudio {
-  color: @mauve;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
+    color: @mauve;
+    border-radius: 1rem 0px 0px 1rem;
+    margin-left: 1rem;
 }
 
 #bluetooth {
-  color: @red;
+    color: @blue;
 }
 
 #network {
-  color: @maroon;
+    color: @maroon;
 }
 
 #cpu {
-  color: @peach;
+    color: @peach;
 }
 
 #memory {
-  color: @yellow;
+    color: @green;
 }
 
 #temperature {
-  color: @green;
+    color: @teal;
 }
 
 #battery {
-  color: @teal;
-  color: @sapphire;
+    color: @yellow;
 }
 
 #battery.charging {
-  color: @teal;
+    color: @yellow;
 }
 
 #battery.warning:not(.charging) {
-  color: @red;
+    color: @red;
 }
 
-#backlight, #battery {
-  border-radius: 0;
+#battery.critical:not(.charging) {
+    color: @red;
+}
+
+#backlight,
+#battery {
+    border-radius: 0;
+    border-radius: 0px 1rem 1rem 0px;
+    margin-right: 1rem;
 }
 
 #clock {
-  color: @sky;
-  border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
+    color: @sky;
+    border-radius: 0px 1rem 1rem 0px;
+    margin-right: 1rem;
 }
 
 /* IME? */
 #tray {
-  color: @sapphire;
-  margin-right: 1rem;
-  border-radius: 1rem;
+    color: @sapphire;
+    margin-right: 1rem;
+    border-radius: 1rem;
 }
 
 #custom-lock {
-  color: @blue;
-  border-radius: 1rem 0px 0px 1rem;
+    color: @red;
+    border-radius: 1rem 0px 0px 1rem;
 }
 
 #custom-power {
-  color: @lavender;
-  margin-right: 1rem;
-  border-radius: 0px 1rem 1rem 0px;
+    color: @lavender;
+    margin-right: 1rem;
+    border-radius: 0px 1rem 1rem 0px;
 }
-
