@@ -180,7 +180,7 @@
         };
         "pulseaudio" = {
           scroll-step = 1; # %, can be a float
-          format = "{icon} {desc} {volume}%";
+          format = "{icon} {volume}%";
           format-muted = "";
           format-icons = {
             default = [
