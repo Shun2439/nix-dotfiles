@@ -78,6 +78,9 @@
 
     # Go
     gopls
+    gomodifytags
+    gotests
+    gore
 
     cljfmt
 
@@ -85,6 +88,7 @@
 
     # Docker
     dockerfile-language-server
+    dockfmt
 
     # wl-clipboard
     (pkgs.writeShellScriptBin "nosetests" ''
@@ -103,6 +107,8 @@
     #     cp *.ttf $out/share/fonts/truetype/
     #   '';
     # })
+
+    maxima
   ];
 
 }
