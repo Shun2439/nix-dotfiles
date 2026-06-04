@@ -22,6 +22,7 @@
     rpi-imager
 
     # plasma5Packages.kdeconnect-kde
+    obsidian # unfree
     tuxguitar
   ];
 }
