@@ -24,6 +24,8 @@
     # plasma5Packages.kdeconnect-kde
     obsidian # unfree
     tuxguitar
+
+    anki
   ];
 }
 
