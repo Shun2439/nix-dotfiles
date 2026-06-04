@@ -212,17 +212,21 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '(
-   ;; (prolog . t)
    (C . t)
-   (ruby . t)
-   (octave . t)
-   (python . t)
-   (js . t)
-   (java . t)
-   ;; (dart . t)
-   (haskell . t)
    (shell . t)
+   (haskell . t)
+   (java . t)
+   (lisp . t)
+   (maxima . t)
+   (js . t)
+   (octave . t)
+   (plantuml . t)
+   (python . t)
+   (ruby . t)
+
    (go . t)
+   ;; (dart . t)
+   ;; (prolog . t)
    ))
 
 ;; Whitespace cleanup
