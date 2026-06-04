@@ -43,5 +43,7 @@
 
     # Debuggers
     lldb
+
+    clojure
   ];
 }
