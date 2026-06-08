@@ -2,9 +2,9 @@
 {
   programs.ghostty = {
     enable = true;
-    enableFishIntegration = true;
-    # settings = {
-    #   theme = "catppuccin-mocha";
-    # };
+    settings = {
+      font-family = "Moralerspace Radon HW";
+      theme = "Catppuccin Mocha";
+    };
   };
 }
