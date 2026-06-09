@@ -17,6 +17,10 @@
         Hostname codeberg.org
         User git
         IdentityFile ~/.ssh/id_ed25519_codeberg
+      Host dojo.pwn.college
+        Hostname dojo.pwn.college
+        User hacker
+        IdentityFile ~/.ssh/id_ed25519_pwn
       Host raspberrypi-2
         Hostname 100.116.42.31
         User pi
