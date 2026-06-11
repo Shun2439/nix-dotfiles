@@ -88,7 +88,12 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      epson-escpr2
+    ];
+  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
