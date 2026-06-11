@@ -22,10 +22,11 @@
           hash = "sha256-gd195o0acZL8AhGvcLLQYxd1VWvUYjpVRMOT5D7zDME=";
         };
         installPhase = ''
-        mkdir -p $out/share/fonts/truetype
-        cp *.ttf $out/share/fonts/truetype/
+          mkdir -p $out/share/fonts/truetype
+          cp *.ttf $out/share/fonts/truetype/
         '';
       })
+      texlivePackages.euler-math
     ];
 
     fontDir.enable = true;
