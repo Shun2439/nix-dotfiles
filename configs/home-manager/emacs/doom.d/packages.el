@@ -66,3 +66,5 @@
 (package! vue-mode)
 
 (package! org-cliplink)
+
+(package! blamer)

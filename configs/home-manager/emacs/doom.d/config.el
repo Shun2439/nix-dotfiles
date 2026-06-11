@@ -318,3 +318,12 @@
   (map! :map org-mode-map
         :localleader
         :desc "Insert link from clipboard" "l l" #'org-cliplink))
+(use-package! blamer
+  :bind (:map evil-normal-state-map
+              ("SPC g i" . blamer-show-posframe-commit-info))
+  :defer 20
+  :custom
+  (blamer-idle-time 0.3)
+  (blamer-min-offset 70)
+  :config
+  (global-blamer-mode 1))
