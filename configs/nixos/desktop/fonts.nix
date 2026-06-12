@@ -12,7 +12,8 @@
       symbola
       nerd-fonts.symbols-only
 
-      ipafont
+      ipaexfont
+
 
       (stdenvNoCC.mkDerivation rec {
         pname = "moralerspace";
@@ -26,6 +27,8 @@
           cp *.ttf $out/share/fonts/truetype/
         '';
       })
+
+      texlivePackages.haranoaji
       texlivePackages.euler-math
     ];
 
