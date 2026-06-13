@@ -38,8 +38,24 @@ in
   #   workspace =
   #     (lib.genList (n: "${toString (n+1)}, monitor:${mainMonitor}") 10);
   # };
-  home.sessionVariables = {
-    GTK_USE_PORTAL = "1";
-  };
-}
+  home = {
+    sessionVariables = {
+      GTK_USE_PORTAL = "1";
+      XCURSOR_SIZE = "12";
+    };
+    packages = with pkgs; [
+      wl-clipboard
 
+      tailscale
+
+      brightnessctl
+
+      evtest
+
+      playerctl
+
+      rofimoji
+    ];
+  };
+
+}

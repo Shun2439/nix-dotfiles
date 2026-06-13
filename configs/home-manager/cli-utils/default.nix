@@ -34,15 +34,7 @@
     toilet
     qrencode
 
-    playerctl
-
-    tailscale
-
-    brightnessctl
-
     rip2
-
-    evtest
   ];
 
   programs.zoxide = {
@@ -108,4 +100,6 @@
           conflicted: "#f38ba8"
     '';
   };
+
+  services.cliphist.enable = true;
 }
