@@ -35,13 +35,14 @@
     fontDir.enable = true;
 
     fontconfig = {
+      enable = true;
       defaultFonts = {
         serif = [
-          "Noto Serif CJK JP"
+          "Harano Aji Mincho"
           "Noto Color Emoji"
         ];
         sansSerif = [
-          "Noto Sans CJK JP"
+          "Harano Aji Gothic"
           "Noto Color Emoji"
         ];
         monospace = [
