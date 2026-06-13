@@ -278,9 +278,10 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "mako"
-spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-i" "/home/shun/Pictures/j_3840x2160_5-6.jpg"
+// spawn-at-startup "mako"
+// spawn-at-startup "waybar"
+// spawn-at-startup "swaybg" "-i" "/home/shun/Pictures/wallpaper.jpg"
+spawn-at-startup "noctalia-shell"
 spawn-at-startup "fcitx5" "--replace"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -337,6 +338,7 @@ window-rule {
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"vivaldi$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
@@ -376,8 +378,10 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: wezterm" { spawn "wezterm"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+D hotkey-overlay-title="Run Application Launcher" { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock --font 'Moralerspace Neon HW' --screenshot --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color 89b4fa --key-hl-color f5e0dc --text-color cdd6f4 --line-color 00000000 --inside-color 1e1e2e88 --separator-color 00000000"; }
+                                                                                                                                                                                                                                                       // Blue                  Rosewater           Text                                        Base 
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.

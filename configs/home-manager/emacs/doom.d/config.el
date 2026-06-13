@@ -66,7 +66,7 @@
 (after! ox-latex
   (setq org-latex-listings t)
   ;; (setq org-latex-listings 'minted)
-
+  (add-to-list 'org-latex-caption-above 'src-block)
   (setq org-latex-default-class "jlreq-article")
   ;; (setq org-latex-pdf-process '("latexmk -lualatex -pdflatex='pdflatex -shell-escape' %f"))
   (setq org-latex-pdf-process '("latexmk -pdflua %f"))
@@ -77,13 +77,13 @@
                  "\\documentclass[11pt,paper=a4]{jlreq}
 [NO-DEFAULT-PACKAGES]
 \\usepackage{luatexja}
-\\usepackage{luatexja-fontspec}
+% \\usepackage{luatexja-fontspec}
 % \\usepackage{amsmath}
 % \\usepackage{newtxtext,newtxmath}
 \\usepackage{graphicx}
 \\usepackage{hyperref}
-% \\usepackage{bm}
-\\hypersetup{pdfencoding=auto,colorlinks=true}"
+% \\usepackage{bm} % make math charactors bold?
+% \\hypersetup{pdfencoding=auto,colorlinks=true}"
                  ("\\section{%s}" . "\\section*{%s}")
                  ("\\subsection{%s}" . "\\subsection*{%s}")
                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")

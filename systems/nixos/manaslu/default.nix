@@ -122,6 +122,7 @@
       "networkmanager"
       "wheel"
       "docker"
+      "input"
     ];
     packages = with pkgs; [
       #  thunderbird
@@ -233,6 +234,10 @@
     trustedInterfaces = [ "tailscale0" ];
     allowedUDPPorts = [ config.services.tailscale.port ];
   };
+
+  services.power-profiles-daemon.enable = true;
+
+  services.upower.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

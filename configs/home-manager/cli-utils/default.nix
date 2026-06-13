@@ -41,6 +41,8 @@
     brightnessctl
 
     rip2
+
+    evtest
   ];
 
   programs.zoxide = {

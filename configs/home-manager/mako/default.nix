@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   services.mako = {
-    enable = true;
+    enable = false;
     settings = {
       # source: https://github.com/catppuccin/mako/blob/main/themes/catppuccin-mocha/catppuccin-mocha-lavender
 
