@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ ... }:
 {
   # home-manager.users.drfoobar = {
   #   # import the home manager module
@@ -26,13 +26,31 @@
               id = "Network";
             }
             {
+              id = "plugin:tailscale";
+              defaultSettings = {
+                compactMode = true;
+                hideDisconnected = true;
+                terminalCommand = "wezterm";
+              };
+            }
+            {
+              id = "plugin:cloudflare-warp";
+            }
+            {
               id = "Bluetooth";
             }
             {
               id = "Volume";
             }
+            {
+              id = "plugin:monitor-layout";
+            }
           ];
           center = [
+            {
+              id = "NotificationHistory";
+              hideWhenZero = true;
+            }
             {
               hideUnoccupied = false;
               id = "Workspace";
