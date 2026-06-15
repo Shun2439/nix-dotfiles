@@ -81,7 +81,10 @@
             }
             {
               alwaysShowPercentage = true;
+              hideIfNotDetected = true;
               id = "Battery";
+              showNoctaliaPerformance = true;
+              showPowerProfiles = true;
               warningThreshold = 30;
             }
             {
