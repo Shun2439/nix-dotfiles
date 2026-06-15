@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.waybar = {
-    enable = true;
+    enable = false;
     style = (builtins.readFile ./mocha.css) + (builtins.readFile ./catppuccin.css);
 
     settings = {

@@ -1,14 +1,12 @@
 {
-  config,
   pkgs,
-  inputs,
   ...
 }:
 {
   imports = [
-    ../waybar
+    ../waybar # use noctalia
     ../fuzzel
-    ../mako
+    ../mako # use noctalia
   ];
 
   home.packages = with pkgs; [
@@ -16,9 +14,9 @@
 
     # fuzzel
     # swaylock
-    swaylock-effects
-    swaybg # wallpaper
-    wlogout
+    # swaylock-effects # use noctalia
+    # swaybg # wallpaper
+    # wlogout
   ];
 
   home.file.".config/niri/config.kdl".source = ./config.kdl;
