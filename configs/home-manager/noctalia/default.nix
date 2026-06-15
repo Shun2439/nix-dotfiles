@@ -29,10 +29,7 @@
               id = "Bluetooth";
             }
             {
-              id = "plugin:slowbongo";
-              defaultSSettings = {
-                tappyMode = true;
-              };
+              id = "Volume";
             }
           ];
           center = [
@@ -47,6 +44,23 @@
             }
           ];
           right = [
+            {
+              id = "plugin:slowbongo";
+              defaultSSettings = {
+                tappyMode = true;
+              };
+            }
+            {
+              compactMode = false;
+              idskPath = "/";
+              id = "SystemMonitor";
+              showCpuTemp = true;
+              showCpuUsage = true;
+              showDiskUsage = true;
+              showMemoryUsage = true;
+              showSwapUsage = true;
+              useMonospaceFont = true;
+            }
             {
               alwaysShowPercentage = true;
               id = "Battery";
