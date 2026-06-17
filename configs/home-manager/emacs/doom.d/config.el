@@ -201,6 +201,8 @@
   (setq org-log-done 'note)
   (setq org-log-into-drawer t)
 
+  (setq org-startup-folded 'content)
+
   (setq org-agenda-files
         (seq-filter
          (lambda (file)
