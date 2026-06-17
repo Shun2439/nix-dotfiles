@@ -174,6 +174,7 @@
       # background = "${./wallpaper.png}";
       loginBackground = true;
     })
+    comma
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
