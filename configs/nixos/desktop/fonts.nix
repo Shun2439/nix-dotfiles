@@ -30,6 +30,8 @@
 
       texlivePackages.haranoaji
       texlivePackages.euler-math
+
+      helvetica-neue-lt-std
     ];
 
     fontDir.enable = true;
