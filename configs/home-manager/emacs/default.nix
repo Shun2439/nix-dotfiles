@@ -25,16 +25,21 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    aspell
+    hunspell
+    hunspellDicts.en_US
+
     sqlite
+
     gnumake
     cargo
     rustc
+    cmake
+
     pandoc
     gnuplot
 
     gnutls
-    cmake
+
     nixfmt
     grip
     graphviz

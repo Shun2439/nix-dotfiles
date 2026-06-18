@@ -26,7 +26,7 @@
 
        :checkers
        syntax
-       spell
+       (spell +hunspell +everywhere)
 
        :tools
        (eval +overlay)
