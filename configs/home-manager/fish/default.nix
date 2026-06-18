@@ -67,9 +67,9 @@
 
       e = "emacsclient";
       lg = "lazygit";
-      nv="nvim";
+      nv = "nvim";
 
-      proot="cd $(git rev-parse --show-toplevel)";
+      proot = "cd $(git rev-parse --show-toplevel)";
     };
   };
 
@@ -80,4 +80,9 @@
       yuys13/fish-ghq-fzf
     '';
   };
+  xdg.configFile."fish/completions/niri.fish".text = builtins.readFile (
+    pkgs.runCommand "niri-fish-completions" { } ''
+      ${pkgs.niri}/bin/niri completions fish > $out
+    ''
+  );
 }
