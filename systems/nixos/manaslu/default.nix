@@ -174,6 +174,8 @@
       # background = "${./wallpaper.png}";
       loginBackground = true;
     })
+
+    rclone # for gdrive
     comma
   ];
   # Some programs need SUID wrappers, can be configured further or are
