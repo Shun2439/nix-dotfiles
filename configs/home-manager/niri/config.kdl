@@ -419,6 +419,7 @@ binds {
 
     Mod+N { spawn "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"; }
     Mod+A { spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
+    Mod+E { spawn "nautilus"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
