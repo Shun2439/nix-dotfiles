@@ -381,7 +381,8 @@ binds {
     // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+D hotkey-overlay-title="Run Application Launcher" { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
 
-    Super+L hotkey-overlay-title="Lock the Screen: Noctalia lock" { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    Super+Shift+L { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "lockAndSuspend"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: Noctalia lock" { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
