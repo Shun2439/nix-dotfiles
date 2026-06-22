@@ -32,6 +32,8 @@
       texlivePackages.euler-math
 
       helvetica-neue-lt-std
+
+      biz-ud-gothic
     ];
 
     fontDir.enable = true;
@@ -44,7 +46,8 @@
           "Noto Color Emoji"
         ];
         sansSerif = [
-          "Harano Aji Gothic"
+          "BIZ UDGothic"
+          # "Harano Aji Gothic"
           "Noto Color Emoji"
         ];
         monospace = [
