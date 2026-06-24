@@ -15,6 +15,7 @@
     ./hardware-configuration.nix
     ../../../configs/nixos/desktop/fcitx5.nix
     ../../../configs/nixos/desktop/fonts.nix
+    ../../../configs/nixos/samba.nix
   ];
 
   # Bootloader.
