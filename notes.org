@@ -1,12 +1,11 @@
-* Issues [1/3]
+* Issues [2/7]
 ** Emacs error
 #+begin_verse
 Company: An error occurred in auto-begin
 Company: frontend company-box-frontend error "Wrong type argument: window-live-p, nil" on command show
 #+end_verse
 
-[[https://gemini.google.com/share/083c623679fe]]
-
+[[https://gemini.google.com/share/083c623679fe][‎Gemini - direct access to Google AI]]
 ** DONE SKK kakutei
 CLOSED: [2026-04-15 水 11:27]
 :LOGBOOK:
@@ -43,7 +42,11 @@ CLOSED: [2026-04-15 水 11:27]
 CLOSED: [2026-06-23 火 10:32]
 :LOGBOOK:
 - CLOSING NOTE [2026-06-23 火 10:32] \\
-  Noctala に移ったので解決？
+  Noctalia に移ったので解決？
 
   [[https://github.com/Shun2439/nix-dotfiles/commit/b80f8da][chore: add noctalia · Shun2439/nix-dotfiles@b80f8da · GitHub]]
 :END:
+** TODO wlogout の修正
+Lock、Logout が怪しい
+** TODO Dual boot
+おそらく Windows が ~/boot~ を書き換えるせいで NixOS を起動できなくなる。
