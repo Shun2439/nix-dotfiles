@@ -1,4 +1,5 @@
-# dotfiles with nix
+# dotfiles with nix <img src="https://img.shields.io/badge/NixOS-5277C3?style=for-the-badge&logo=NixOS&logoColor=white"/>
+
 
 [Zenn Scraps](https://zenn.dev/shun2439/scraps/cd35141f62e704)
 
