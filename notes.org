@@ -45,5 +45,5 @@ CLOSED: [2026-06-23 火 10:32]
 - CLOSING NOTE [2026-06-23 火 10:32] \\
   Noctala に移ったので解決？
 
-  Shun2439@b80f8dada0271aa0546950d9d439e51407a6e865
+  [[https://github.com/Shun2439/nix-dotfiles/commit/b80f8da][chore: add noctalia · Shun2439/nix-dotfiles@b80f8da · GitHub]]
 :END:
