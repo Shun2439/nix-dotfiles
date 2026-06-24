@@ -39,3 +39,11 @@ CLOSED: [2026-04-15 水 11:27]
           ...mPackages/start/snacks.nvim/lua/snacks/picker/select.lua:59: in function <...mPackages/start/snacks.nvim/lua/snacks/picker/select.lua:58>
   #+end_example
 :END:
+** DONE 通知のテーマ変更
+CLOSED: [2026-06-23 火 10:32]
+:LOGBOOK:
+- CLOSING NOTE [2026-06-23 火 10:32] \\
+  Noctala に移ったので解決？
+
+  Shun2439@b80f8da
+:END:
