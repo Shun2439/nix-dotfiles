@@ -12,8 +12,11 @@ in
   imports = [
     ../../../modules/home-manager
     # ../../../configs/nixos/core/nixos.nix
+
     ../../../configs/home-manager/wezterm
     ../../../configs/home-manager/ghostty
+    ../../../configs/home-manager/kitty
+
     ../../../configs/home-manager/browser
     # ../../../configs/home-manager/hyprland
     ../../../configs/home-manager/niri
