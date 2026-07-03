@@ -1,7 +1,5 @@
 {
-  configs,
   pkgs,
-  lib,
   ...
 }:
 let
@@ -30,20 +28,7 @@ in
     username = "shun";
     homeDirectory = "/home/${username}";
     stateVersion = "24.11";
-  };
-
-  # wayland.windowManager.hyprland.settings = {
-  #   monitor = [
-  #     "${mainMonitor}, 2560x1600@60, 1366x0, 1"
-  #     "${subMonitor}, 1366x768@60, 0x0, 1"
-  #   ];
-  #   input.kb_layout = "jp";
-  #   workspace =
-  #     (lib.genList (n: "${toString (n+1)}, monitor:${mainMonitor}") 10);
-  # };
-  home = {
     sessionVariables = {
-      GTK_USE_PORTAL = "1";
       XCURSOR_SIZE = "12";
     };
     packages = with pkgs; [
@@ -60,5 +45,4 @@ in
       rofimoji
     ];
   };
-
 }
