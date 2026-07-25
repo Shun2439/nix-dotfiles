@@ -16,6 +16,8 @@
     ../../../configs/nixos/desktop/fcitx5.nix
     ../../../configs/nixos/desktop/fonts.nix
     ../../../configs/nixos/samba.nix
+    ../../../configs/nixos/core/appimage.nix
+    ../../../configs/nixos/core/nix-ld.nix
   ];
 
   # Bootloader.
@@ -178,6 +180,7 @@
 
     rclone # for gdrive
     comma
+    xwayland
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

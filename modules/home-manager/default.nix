@@ -1,7 +1,4 @@
 {
-  config,
-  pkgs,
-  inputs,
   ...
 }:
 {
@@ -28,7 +25,11 @@
     ../../configs/home-manager/eza
 
     ../../configs/home-manager/ctf.nix
+
+    ../../configs/home-manager/buzz
   ];
 
-  programs.home-manager.enable = true;
+  programs.home-manager = {
+    enable = true;
+  };
 }

@@ -52,6 +52,7 @@
       self,
       nixpkgs,
       flake-parts,
+      home-manager,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -94,6 +95,13 @@
           };
 
           formatter = pkgs.nixfmt;
+
+          apps.rebuild = {
+            type = "app";
+            program = "${pkgs.writeShellScript "rebuild-nixos" ''
+              exec sudo nixos-rebuild switch --flake .
+            ''}";
+          };
         };
       flake = {
         overlays = {
@@ -113,12 +121,31 @@
             system = "x86_64-linux";
             modules = [
               ./systems/nixos/manaslu
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {
+                  inherit inputs;
+                };
+                home-manager.sharedModules = [
+                  inputs.nixvim.homeModules.nixvim
+                  inputs.nix-doom-emacs-unstraightened.homeModule
+                  inputs.noctalia.homeModules.default
+                ];
+                home-manager.users.shun = {
+                  imports = [
+                    ./homes/nixos/manaslu
+                  ];
+                };
+              }
             ];
           };
         };
 
         homeManagerModules.default = import ./modules/home-manager;
         homeConfigurations = {
+          # WSL
           "shun2439@LAPTOP-N9FF5EU1" = self.lib.makeHomeManagerConfig {
             system = "x86_64-linux";
             username = "shun2439";
@@ -131,13 +158,6 @@
             username = "shun2439";
             modules = [
               ./homes/nixos/kilimanjaro
-            ];
-          };
-          "shun@manaslu" = self.lib.makeHomeManagerConfig {
-            system = "x86_64-linux";
-            username = "shun";
-            modules = [
-              ./homes/nixos/manaslu
             ];
           };
         };
