@@ -1,4 +1,8 @@
-{ config, pkgs, inputs, ... }: 
+{
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
     ./settings.nix
@@ -19,7 +23,6 @@
       swww
 
       grimblast
-      peek
     ])
     ++ [
       inputs.hyprsome.packages.${pkgs.system}.default
@@ -42,4 +45,3 @@
     };
   };
 }
-

@@ -41,7 +41,6 @@
   # サスペンドの方式を変える
   # boot.kernelParams = [ "mem_sleep_default=deep" ]; # 変化しなかった
 
-  # networking.hostName = "nixos"; # Define your hostname.
   networking.hostName = "manaslu"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -150,7 +149,6 @@
     };
   };
   programs.niri.enable = true;
-
   # Install firefox.
   # programs.firefox.enable = true; # Use HM, for Rustfinity
 
@@ -214,6 +212,7 @@
       ExecStart = "${pkgs.cloudflare-warp}/bin/warp-svc";
     };
   };
+
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;

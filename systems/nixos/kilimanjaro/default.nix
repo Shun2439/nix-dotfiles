@@ -16,6 +16,8 @@
 
     ../../../configs/nixos/core/tlp.nix
     ../../../configs/nixos/core/podman.nix
+    ../../../configs/nixos/core/appimage.nix
+    ../../../configs/nixos/core/nix-ld.nix
 
     ../../../configs/nixos/samba.nix
 

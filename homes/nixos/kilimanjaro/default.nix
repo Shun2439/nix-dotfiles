@@ -1,4 +1,9 @@
-{ configs, pkgs, lib, ... }:
+{
+  configs,
+  pkgs,
+  lib,
+  ...
+}:
 let
   mainMonitor = "HDMI-A-1";
   subMonitor = "LVDS-1";
@@ -10,7 +15,6 @@ in
     ../../../configs/home-manager/wezterm
     ../../../configs/home-manager/browser
     ../../../configs/home-manager/hyprland
-    ../../../configs/home-manager/development.nix
     ../../../configs/home-manager/gui-utils/default.nix
   ];
   home = rec {
@@ -25,8 +29,6 @@ in
       "${subMonitor}, 1366x768@60, 0x0, 1"
     ];
     input.kb_layout = "jp";
-    workspace =
-      (lib.genList (n: "${toString (n+1)}, monitor:${mainMonitor}") 10);
+    workspace = (lib.genList (n: "${toString (n + 1)}, monitor:${mainMonitor}") 10);
   };
 }
-

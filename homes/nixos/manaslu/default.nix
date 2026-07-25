@@ -19,7 +19,6 @@ in
     # ../../../configs/home-manager/hyprland
     ../../../configs/home-manager/niri
     ../../../configs/home-manager/noctalia
-    ../../../configs/home-manager/development.nix
     ../../../configs/home-manager/gui-utils/default.nix
 
     ../../../configs/home-manager/ssh
