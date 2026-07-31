@@ -320,6 +320,13 @@ animations {
     slowdown 2.5
 }
 
+cursor {
+    xcursor-theme "catppuccin-mocha-mauve-cursors"
+    xcursor-size 24
+
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules

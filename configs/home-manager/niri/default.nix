@@ -11,6 +11,7 @@
 
   home.packages = with pkgs; [
     tlp
+    catppuccin-cursors.mochaMauve
     (pkgs.writeShellScriptBin "monitor-switch"
       # bash
       ''
@@ -104,5 +105,8 @@
   ];
 
   home.file.".config/niri/config.kdl".source = ./config.kdl;
-  home.file.".config/niri/monitor.kdl".text = "";
+  home.file.".config/niri/monitor.kdl" = {
+    text = "";
+    force = true;
+  };
 }

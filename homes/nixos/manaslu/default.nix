@@ -28,7 +28,7 @@ in
     homeDirectory = "/home/${username}";
     stateVersion = "24.11";
     sessionVariables = {
-      XCURSOR_SIZE = "12";
+      XCURSOR_SIZE = "24";
     };
     packages = with pkgs; [
       wl-clipboard
