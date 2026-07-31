@@ -64,13 +64,13 @@
           right = [
             {
               id = "plugin:slowbongo";
-              defaultSSettings = {
+              defaultSettings = {
                 tappyMode = true;
               };
             }
             {
               compactMode = false;
-              idskPath = "/";
+              diskPath = "/";
               id = "SystemMonitor";
               showCpuTemp = true;
               showCpuUsage = true;
