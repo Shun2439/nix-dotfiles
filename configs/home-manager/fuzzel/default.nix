@@ -1,4 +1,6 @@
-{ pkgs, ... }:
+{
+  ...
+}:
 {
   programs.fuzzel = {
     enable = true;
@@ -17,12 +19,12 @@
 
       colors = {
         background = "1e1e2ecc"; # #1e1e2e Base <- hex(int(255 * 0.8))
-        text = "cdd6f4ff";       # #cdd6f4 Text
-        match = "f38ba8ff";      # #f38ba8 Red
-        selection = "585b70ff";  # #585b70 Surface 2
+        text = "cdd6f4ff"; # #cdd6f4 Text
+        match = "f38ba8ff"; # #f38ba8 Red
+        selection = "585b70ff"; # #585b70 Surface 2
         selection-text = "cdd6f4ff"; # #cdd6f4 Text
         selection-match = "f38ba8ff"; # #f38ba8 Red
-        border = "b4befeff";     # #b4befe Lavender
+        border = "b4befeff"; # #b4befe Lavender
       };
 
       border = {
