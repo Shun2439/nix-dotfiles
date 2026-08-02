@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   programs.git = {
     enable = true;
@@ -11,7 +11,7 @@
       init.defaultBranch = "main";
       commit.gpgsign = true;
       core.editor = "nv";
-      core.autocrlf = "true";
+      core.autocrlf = false;
     };
     signing = {
       key = "C16DBB4D559C7413";

@@ -21,7 +21,7 @@
       ddc-source-around
       ddc-filter-matcher_head
       ddc-filter-sorter_rank
-      # filename 
+      # filename
       ddc-source-file
 
       vim-lsp
@@ -90,22 +90,21 @@
     #           };
     #           };
     #           };
-              settings = {
-              background = "dark";
+    settings = {
+      background = "dark";
 
-              copyindent = true;
+      copyindent = true;
 
-              expandtab = true;
+      expandtab = true;
 
-              ignorecase = true;
+      ignorecase = true;
 
-              number = true;
+      number = true;
 
-              shiftwidth = 4;
-              smartcase = true;
-              tabstop = 4;
-            };
-            extraConfig = builtins.readFile ./.vimrc;
-          };
-        }
-
+      shiftwidth = 4;
+      smartcase = true;
+      tabstop = 4;
+    };
+    extraConfig = builtins.readFile ./.vimrc;
+  };
+}

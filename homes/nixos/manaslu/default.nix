@@ -2,10 +2,6 @@
   pkgs,
   ...
 }:
-let
-  mainMonitor = "HDMI-A-1";
-  subMonitor = "LVDS-1";
-in
 {
   imports = [
     ../../../modules/home-manager

@@ -11,23 +11,36 @@
         easing = "linear";
         fps = 60;
       };
-      bigfile = { enabled = true; };
+      bigfile = {
+        enabled = true;
+      };
       notifier = {
         enabled = true;
         timeout = 3000;
       };
-      quickfile = { enabled = true; };
+      quickfile = {
+        enabled = true;
+      };
       statuscolumn = {
         enabled = true;
 
-        left = [ "mark" "sign" ];
-        right = [ "fold" "git" ];
+        left = [
+          "mark"
+          "sign"
+        ];
+        right = [
+          "fold"
+          "git"
+        ];
         folds = {
           open = true;
           git_hl = true;
         };
         git = {
-          patterns = [ "GitSign" "MiniDiffSign" ];
+          patterns = [
+            "GitSign"
+            "MiniDiffSign"
+          ];
         };
         refresh = 50;
       };
@@ -76,19 +89,33 @@
           }
         ];
       };
-      dim = { enabled = true; };
+      dim = {
+        enabled = true;
+      };
       explorer = {
         enabled = true;
 
         replace_netrw = true;
         trash = true;
       };
-      lazygit = { enabled = true; };
-      picker = { enabled = true; };
-      indent = { enabled = true; };
-      input = { enabled = true; };
-      scope = { enabled = true; };
-      scroll = { enabled = true; };
+      lazygit = {
+        enabled = true;
+      };
+      picker = {
+        enabled = true;
+      };
+      indent = {
+        enabled = true;
+      };
+      input = {
+        enabled = true;
+      };
+      scope = {
+        enabled = true;
+      };
+      scroll = {
+        enabled = true;
+      };
       terminal = {
         enabled = true;
 
@@ -97,21 +124,43 @@
           wo.winhighlight = "Normal:Normal,FloatBorder:FloatBorder";
         };
       };
-      zen = { enabled = true; }; # ?
+      zen = {
+        enabled = true;
+      }; # ?
 
-      git = { enabled = true; };
-      win = { enabled = true; };
+      git = {
+        enabled = true;
+      };
+      win = {
+        enabled = true;
+      };
 
-      util = { enabled = true; };
-      scratch = { enabled = true; };
-      image = { enabled = true; };
+      util = {
+        enabled = true;
+      };
+      scratch = {
+        enabled = true;
+      };
+      image = {
+        enabled = true;
+      };
 
-      gitbrowse = { enabled = true; };
-      gh = { enabled = true; };
-      toggle = { enabled = true; };
+      gitbrowse = {
+        enabled = true;
+      };
+      gh = {
+        enabled = true;
+      };
+      toggle = {
+        enabled = true;
+      };
 
-      rename = { enabled = true; };
-      profiler = { enabled = true; };
+      rename = {
+        enabled = true;
+      };
+      profiler = {
+        enabled = true;
+      };
     };
   };
 }

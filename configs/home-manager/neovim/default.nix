@@ -16,7 +16,7 @@ in
     enable = true;
     settings = {
       font = {
-        normal = ["Moralerspace Radon HW"];
+        normal = [ "Moralerspace Radon HW" ];
         size = 14.0;
       };
       title-hidden = true;

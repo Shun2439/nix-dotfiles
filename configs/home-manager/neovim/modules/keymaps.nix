@@ -171,7 +171,7 @@
       };
     }
     ## Grep
-    { 
+    {
       mode = "n";
       key = "<leader>sb";
       action = "<cmd>lua Snacks.picker.lines()<CR>";
@@ -196,7 +196,10 @@
       };
     }
     {
-      mode = ["n" "x"];
+      mode = [
+        "n"
+        "x"
+      ];
       key = "<leader>sw";
       action = "<cmd>lua Snacks.picker.grep_word()<CR>";
 
@@ -455,7 +458,10 @@
       };
     }
     {
-      mode = ["n" "v"];
+      mode = [
+        "n"
+        "v"
+      ];
       key = "<leader>gB";
       action = "<cmd>lua Snacks.gitbrowse()<CR>";
       options = {

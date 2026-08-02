@@ -5,7 +5,7 @@
     # Line numbers
     number = true;
     relativenumber = true;
-    
+
     # Indentation
     expandtab = true;
     shiftround = true;
@@ -13,19 +13,19 @@
     softtabstop = 2;
     tabstop = 2;
     smartindent = true;
-    
+
     # Search
     # ignorecaoe = true;
     smartcase = true;
     hlsearch = false;
     incsearch = true;
-    
+
     # Display
     wrap = false;
     cursorline = true;
     termguicolors = true;
     signcolumn = "yes";
-    
+
     # Behavior
     hidden = true;
     mouse = "a";
@@ -34,11 +34,11 @@
     splitright = true;
     scrolloff = 3;
     whichwrap = "b,s,h,l,<,>,[,],~";
-    
+
     # Timeout
     timeoutlen = 500;
     updatetime = 300;
-    
+
     # Completion
     completeopt = "menu,menuone,noselect";
   };

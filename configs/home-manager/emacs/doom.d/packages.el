@@ -67,4 +67,8 @@
 
 (package! org-cliplink)
 
+(package! dimmer)
+
 (package! blamer)
+
+(package! lsp-pyright)

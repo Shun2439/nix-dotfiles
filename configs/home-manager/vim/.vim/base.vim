@@ -75,4 +75,3 @@ autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
 
 
 " https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
-

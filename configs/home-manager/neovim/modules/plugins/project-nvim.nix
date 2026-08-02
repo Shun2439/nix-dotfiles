@@ -8,7 +8,7 @@
         enabled = true;
       };
       patterns = [
-          ".git"
+        ".git"
       ];
       show_hidden = true;
       silent_chdir = false;

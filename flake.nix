@@ -50,7 +50,6 @@
   outputs =
     inputs@{
       self,
-      nixpkgs,
       flake-parts,
       home-manager,
       ...
@@ -65,8 +64,6 @@
       perSystem =
         {
           config,
-          self',
-          inputs',
           pkgs,
           ...
         }:
@@ -76,7 +73,22 @@
             settings.hooks = {
               nixfmt.enable = true;
               deadnix.enable = true;
-              statix.enable = true;
+              check-merge-conflicts.enable = true;
+              detect-private-keys.enable = true;
+              check-added-large-files.enable = true;
+              end-of-file-fixer.enable = true;
+              check-toml.enable = true;
+              shellcheck = {
+                enable = true;
+                files = "(^configs/home-manager/x/\\.xprofile$|^configs/home-manager/x/\\.xinitrc$)";
+                types = [ "text" ];
+                args = [
+                  "-s"
+                  "bash"
+                  "-e"
+                  "SC1090"
+                ];
+              };
             };
           };
 

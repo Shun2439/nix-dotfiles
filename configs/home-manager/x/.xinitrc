@@ -1,4 +1,3 @@
 source ~/.xprofile
 
 exec xmonad
-

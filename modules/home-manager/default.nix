@@ -24,6 +24,8 @@
 
     ../../configs/home-manager/eza
 
+    # ../../configs/home-manager/eww
+
     ../../configs/home-manager/ctf.nix
 
     ../../configs/home-manager/buzz

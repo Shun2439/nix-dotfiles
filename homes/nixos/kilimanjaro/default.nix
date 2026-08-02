@@ -1,9 +1,4 @@
-{
-  configs,
-  pkgs,
-  lib,
-  ...
-}:
+{ lib, ... }:
 let
   mainMonitor = "HDMI-A-1";
   subMonitor = "LVDS-1";

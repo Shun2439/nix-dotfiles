@@ -44,4 +44,3 @@ if dein#check_install()
 endif
 
 au FileType toml call dein#toml#syntax()
-

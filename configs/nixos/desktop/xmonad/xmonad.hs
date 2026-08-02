@@ -27,4 +27,3 @@ main = do
     xmobar myConfig >>= xmonad
 
 --{ https://note.kurodigi.com/xmonad-basic/ }--
-

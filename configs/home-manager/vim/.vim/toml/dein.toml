@@ -40,4 +40,3 @@ repo = 'rhysd/vim-healthcheck'
 
 [[plugins]]
 repo = 'itchyny/vim-qfedit'
-

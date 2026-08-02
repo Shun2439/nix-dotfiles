@@ -6,6 +6,7 @@
     pcmanfm
     ranger
 
+    loupe # image viewer
     vlc
     mpv
 
@@ -21,11 +22,13 @@
 
     rpi-imager
 
-    # plasma5Packages.kdeconnect-kde
+    kdePackages.kdeconnect-kde
     obsidian # unfree
+    logseq
     tuxguitar
+
+    obs-studio
 
     anki
   ];
 }
-

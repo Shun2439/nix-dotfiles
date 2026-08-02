@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 {
   wayland.windowManager.hyprland.settings = {
     general = {
@@ -37,4 +37,3 @@
     };
   };
 }
-

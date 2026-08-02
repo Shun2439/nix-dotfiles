@@ -5,4 +5,3 @@
     wofi-emoji
   ];
 }
-

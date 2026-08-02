@@ -1,6 +1,8 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-(setq fancy-splash-image (concat doom-private-dir "splash.svg"))
+;; (setq fancy-splash-image (concat doom-private-dir "splash.svg"))
+
+(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-banner)
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
@@ -19,10 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Moralerspace Radon HW" :size 16 :weight 'regular)
-      doom-unicode-font (font-spec :family "Moralerspace Radon HW")
-      doom-big-font (font-spec :family "Moralerspace Radon HW" :size 20 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "Moralerspace Radon HW" :size 16))
+(setq doom-font (font-spec :family "Moralerspace Radon HW" :size 15)
+      )
 ;;
 ;; If you or Emacs can't find your font, use 'Mx describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font'
@@ -291,7 +291,7 @@
 
   ;; 現在行の行番号をさらに強調
   `(line-number-current-line :foreground "#fab387" :weight bold) ;; Peach
-  `(org-table :foreground "#b4befe")) ;; Lavender
+  ) ;; end custom-set-faces!
 
 ;; rainbow
 (add-hook 'prog-mode-hook #'rainbow-mode)
@@ -313,6 +313,10 @@
   (direnv-mode))
 
 (add-hook 'vue-mode-hook #'lsp!)
+
+;; (setq org-edit-src-content-indentation 0)
+;; (setq org-src-preserve-indentation nil)
+
 (use-package! org-cliplink
   :after org
   :config
@@ -320,12 +324,31 @@
   (map! :map org-mode-map
         :localleader
         :desc "Insert link from clipboard" "l l" #'org-cliplink))
-(use-package! blamer
-  :bind (:map evil-normal-state-map
-              ("SPC g i" . blamer-show-posframe-commit-info))
-  :defer 20
-  :custom
-  (blamer-idle-time 0.3)
-  (blamer-min-offset 70)
-  :config
-  (global-blamer-mode 1))
+
+;; (use-package! dimmer
+;;   :config
+;;   (setq
+;;    ;; dimmer-fraction 0.7
+;;    ;; dimmer-adjustment-mode :background
+;;    dimmer-use-colorspace :rgb
+;;    dimmer-watch-frame-focus-events nil)
+;;   (dimmer-configure-which-key)
+;;   (dimmer-configure-helm)
+;;   (dimmer-configure-magit)
+;;   (dimmer-configure-org)
+;;   (dimmer-configure-company-box)
+;;   (dimmer-mode t))
+
+;; (use-package! blamer
+;;   :bind (:map evil-normal-state-map
+;;               ("SPC g i" . blamer-show-posframe-commit-info))
+;;   :defer 20
+;;   :custom
+;;   (blamer-idle-time 0.3)
+;;   (blamer-min-offset 70)
+;;   :config
+;;   (global-blamer-mode 1))
+
+(use-package! lsp-pyright
+  :defer t
+  :hook (python-mode . lsp-deferred))

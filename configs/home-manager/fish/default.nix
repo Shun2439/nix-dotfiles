@@ -13,6 +13,17 @@
           end
         '';
       };
+      fish_command_not_found = {
+        body = ''
+          if test (count $argv) -eq 1
+            and set -l target (command zoxide query -- $argv[1] 2>/dev/null)
+            builtin cd -- $target
+            commandline -f repaint
+            return 0
+          end
+          __fish_command_not_found_handler $argv
+        '';
+      };
     };
     interactiveShellInit = ''
       # Fisher bootstrap - runs once on first shell startup

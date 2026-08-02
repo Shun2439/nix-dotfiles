@@ -8,7 +8,7 @@
         width = "block";
       };
       heading = {
-        icons = [];
+        icons = [ ];
         left_pad = 0;
         right_pad = 4;
         width = "block";

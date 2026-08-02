@@ -39,4 +39,3 @@ sudo nixos-rebuild switch --flake .#<hostname>
 ## References
 
 [^1]: [Emacs/Org mode - TeX Wiki](https://texwiki.texjp.org/?Emacs%2FOrg%20mode#h20d131a)
-

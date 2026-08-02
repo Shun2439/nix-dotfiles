@@ -1,10 +1,10 @@
 { pkgs, lib, ... }:
 let
-  open-terminal = 
+  open-terminal =
     pkgs.writeScriptBin "open-terminal"
       # bash
       ''
-      hyprctl dispatch exec wezterm
+        hyprctl dispatch exec wezterm
       '';
   ws-switch =
     pkgs.writeScriptBin "ws-switch"
@@ -21,7 +21,7 @@ let
       '';
   open-wofi =
     pkgs.writeScriptBin "open-wofi"
-        # bash
+      # bash
       ''
         wofi --show drun --width 512px
       '';
@@ -34,7 +34,7 @@ let
         sleep 0.01
       '';
 
-  # monitor-switch = 
+  # monitor-switch =
   #   pkgs.writeScriptBin "monitor-switch"
   #   # bash
   #   ''
@@ -113,22 +113,22 @@ in
 
       # monitor
       # "$mainMod, p, exec, ${monitor-switch}/bin/monitor-switch"
-    ] ++ (
-      lib.flatten (
-        lib.genList (n:
-          let
-            wsNum = n + 1;
-            key = if wsNum == 10 then "0" else toString wsNum;
-          in
-          [
-            # switch workspace
-            "$mainMod, ${key}, exec, ${ws-switch}/bin/ws-switch ${toString wsNum}"
-            # move window to workspace
-            "$mainMod SHIFT, ${key}, exec, ${ws-move}/bin/ws-move ${toString wsNum}"
-          ]
-        ) 10
-      )
-    );
+    ]
+    ++ (lib.flatten (
+      lib.genList (
+        n:
+        let
+          wsNum = n + 1;
+          key = if wsNum == 10 then "0" else toString wsNum;
+        in
+        [
+          # switch workspace
+          "$mainMod, ${key}, exec, ${ws-switch}/bin/ws-switch ${toString wsNum}"
+          # move window to workspace
+          "$mainMod SHIFT, ${key}, exec, ${ws-move}/bin/ws-move ${toString wsNum}"
+        ]
+      ) 10
+    ));
 
     bindm = [
       # mouse movements
@@ -155,4 +155,3 @@ in
     ];
   };
 }
-
