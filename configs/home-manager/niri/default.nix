@@ -11,7 +11,7 @@
 
   home.packages = with pkgs; [
     tlp
-    catppuccin-cursors.mochaMauve
+    oreo-cursors-plus
     (pkgs.writeShellScriptBin "monitor-switch"
       # bash
       ''

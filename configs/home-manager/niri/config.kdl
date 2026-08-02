@@ -321,7 +321,7 @@ animations {
 }
 
 cursor {
-    xcursor-theme "catppuccin-mocha-mauve-cursors"
+    xcursor-theme "oreo_spark_black_bordered_cursors"
     xcursor-size 24
 
     hide-when-typing
