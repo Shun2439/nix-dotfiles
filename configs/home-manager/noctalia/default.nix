@@ -40,6 +40,7 @@
               id = "Bluetooth";
             }
             {
+              displayMode = "alwaysShow";
               id = "Volume";
             }
             {
@@ -105,6 +106,9 @@
       location = {
         monthBeforeDay = true;
         autoLocate = true;
+      };
+      audio = {
+        volumeStep = 1;
       };
     };
     # this may also be a string or a path to a JSON file.

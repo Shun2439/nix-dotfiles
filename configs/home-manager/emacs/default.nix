@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}:
+{ pkgs, config, ... }:
 {
   programs.doom-emacs = {
     enable = true;
@@ -10,9 +6,7 @@
     doomLocalDir = "${config.xdg.dataHome}/nix-doom";
     # emacs = pkgs.emacs;
     emacs = pkgs.emacs-pgtk;
-    extraPackages = epkgs: [
-      epkgs.treesit-grammars.with-all-grammars
-    ];
+    extraPackages = epkgs: [ epkgs.treesit-grammars.with-all-grammars ];
     extraBinPackages = with pkgs; [
       git
       ripgrep
