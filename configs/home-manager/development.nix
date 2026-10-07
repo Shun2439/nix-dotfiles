@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     vscode
+    zed-editor
     # eclipses.eclipse-java
 
     gdb
