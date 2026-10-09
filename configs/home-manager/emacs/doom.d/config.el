@@ -284,13 +284,16 @@
 
 (custom-set-faces!
   ;; コメントの色を明るめに変更
-  `(font-lock-comment-face :foreground "#a6adc8" :slant italic) ;; Subtext 0
+  `(font-lock-comment-face :foreground "#a6adc8" :slant italic) ;; Mocha Subtext 0
+  `(font-lock-comment-delimiter-face :foreground "#a6adc8" :slant italic)
 
   ;; 行番号（現在行以外）を明るく
-  `(line-number :foreground "#6c7086") ;; Overlay 0
+  `(line-number :foreground "#6c7086") ;; Mocha Overlay 0
 
   ;; 現在行の行番号をさらに強調
   `(line-number-current-line :foreground "#fab387" :weight bold) ;; Peach
+  `(org-table :foreground "#cdd6f4") ;; Mocha Text
+  `(org-document-info-keyword :foreground "#bac2de")  ;; Mocha Subtext 1
   ) ;; end custom-set-faces!
 
 ;; rainbow
