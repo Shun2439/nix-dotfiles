@@ -172,6 +172,7 @@
         org-journal-file-format "%Y%m%d.org"
         org-journal-file-type 'monthly
         org-journal-enable-agenda-integration t
+        org-journal-date-format "%D"
         ;; org-journal-encrypt-journal t
         ;; epa-file-select-keys 'silent
         ))
