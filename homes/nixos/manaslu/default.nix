@@ -25,6 +25,9 @@
     stateVersion = "24.11";
     sessionVariables = {
       XCURSOR_SIZE = "24";
+      GTK_IM_MODULE = "fcitx";
+      QT_IM_MODULE = "fcitx";
+      XMODIFIERS = "@im=fcitx";
     };
     packages = with pkgs; [
       wl-clipboard

@@ -90,7 +90,7 @@
     };
     # Configure keymap in X11
     xkb = {
-      layout = "jp";
+      layout = "jp,se";
       variant = "";
     };
   };

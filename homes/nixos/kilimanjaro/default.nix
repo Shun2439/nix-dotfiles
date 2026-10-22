@@ -23,7 +23,9 @@ in
       "${mainMonitor}, 2560x1600@60, 1366x0, 1"
       "${subMonitor}, 1366x768@60, 0x0, 1"
     ];
-    input.kb_layout = "jp";
+    input = {
+      kb_layout = "jp,se";
+    };
     workspace = (lib.genList (n: "${toString (n + 1)}, monitor:${mainMonitor}") 10);
   };
 }

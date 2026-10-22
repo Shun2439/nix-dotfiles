@@ -321,11 +321,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785613460,
-        "narHash": "sha256-9GkniXLck0g3KW2TD5Czy4DYxYK+knLh/tBzSTGUcxg=",
+        "lastModified": 1787336671,
+        "narHash": "sha256-lzONtEO5QQbx2uPzp2FulZQUHIcgwFWmAaU1MqH6j+o=",
         "owner": "mpiorowski",
         "repo": "late-sh",
-        "rev": "ea0a046b1e0d2ea56a6c2958bc3aea612b7f1eda",
+        "rev": "2959baa716575841b010f622ae3b7754a6f5f0aa",
         "type": "github"
       },
       "original": {
