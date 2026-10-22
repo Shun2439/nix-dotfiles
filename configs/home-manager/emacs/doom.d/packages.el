@@ -72,6 +72,8 @@
 (package! blamer)
 
 (package! lsp-pyright)
+
+(package! org-re-reveal)
 (package! org-books)
 
 ;; Org link beautify (thumbnails/previews for links)

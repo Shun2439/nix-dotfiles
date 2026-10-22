@@ -62,6 +62,12 @@
   (setq org-adapt-indentation t)
   )
 
+(setq-default org-re-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js")
+
+(after! org-re-reveal
+  ;; Use a CDN by default (or set to a local directory like "file:///path/to/reveal.js")
+  (setq org-re-reveal-theme "black")
+  (setq org-re-reveal-transition "slide"))
 ;; Org -> LaTeX: register jlreq class (#+LATEX_CLASS: jlreq-article)
 (after! ox-latex
   (setq org-latex-listings t)
