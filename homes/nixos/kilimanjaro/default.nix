@@ -10,7 +10,7 @@ in
     ../../../configs/home-manager/wezterm
     ../../../configs/home-manager/browser
     ../../../configs/home-manager/hyprland
-    ../../../configs/home-manager/gui-utils/default.nix
+    ../../../configs/home-manager/gui-utils
   ];
   home = rec {
     username = "shun2439";
