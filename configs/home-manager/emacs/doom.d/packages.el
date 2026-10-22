@@ -75,3 +75,6 @@
 (package! org-books)
 ;; Org link beautify (thumbnails/previews for links)
 (package! org-link-beautify :recipe (:host github :repo "emacsmirror/org-link-beautify"))
+
+;; Dired preview
+(package! dired-preview)
