@@ -72,3 +72,4 @@
 (package! blamer)
 
 (package! lsp-pyright)
+(package! org-books)

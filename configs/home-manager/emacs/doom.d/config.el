@@ -212,6 +212,9 @@
                     (string-match-p "/bak/" file))))
          (directory-files-recursively "~/org/" "\\.org$"))))
 
+(after! org-books
+  (setq org-books-file "~/org/books.org"))
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '(
