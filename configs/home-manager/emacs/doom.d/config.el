@@ -363,3 +363,6 @@
 (use-package! lsp-pyright
   :defer t
   :hook (python-mode . lsp-deferred))
+
+(use-package! dired-preview
+  :hook (dired-mode . dired-preview-mode))
