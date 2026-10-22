@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     hunspell
     hunspellDicts.en_US
+    wordnet # for Thesaurus
 
     sqlite
 
