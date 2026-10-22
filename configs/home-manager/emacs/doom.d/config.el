@@ -282,6 +282,10 @@
 (use-package! org-modern
   :hook (org-mode . org-modern-mode))
 
+(use-package! org-link-beautify
+  :after org
+  :hook (org-mode . org-link-beautify-mode))
+
 ;; transparent
 (set-frame-parameter nil 'alpha-background 75)
 (add-to-list 'default-frame-alist '(alpha-background . 75))
