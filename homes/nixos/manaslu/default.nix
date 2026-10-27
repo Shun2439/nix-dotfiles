@@ -16,6 +16,7 @@
     ../../../configs/home-manager/niri
     ../../../configs/home-manager/noctalia
     ../../../configs/home-manager/gui-utils
+    ../../../configs/home-manager/recording
 
     ../../../configs/home-manager/ssh
   ];

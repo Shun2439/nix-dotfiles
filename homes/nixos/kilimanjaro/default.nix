@@ -11,6 +11,7 @@ in
     ../../../configs/home-manager/browser
     ../../../configs/home-manager/hyprland
     ../../../configs/home-manager/gui-utils
+    ../../../configs/home-manager/recording
   ];
   home = rec {
     username = "shun2439";

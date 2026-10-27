@@ -15,6 +15,7 @@
     ./hardware-configuration.nix
     ../../../configs/nixos/desktop/fcitx5.nix
     ../../../configs/nixos/desktop/fonts.nix
+    ../../../configs/nixos/desktop/graphics.nix
     ../../../configs/nixos/samba.nix
     ../../../configs/nixos/core/appimage.nix
     ../../../configs/nixos/core/nix-ld.nix
@@ -144,7 +145,10 @@
           default = [ "gtk" ];
           # "org.freedesktop.impl.portal.FileChooser" = [ "gnome" ];
         };
-        niri.default = lib.mkForce [ "gtk" ];
+        niri = {
+          default = lib.mkForce [ "gtk" ];
+          "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
+        };
       };
     };
   };

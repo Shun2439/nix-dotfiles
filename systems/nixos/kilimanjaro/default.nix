@@ -22,6 +22,7 @@
 
     ../../../configs/nixos/desktop/fcitx5.nix
     ../../../configs/nixos/desktop/fonts.nix
+    ../../../configs/nixos/desktop/graphics.nix
     ../../../configs/nixos/desktop/sound.nix
     ../../../configs/nixos/desktop/hyprland.nix
   ];

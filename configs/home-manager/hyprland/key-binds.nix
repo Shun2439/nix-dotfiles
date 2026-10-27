@@ -107,7 +107,8 @@ in
       ", Print, exec, grimblast --notify copy output"
       ''$mainMod SHIFT, s, exec, grimblast --notify copysave area "$HOME/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"''
 
-      "$mainMod SHIFT, g, exec, peek"
+      # screen record
+      "SHIFT, Print, exec, record-screen"
 
       "$mainMod, space, layoutmsg, inherit_fullscreen"
 
