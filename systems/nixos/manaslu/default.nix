@@ -19,6 +19,7 @@
     ../../../configs/nixos/samba.nix
     ../../../configs/nixos/core/appimage.nix
     ../../../configs/nixos/core/nix-ld.nix
+    ../../../configs/nixos/core/nix.nix
   ];
 
   # Bootloader.
@@ -156,9 +157,6 @@
   # Install firefox.
   # programs.firefox.enable = true; # Use HM, for Rustfinity
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -256,8 +254,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
 }

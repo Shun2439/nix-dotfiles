@@ -17,6 +17,7 @@
     ../../../configs/nixos/core/podman.nix
     ../../../configs/nixos/core/appimage.nix
     ../../../configs/nixos/core/nix-ld.nix
+    ../../../configs/nixos/core/nix.nix
 
     ../../../configs/nixos/samba.nix
 
@@ -134,9 +135,6 @@
     ignoreShellProgramCheck = true; # should not use home manager?
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   services.gvfs.enable = true;
 
   services.tailscale.enable = true;
@@ -207,20 +205,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
-  nix = {
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-    };
-
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-  };
 }
