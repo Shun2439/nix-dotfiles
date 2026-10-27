@@ -110,7 +110,7 @@ in
       # screen record
       "SHIFT, Print, exec, record-screen"
 
-      "$mainMod, space, layoutmsg, inherit_fullscreen"
+      "$mainMod SHIFT, g, exec, record-gif"
 
       # monitor
       # "$mainMod, p, exec, ${monitor-switch}/bin/monitor-switch"
