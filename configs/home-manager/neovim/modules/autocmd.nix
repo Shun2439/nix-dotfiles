@@ -57,12 +57,31 @@
 
     # Custom Lua configuration
     extraConfigLua = ''
-      -- Set up custom functions
+      -- Drop the "[Process exited N]" virtual text that Neovim >= 0.12 overlays
+      -- on the cursor line when a terminal job finishes.
+      --
+      -- It used to be buffer text, so snacks.nvim's `hide_process_exited()`
+      -- (which scans buffer lines for `^%[Process exited 0%]`) removed it. Since
+      -- Neovim 0.12 it is an extmark in the `nvim.terminal.exitmsg` namespace,
+      -- so this is the only reliable way to get rid of it. It otherwise covers
+      -- the snacks dashboard logo.
+      vim.api.nvim_create_autocmd("TermClose", {
+        callback = function(ev)
+          vim.schedule(function()
+            if vim.api.nvim_buf_is_valid(ev.buf) then
+              vim.api.nvim_buf_clear_namespace(
+                ev.buf,
+                vim.api.nvim_create_namespace("nvim.terminal.exitmsg"),
+                0,
+                -1
+              )
+            end
+          end)
+        end,
+      })
 
-      -- Set up folds
-      vim.opt.foldmethod = 'indent'
-      vim.opt.foldlevel = 99
-      vim.opt.foldenable = true
+      -- Folding is managed by nvim-ufo (see modules/plugins/nvim-ufo.nix).
+      -- Do not set `foldmethod` here or ufo loses control of the folds.
 
       -- Better netrw settings
       vim.g.netrw_browse_split = 0
