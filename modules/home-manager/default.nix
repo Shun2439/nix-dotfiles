@@ -13,6 +13,7 @@
     ../../configs/home-manager/emacs
 
     ../../configs/home-manager/fzf
+    ../../configs/home-manager/atuin
 
     # ../../configs/home-manager/tmux
 
