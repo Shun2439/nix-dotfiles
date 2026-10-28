@@ -57,7 +57,15 @@
             # width: 50, height: 6
             cmd = "cat ${./logo.txt} | tte --anchor-canvas s --random-effect";
             align = "center";
-            height = 7; # avoid showing exit status. value = text height + 1
+            # Sized for the 6-line logo + the trailing line tte leaves behind.
+            # This cannot hide "[Process exited]" (that is virtual text since
+            # Neovim 0.12); see modules/autocmd.nix for the actual fix.
+            height = 7;
+            # snacks caches the terminal output for `ttl` seconds (default 3600)
+            # keyed by cmd + cwd, and replays every frame at once on a hit, which
+            # leaves the final frame on screen with no animation. `ttl = 0`
+            # disables both reading and writing the cache, so it always animates.
+            ttl = 0;
             # indent = 5;
             padding = 1;
           }
