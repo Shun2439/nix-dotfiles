@@ -17,17 +17,14 @@ let
     toggleterm = ./modules/plugins/toggleterm.nix;
     lualine = ./modules/plugins/lualine.nix;
     lsp = ./modules/lsp.nix;
-    telescope = ./modules/plugins/telescope.nix;
     persistence = ./modules/plugins/persistence.nix;
     neotest = ./modules/plugins/neotest.nix;
     render-markdown = ./modules/plugins/render-markdown.nix;
-    image = ./modules/plugins/image.nix;
     project-nvim = ./modules/plugins/project-nvim.nix;
     gitsigns = ./modules/plugins/gitsigns.nix;
     treesitter = ./modules/plugins/treesitter.nix;
     nvim-ufo = ./modules/plugins/nvim-ufo.nix;
     navic = ./modules/plugins/navic.nix;
-    barbecue = ./modules/plugins/barbecue.nix;
     dropbar = ./modules/plugins/dropbar.nix;
     utilities = ./modules/utilities.nix;
     treesj = ./modules/plugins/treesj.nix;
@@ -55,13 +52,12 @@ in
         oil
         lualine
         navic
-        barbecue # Disabled
         dropbar
         treesitter
         toggleterm
         treesj
         utilities
-        nvim-ufo # Disabled
+        nvim-ufo
         skkeleton
         snacks
         lazygit
@@ -71,14 +67,12 @@ in
       ++ (with mods; [
         conform
         lsp
-        telescope
         gitsigns
-        # autocmd
+        autocmd
         persistence
         neotest
         render-markdown
-        image
-        # project-nvim
+        project-nvim
         neovide
       ]);
   };

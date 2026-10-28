@@ -2,7 +2,7 @@
 {
   programs.nixvim.plugins.project-nvim = {
     enable = true;
-    enableTelescope = true;
+    enableTelescope = false;
     settings = {
       lsp = {
         enabled = true;

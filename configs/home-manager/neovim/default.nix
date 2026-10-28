@@ -10,7 +10,14 @@ in
     defaultEditor = true;
     version.enableNixpkgsReleaseCheck = false;
 
-    loader.enable = true;
+    luaLoader.enable = true;
+
+    # nixvim pins its own nixpkgs; make it explicit to silence the `follows`
+    # trace warning emitted by the module.
+    nixpkgs.source = pkgs.path;
+
+    # `magick` lets snacks.image convert anything beyond plain PNG.
+    extraPackages = [ pkgs.imagemagick ];
   };
   programs.neovide = {
     enable = true;
