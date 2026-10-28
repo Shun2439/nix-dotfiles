@@ -3,35 +3,29 @@
 {
   programs.nixvim.plugins.lualine = {
     enable = true;
-    options = {
-      disabled_filetypes = {
-        __unkeyed-1 = "startify";
-        __unkeyed-2 = "neo-tree";
-        statusline = [
-          "dap-repl"
-        ];
-        winbar = [
-          "aerial"
-          "dap-repl"
-          "neotest-summary"
-        ];
-      };
-      globalstatus = true;
-    };
     settings = {
+      options = {
+        disabled_filetypes = {
+          __unkeyed-1 = "startify";
+          __unkeyed-2 = "neo-tree";
+          statusline = [ "dap-repl" ];
+          winbar = [
+            "aerial"
+            "dap-repl"
+            "neotest-summary"
+          ];
+        };
+        globalstatus = true;
+      };
       sections = {
         lualine_a = [ "mode" ];
-        lualine_b = [
-          "branch"
-        ];
+        lualine_b = [ "branch" ];
         lualine_c = [
           "filename"
           "diff"
         ];
         lualine_x = [
-          {
-            __raw = "function() return vim.fn['skkeleton#mode']() end";
-          }
+          { __raw = "function() return vim.fn['skkeleton#mode']() end"; }
           "diagnostics"
           "encoding"
           "fileformat"

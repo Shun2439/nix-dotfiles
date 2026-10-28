@@ -4,7 +4,7 @@
     vim-surround.enable = true;
     nvim-autopairs.enable = true;
 
-    comment-nvim = {
+    comment = {
       enable = true;
       settings = {
         padding = true;

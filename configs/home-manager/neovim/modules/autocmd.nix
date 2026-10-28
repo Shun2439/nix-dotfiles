@@ -11,7 +11,7 @@
           __raw = ''
             function()
               vim.highlight.on_yank({
-                higroup = 'Visual',
+                higroup = "Visual",
                 timeout = 40,
               })
             end
