@@ -60,6 +60,16 @@
           icon = "󱇧 ";
         }
         {
+          __unkeyed-1 = "<leader>d";
+          group = "Diagnostics";
+          icon = "󰒡 ";
+        }
+        {
+          __unkeyed-1 = "<leader>T";
+          group = "Test";
+          icon = "󰙨 ";
+        }
+        {
           __unkeyed-1 = "<leader>N";
           group = "Neovim News";
           icon = "󰎕 ";

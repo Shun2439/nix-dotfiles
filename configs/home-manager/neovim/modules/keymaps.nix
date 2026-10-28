@@ -435,14 +435,6 @@
     }
     {
       mode = "n";
-      key = "<leader>n";
-      action = "<cmd>lua Snacks.notifier.show_history()<CR>";
-      options = {
-        desc = "Notification History";
-      };
-    }
-    {
-      mode = "n";
       key = "<leader>bd";
       action = "<cmd>lua Snacks.bufdelete()<CR>";
       options = {
@@ -452,7 +444,7 @@
     {
       mode = "n";
       key = "<leader>cR";
-      action = "<cmd>lua rename.rename_file()<CR>";
+      action = "<cmd>lua Snacks.rename.rename_file()<CR>";
       options = {
         desc = "Rename file";
       };
@@ -703,14 +695,6 @@
       action = "<cmd>ProjectDelete<CR>";
       options = {
         desc = "Project Delete";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>pt";
-      action = "<cmd>ProjectTelescope<CR>";
-      options = {
-        desc = "Project Telescope";
       };
     }
     {

@@ -15,7 +15,7 @@
     smartindent = true;
 
     # Search
-    # ignorecaoe = true;
+    ignorecase = true;
     smartcase = true;
     hlsearch = false;
     incsearch = true;
