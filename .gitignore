@@ -14,3 +14,7 @@ doom.run
 
 # 
 AGENTS.md
+/.agent-shell/
+
+# Local logs
+startup-metrics.log
