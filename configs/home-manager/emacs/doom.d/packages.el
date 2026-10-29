@@ -74,6 +74,7 @@
 (package! lsp-pyright)
 
 (package! org-re-reveal)
+
 (package! org-books)
 
 ;; Org link beautify (thumbnails/previews for links)
@@ -84,3 +85,12 @@
 
 ;; Org sidebar (tree + item sidebars)
 (package! org-sidebar :recipe (:host github :repo "alphapapa/org-sidebar"))
+;; Org writing / prettification
+(package! org-fragtog :pin "c675563af3f9ab5558cfd5ea460e2a07477b0cfd")
+(package! org-modern-indent
+  :recipe (:host github :repo "jdtsmith/org-modern-indent")
+  :pin "86bd83ee1ad95f123810eb3b116beb543db1960a")
+(package! mixed-pitch :pin "519e05f74825abf04b7d2e0e38ec040d013a125a")
+
+;; Icons in dired
+(package! nerd-icons-dired :pin "104acd8879528b8115589f35f1bbcbe231ad732f")

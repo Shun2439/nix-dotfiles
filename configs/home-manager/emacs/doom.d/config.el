@@ -68,6 +68,7 @@
   ;; Use a CDN by default (or set to a local directory like "file:///path/to/reveal.js")
   (setq org-re-reveal-theme "black")
   (setq org-re-reveal-transition "slide"))
+
 ;; Org -> LaTeX: register jlreq class (#+LATEX_CLASS: jlreq-article)
 (after! ox-latex
   (setq org-latex-listings t)
@@ -116,13 +117,13 @@
     (modify-frame-parameters
      f
      '((undecorated . t)
-       (internal-border-width . 0)
+       (internal-border-width . 10)
        (vertical-scroll-bars . nil)
        (menu-bar-lines . 0)
        (tool-bar-lines . 0)))))
 
 (add-to-list 'default-frame-alist '(undecorated . t))
-(add-to-list 'default-frame-alist '(internal-border-width . 0))
+(add-to-list 'default-frame-alist '(internal-border-width . 10))
 (add-to-list 'default-frame-alist '(vertical-scroll-bars . nil))
 (add-to-list 'default-frame-alist '(menu-bar-lines . 0))
 (add-to-list 'default-frame-alist '(tool-bar-lines . 0))
@@ -259,7 +260,8 @@
       lsp-signature-auto-activate nil
       lsp-signature-render-documentation t
       lsp-ui-doc-enable t
-      lsp-ui-doc-position 'bottom
+      lsp-ui-doc-show-with-cursor t
+      lsp-ui-doc-position 'at-point
       lsp-ui-doc-include-signature t
       lsp-ui-sideline-enable nil
       lsp-ui-sideline-show-diagnostics nil
@@ -293,10 +295,13 @@
   :hook (org-mode . org-link-beautify-mode))
 
 ;; transparent
-(set-frame-parameter nil 'alpha-background 75)
-(add-to-list 'default-frame-alist '(alpha-background . 75))
+(set-frame-parameter nil 'alpha-background 88)
+(add-to-list 'default-frame-alist '(alpha-background . 88))
 
 (custom-set-faces!
+  ;; 額装風の余白（niri の角丸と合わせる）
+  `(internal-border :background "#181825") ;; Mocha Mantle
+
   ;; コメントの色を明るめに変更
   `(font-lock-comment-face :foreground "#a6adc8" :slant italic) ;; Mocha Subtext 0
   `(font-lock-comment-delimiter-face :foreground "#a6adc8" :slant italic)
@@ -306,6 +311,8 @@
 
   ;; 現在行の行番号をさらに強調
   `(line-number-current-line :foreground "#fab387" :weight bold) ;; Peach
+
+  ;; org table row text - catppuccin-mocha text color
   `(org-table :foreground "#cdd6f4") ;; Mocha Text
   `(org-document-info-keyword :foreground "#bac2de")  ;; Mocha Subtext 1
   ) ;; end custom-set-faces!
@@ -372,3 +379,30 @@
 
 (use-package! dired-preview
   :hook (dired-mode . dired-preview-mode))
+;;; Appearance ---------------------------------------------------------------
+
+;; Smooth scrolling
+(setq pixel-scroll-precision-use-momentum t)
+(pixel-scroll-precision-mode 1)
+
+;; Modeline (upper-cased, compact project-relative paths)
+(setq doom-modeline-height 28
+      doom-modeline-buffer-file-name-style 'truncate-upto-project)
+
+;; Icons in dired
+(use-package! nerd-icons-dired
+  :hook (dired-mode . nerd-icons-dired-mode))
+
+(use-package! org-fragtog
+  :hook (org-mode . org-fragtog-mode))
+
+(use-package! org-modern-indent
+  :hook (org-mode . org-modern-indent-mode))
+
+;; Subtle 80-column guide in code buffers (no fill-column module in this Doom)
+(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
+
+;; Proportional (serif) text for prose, monospace for code
+(setq doom-variable-pitch-font (font-spec :family "Noto Serif CJK JP" :size 17))
+(use-package! mixed-pitch
+  :hook ((org-mode markdown-mode) . mixed-pitch-mode))

@@ -18,6 +18,9 @@
        (treemacs +lsp)
        tabs
        (indent-guides +balanced)
+       (emoji +unicode)
+       hl-todo
+       nav-flash
 
        :editor
        (evil +everywhere)
