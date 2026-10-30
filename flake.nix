@@ -45,6 +45,10 @@
       url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    late-sh = {
+      url = "github:mpiorowski/late-sh";
+      inputs.rust-overlay.follows = "rust-overlay";
+    };
   };
 
   outputs =

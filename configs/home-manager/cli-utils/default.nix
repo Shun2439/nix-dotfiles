@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -38,6 +39,8 @@
     qrencode
 
     rip2
+
+    inputs.late-sh.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   programs.zoxide = {
