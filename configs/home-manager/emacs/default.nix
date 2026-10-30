@@ -39,6 +39,11 @@
     graphviz
     glslang
 
+    # Lua
+    lua-language-server
+    stylua
+    lua5_4
+
     # F#
     dotnet-sdk_9
     fsautocomplete

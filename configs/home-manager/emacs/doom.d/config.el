@@ -238,6 +238,7 @@
    (ruby . t)
 
    (go . t)
+   (lua . t)
    ;; (dart . t)
    ;; (prolog . t)
    ))
@@ -325,7 +326,15 @@
 (after! lsp-mode
   (setq lsp-headerline-breadcrumb-enable t
         lsp-headerline-breadcrumb-icons-enable t
-        lsp-headerline-breadcrumb-segments '(file symbols)))
+        lsp-headerline-breadcrumb-segments '(file symbols))
+;; Lua: LSP auto-start (also set up by Doom's `:lang lua +lsp') and
+;; settings for wezterm configs (~/ghq/.../configs/home-manager/wezterm).
+(after! lsp-mode
+  (require 'lsp-lua nil t)
+  (add-hook 'lua-mode-hook #'lsp!)
+  (add-hook 'lua-ts-mode-hook #'lsp!)
+  (setq lsp-lua-runtime-version "Lua 5.4"
+        lsp-lua-diagnostics-globals ["wezterm"]))
 
 (setq scroll-margin 3)
 (setq evil-cross-lines t)

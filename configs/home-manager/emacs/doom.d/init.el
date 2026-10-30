@@ -52,6 +52,7 @@
        (rust +lsp +rust-analyzer)
        (cc +lsp +tree-sitter)
        (nix +lsp +tree-sitter)
+       (lua +lsp +tree-sitter)
        (markdown +grip)
        (org +pretty +roam +brain +gnuplot +journal +pandoc +pomodoro +present +pretty)
        (java +lsp)
