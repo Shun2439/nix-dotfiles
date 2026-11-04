@@ -1,11 +1,42 @@
-* Issues [2/7]
-** Emacs error
+* Issues [4/9]
+** TODO Emacs error
 #+begin_verse
 Company: An error occurred in auto-begin
 Company: frontend company-box-frontend error "Wrong type argument: window-live-p, nil" on command show
 #+end_verse
 
 [[https://gemini.google.com/share/083c623679fe][‎Gemini - direct access to Google AI]]
+** TODO 外部モニターの音量を変更できるようにしたい
+:LOGBOOK:
+- Note taken on [2026-05-10 日 17:29] \\
+  Niri on NixOS
+
+  ddcutil を追加してみる。
+
+  [[https://www.ddcutil.com][ddcutil and ddcui]]
+
+  ソフトウェアでできるならそっちでいいか
+:END:
+** TODO wlogout の修正
+:LOGBOOK:
+- Note taken on [2026-11-04 水 13:40] \\
+  waybar の on-click から参照されているが、wlogout はどの設定でも
+  インストールされていない。
+:END:
+Lock、Logout が怪しい
+** TODO Dual boot
+:LOGBOOK:
+- Note taken on [2026-11-04 水 13:40] \\
+  systemd-boot に Windows の extraEntries は追加済み
+  （[[file:systems/nixos/manaslu/default.nix][default.nix]]）。
+  Windows の更新で EFI エントリが書き換わる問題自体は未対策。
+:END:
+おそらく Windows が ~/boot~ を書き換えるせいで NixOS を起動できなくなる。
+** TODO Buzz
+:LOGBOOK:
+- Note taken on [2026-11-04 水 13:40] \\
+  [[file:configs/home-manager/buzz/default.nix][buzz/default.nix]] に AppImage ラッパーあり。
+:END:
 ** DONE SKK kakutei
 CLOSED: [2026-04-15 水 11:27]
 :LOGBOOK:
@@ -17,8 +48,18 @@ CLOSED: [2026-04-15 水 11:27]
 
 [[https://qiita.com/ohtsuka/items/3a5927e8ca276692ea38][Doom EmacsでSKKを使うためのTips]]
 # なんか字が抜けてる？
-** TODO Nixvim dashboard
+** DONE 通知のテーマ変更
+CLOSED: [2026-06-23 火 10:32]
 :LOGBOOK:
+- CLOSING NOTE [2026-06-23 火 10:32] \\
+  Noctalia に移ったので解決？
+
+  [[https://github.com/Shun2439/nix-dotfiles/commit/b80f8da][chore: add noctalia · Shun2439/nix-dotfiles@b80f8da · GitHub]]
+:END:
+** DONE Nixvim dashboard
+CLOSED: [2026-11-04 水 13:34]
+:LOGBOOK:
+- CLOSING NOTE [2026-11-04 水 13:34]
 - Note taken on [2026-04-22 水 20:43] \\
   #+begin_example
   [Process exited 0]
@@ -26,8 +67,13 @@ CLOSED: [2026-04-15 水 11:27]
 
   [[https://zenn.dev/vim_jp/articles/de942e6414685e][Neovim起動時にロゴをﾋｭﾝﾋｭﾝﾋｭﾝﾋｭﾝﾋｭﾝ!!ﾌﾜﾜ~~ﾝ!!する]]
 :END:
-** TODO Nixvim Project New Error
+** DONE Nixvim Project New Error
+CLOSED: [2026-11-04 水 13:40]
 :LOGBOOK:
+- CLOSING NOTE [2026-11-04 水 13:40] \\
+  project.nvim 5.3.0 で解消。`:Project` のメニューが
+  `vim.cmd.Project <subcmd>` を再実行する実装になり、ctx が nil になる
+  経路がなくなった。2026-10-28 の 02b6ee7 で再有効化済み。
 - Note taken on [2026-04-22 水 20:42] \\
   #+begin_example
   vim.schedule callback: ...ovimPackages/start/project.nvim/lua/project/commands.lua:183: attempt to index local 'ctx' (a nil value)
@@ -38,15 +84,105 @@ CLOSED: [2026-04-15 水 11:27]
           ...mPackages/start/snacks.nvim/lua/snacks/picker/select.lua:59: in function <...mPackages/start/snacks.nvim/lua/snacks/picker/select.lua:58>
   #+end_example
 :END:
-** DONE 通知のテーマ変更
-CLOSED: [2026-06-23 火 10:32]
+* Log
 :LOGBOOK:
-- CLOSING NOTE [2026-06-23 火 10:32] \\
-  Noctalia に移ったので解決？
+- Note taken on [2026-11-02 月 09:48] \\
+  LUKS?
+- Note taken on [2026-10-09 金 11:43] \\
+  Emacs のデフォルトの行番号の色はほとんど見えない
+  [[file:configs/home-manager/emacs/doom.d/config.el::299][config.el]]
 
-  [[https://github.com/Shun2439/nix-dotfiles/commit/b80f8da][chore: add noctalia · Shun2439/nix-dotfiles@b80f8da · GitHub]]
+  # 行番号指定以外に方法は？
 :END:
-** TODO wlogout の修正
-Lock、Logout が怪しい
-** TODO Dual boot
-おそらく Windows が ~/boot~ を書き換えるせいで NixOS を起動できなくなる。
+** Btrfs
+#+begin_src nix
+services.btrfs.autoScrub = {
+  enable = true;
+  interval = "weekly";
+  fileSystems = [ "/" ]; # Btrfsのルートを指定
+};
+#+end_src
+:LOGBOOK:
+- Note taken on [2026-11-03 火 14:01] \\
+  autoScrub + compress を実際に導入した。以下はその記録。
+:END:
+
+*** 現状
+- Btrfs なのは manaslu だけ（kilimanjaro は ext4）。manaslu の ~/~ は ~nvme0n1p5[/@]~、サブボリュームは ~@~ の 1 個だけ
+- docker は ~storageDriver = "btrfs"~ で稼働中
+- swap は ~/var/lib/swapfile~ (4GB) + zram 25% で構成済み
+*** 追加した設定
+- ~services.btrfs.autoScrub~ → [[file:systems/nixos/manaslu/default.nix][default.nix]]
+  ~fileSystems~ はデフォルトが ~[ "/" ]~ なので省略
+- ~compress=zstd:3~ → [[file:systems/nixos/manaslu/hardware-configuration.nix][hardware-configuration.nix]] の ~fileSystems."/".options~
+*** ハマりどころ
+- ~chattr~ / ~lsattr~ は NixOS の system PATH に無く、~sudo~ は PATH をリセットするので
+  store のパスを直接叩く（恒久対策は ~environment.systemPackages~ に ~e2fsprogs~）
+  #+begin_src shell
+  sudo /nix/store/ja4ggh64fjyja45f6jarz5iaq2fr3n8d-e2fsprogs-1.47.4-bin/bin/chattr +C /var/lib/swapfile
+  sudo "$(nix build --no-link --print-out-paths nixpkgs#e2fsprogs)/bin/chattr" +C /var/lib/swapfile
+  #+end_src
+  swapfile が圧縮されると ~swapon~ が失敗するため ~+C~ (COW/圧縮無効) を付ける。起動は継続するので致命傷にはならない
+- 圧縮はマウント時に効くので**再起動後**から。~nixos-rebuild switch~ では反映されない
+  （即時反映は ~sudo mount -o remount,compress=zstd:3 /~）
+- 既存ファイルは遡って圧縮されない。~defragment -czstd~ で回収できるが、
+  スナップショットの共有を壊すので原則やらない
+- 確認: ~findmnt -no OPTIONS /~ / ~systemctl list-timers | grep btrfs~
+*** 見送ったもの
+- snapper などのスナップショット: ブートローダが systemd-boot なので ~grub-btrfs~ の
+  起動メニュー統合が使えない。システム復旧は NixOS の世代ロールバックで足りる。
+  ~/home~ の事故対策はスナップショットより外部バックアップ (restic 等) の方が本質的
+- サブボリューム分割 (~@home~ / ~@nix~): スナップショットを取らないなら意味が薄く、データ移行も重い
+- ~noatime~（~relatime~ で誤差）、quota group（遅くなる）
+** Swap
+manaslu では対応済み（[[file:systems/nixos/manaslu/default.nix][default.nix]] の
+~swapDevices~ + ~zramSwap~ で ~/var/lib/swapfile~ 4GB + zram 25%）。
+** Cloudflare Warp
+:LOGBOOK:
+- Note taken on [2026-11-04 水 13:40] \\
+  manaslu に導入済み（[[file:systems/nixos/manaslu/default.nix][default.nix]] の
+  ~cloudflare-warp~ と ~warp-svc~）。
+:END:
+とりあえず検索してみる。
+
+#+begin_example
+nixos cf warp
+#+end_example
+
+登録を行う。
+
+#+begin_src shell
+warp-cli registration new
+#+end_src
+
+接続する。
+
+#+begin_src shell
+warp-cli connect
+#+end_src
+
+確認する。
+
+#+begin_src shell
+curl https://www.cloudflare.com/cdn-cgi/trace
+#+end_src
+
+[[https://search.nixos.org/packages?channel=unstable&query=cloudflare#show=cloudflare-warp][NixOS]]
+- [[https://developers.cloudflare.com/warp-client/get-started/linux/][Linux]]
+
+*** Switch modes
+#+begin_src shell
+warp-cli mode --help
+#+end_src
+
+- ~warp-cli mode warp~ :: トンネルを確立し、通常の UDP DNS プロキシを使用する
+- ~warp-cli mode doh~ :: トンネルを確立しない。DoH 上でプロキシ DNS のみを使用する。
+- ~warp-cli mode warp+doh~ :: トンネルを確立し、DNS に DoH を使用する。
+- ~warp-cli mode dot~ :: トンネルを確立しないでください。DoT 上でプロキシ DNS のみを使用してください。
+- ~warp-cli mode warp + dot~ :: トンネルを確立し、DNS に DoT を使用する。
+- ~warp-cli mode proxy~ :: SOCKS5 プロキシで使用するためのトンネルを確立する。
+- ~warp-cli mode tunnel_only~ :: トンネルを確立し、DNS プロキシを使用しない。
+*** WireGuard? MASQUE?
+[[https://gemini.google.com/share/be619aae09af][The answer by Gemini]]
+
+Multiplexed Application Service over QUIC Encryption

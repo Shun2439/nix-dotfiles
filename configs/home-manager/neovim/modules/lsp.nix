@@ -14,9 +14,6 @@
             winblend = 0;
           };
         };
-        progress = {
-          display.done_style = "";
-        };
       };
     };
 
