@@ -5,6 +5,7 @@
 
     pcmanfm
     ranger
+    nautilus
 
     loupe # image viewer
     vlc
