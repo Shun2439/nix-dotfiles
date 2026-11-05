@@ -7,7 +7,9 @@ in
 
   programs.nixvim = {
     enable = true;
-    defaultEditor = true;
+    # EDITOR/VISUAL are managed in modules/home-manager/default.nix
+    # (Emacs first, nvim as ALTERNATE_EDITOR).
+    defaultEditor = false;
     version.enableNixpkgsReleaseCheck = false;
 
     luaLoader.enable = true;

@@ -32,6 +32,16 @@
     ../../configs/home-manager/buzz
   ];
 
+  # Editor delegation: Emacs daemon first, nvim as the fallback when the
+  # daemon is down (e.g. right after a broken doom-emacs rebuild).
+  # `git commit` is unaffected -- core.editor = "nvim" takes precedence.
+  # NOTE: `sudo -e` may still ignore these due to sudo's env_reset.
+  home.sessionVariables = {
+    EDITOR = "emacsclient -t"; # tty callers (systemctl edit, crontab -e, ...)
+    VISUAL = "emacsclient -c"; # GUI callers get a frame
+    ALTERNATE_EDITOR = "nvim";
+  };
+
   programs.home-manager = {
     enable = true;
   };
