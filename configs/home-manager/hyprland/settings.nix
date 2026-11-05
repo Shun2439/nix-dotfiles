@@ -30,6 +30,7 @@
       "swww init && swww img ~/.config/hypr/wallpaper/main.jpg"
       "waybar"
       "fcitx5 -D"
+      "polkit-auth-agent"
       # "hypr-helper start"
     ];
     misc = {

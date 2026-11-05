@@ -283,6 +283,7 @@ layout {
 // spawn-at-startup "swaybg" "-i" "/home/shun/Pictures/wallpaper.jpg"
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "fcitx5" "--replace"
+spawn-at-startup "polkit-auth-agent"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"

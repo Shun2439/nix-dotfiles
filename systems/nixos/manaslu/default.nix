@@ -20,6 +20,7 @@
     ../../../configs/nixos/core/appimage.nix
     ../../../configs/nixos/core/nix-ld.nix
     ../../../configs/nixos/core/nix.nix
+    ../../../configs/nixos/core/storage.nix
   ];
 
   # Bootloader.

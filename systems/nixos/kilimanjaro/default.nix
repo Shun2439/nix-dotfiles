@@ -18,6 +18,7 @@
     ../../../configs/nixos/core/appimage.nix
     ../../../configs/nixos/core/nix-ld.nix
     ../../../configs/nixos/core/nix.nix
+    ../../../configs/nixos/core/storage.nix
 
     ../../../configs/nixos/samba.nix
 
@@ -134,8 +135,6 @@
     shell = pkgs.fish;
     ignoreShellProgramCheck = true; # should not use home manager?
   };
-
-  services.gvfs.enable = true;
 
   services.tailscale.enable = true;
 
