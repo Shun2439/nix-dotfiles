@@ -16,6 +16,10 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    # llama.cpp 0.7.0+ only (tolerates unanchored JSON Schema patterns used by
+    # AI clients). Keeps the main nixpkgs pin untouched.
+    nixpkgs-llama.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

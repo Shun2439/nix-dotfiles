@@ -25,6 +25,8 @@
 
     ../../configs/home-manager/eza
 
+    ../../configs/home-manager/llm
+
     # ../../configs/home-manager/eww
 
     ../../configs/home-manager/ctf.nix

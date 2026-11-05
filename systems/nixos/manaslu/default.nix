@@ -41,6 +41,12 @@
     }
   ];
 
+  # 15GB RAM でローカルLLM (llama.cpp) を動かすときの保険
+  zramSwap = {
+    enable = true;
+    memoryPercent = 25;
+  };
+
   # Btrfs の週次スクラブ (サイレントなデータ化け・SSD 劣化の早期発見)
   services.btrfs.autoScrub = {
     enable = true;
@@ -134,6 +140,8 @@
       "wheel"
       "docker"
       "input"
+      "video" # /dev/dri access for Vulkan (llama.cpp)
+      "render"
     ];
     packages = with pkgs; [
       #  thunderbird

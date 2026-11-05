@@ -386,6 +386,38 @@
   :defer t
   :hook (python-mode . lsp-deferred))
 
+(after! gptel
+  (defvar my/gptel-gemini-backend (gptel-make-gemini "Gemini" :stream t))
+
+  ;; Local llama.cpp server (configs/home-manager/llm).
+  (defvar my/gptel-llama-backend
+    (gptel-make-openai "llama.cpp"
+      :host "127.0.0.1:8080"
+      :protocol "http"
+      :endpoint "/v1/chat/completions"
+      :stream t
+      :key "sk-local"
+      :models '("qwen3-4b")))
+
+  (setq
+   ;; gptel-api-key 'auth-source
+   gptel-backend my/gptel-gemini-backend
+   gptel-model 'gemini-2.5-flash
+   gptel-default-mode 'org-mode
+   gptel-use-tools t)
+
+  (defun my/gptel-toggle-local ()
+    "Switch gptel between Gemini and the local llama.cpp server."
+    (interactive)
+    (if (eq gptel-backend my/gptel-llama-backend)
+        (setq gptel-backend my/gptel-gemini-backend
+              gptel-model 'gemini-2.5-flash)
+      (setq gptel-backend my/gptel-llama-backend
+            gptel-model 'qwen3-4b))
+    (message "gptel: %s (%s)" (gptel-backend-name gptel-backend) gptel-model))
+
+  (map! "C-c L" #'my/gptel-toggle-local))
+
 (use-package! dired-preview
   :hook (dired-mode . dired-preview-mode))
 ;;; Appearance ---------------------------------------------------------------
