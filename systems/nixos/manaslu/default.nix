@@ -41,6 +41,12 @@
     }
   ];
 
+  # Btrfs の週次スクラブ (サイレントなデータ化け・SSD 劣化の早期発見)
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "weekly";
+  };
+
   # サスペンドの方式を変える
   # boot.kernelParams = [ "mem_sleep_default=deep" ]; # 変化しなかった
 

@@ -28,7 +28,12 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/f392cd50-ca4b-4365-be99-a14bddb1a08c";
     fsType = "btrfs";
-    options = [ "subvol=@" ];
+    # compress=zstd:3: /nix/store など未圧縮データの容量削減
+    # NOTE: /var/lib/swapfile は chattr +C 済みであること (圧縮されると swapon が失敗する)
+    options = [
+      "subvol=@"
+      "compress=zstd:3"
+    ];
   };
 
   fileSystems."/boot" = {
