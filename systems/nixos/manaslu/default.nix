@@ -195,7 +195,9 @@
 
     rclone # for gdrive
     comma
-    xwayland
+    # niri が PATH から自動起動する XWayland。X11 専用アプリ (Discord 等) 用。
+    # 素の xwayland は niri では起動されないため使わない。
+    xwayland-satellite
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

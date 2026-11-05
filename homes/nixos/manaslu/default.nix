@@ -30,6 +30,9 @@
       GTK_IM_MODULE = "fcitx";
       QT_IM_MODULE = "fcitx";
       XMODIFIERS = "@im=fcitx";
+      # Electron アプリ (discord, obsidian, ...) を Wayland ネイティブで起動する。
+      # 未設定だと X11 バックエンドを選び、niri (XWayland なし) で起動に失敗する。
+      NIXOS_OZONE_WL = "1";
     };
     packages = with pkgs; [
       wl-clipboard
