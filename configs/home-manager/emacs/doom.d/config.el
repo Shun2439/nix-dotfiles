@@ -190,9 +190,13 @@
 (setq epg-pinentry-mode 'loopback)
 
 ;; Org roam configuration
+;; Doom sets `find-file-visit-truename' to t, so the org-roam db stores resolved
+;; (symlink-free) paths.  `org-roam-directory' must be resolved as well,
+;; otherwise `org-roam-list-files' returns "~/org/roam/..." while the db holds
+;; "~/ghq/gitlab.com/.../roam/...", making every file look modified on sync.
 (after! org-roam
-  (setq org-roam-directory "~/org/roam/"
-        ;; org-roam-db-location "~/.local/share/org-roam.db"
+  (setq org-roam-directory (file-truename "~/org/roam/")
+        org-roam-db-location (expand-file-name "~/.config/emacs/org-roam.db")
         ))
 
 ;; Custom settings
