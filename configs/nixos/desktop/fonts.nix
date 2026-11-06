@@ -1,39 +1,23 @@
 { pkgs, ... }:
 {
   fonts = {
+    # DejaVu / Liberation / FreeFont / Unifont と Noto CJK / Noto Color Emoji を含む
+    enableDefaultPackages = true;
+
     packages = with pkgs; [
-      noto-fonts-cjk-serif
-      noto-fonts-cjk-sans
-      noto-fonts-color-emoji
+      moralerspace-hw # Nerd Fonts のアイコンを同梱 (v2.0.0)
 
-      nerd-fonts.hack # error?
-
-      # Emacs
-      symbola
-      nerd-fonts.symbols-only
-
-      ipaexfont
-
-
-      (stdenvNoCC.mkDerivation rec {
-        pname = "moralerspace";
-        version = "2.0.0";
-        src = fetchzip {
-          url = "https://github.com/yuru7/moralerspace/releases/download/v${version}/MoralerspaceHW_v${version}.zip";
-          hash = "sha256-gd195o0acZL8AhGvcLLQYxd1VWvUYjpVRMOT5D7zDME=";
-        };
-        installPhase = ''
-          mkdir -p $out/share/fonts/truetype
-          cp *.ttf $out/share/fonts/truetype/
-        '';
-      })
-
+      # Emacs / TeX
       texlivePackages.haranoaji
       texlivePackages.euler-math
 
-      helvetica-neue-lt-std
+      ipaexfont # Zed の ui_font_family
+      d2coding # ハングルの等幅フォールバック (Moralerspace にハングルは無い)
+      biz-ud-gothic # 日本語 UI
+      source-sans # 欧文 UI
+      pretendard-jp # 韓国語 UI
 
-      biz-ud-gothic
+      helvetica-neue-lt-std
     ];
 
     fontDir.enable = true;
@@ -43,15 +27,20 @@
       defaultFonts = {
         serif = [
           "Harano Aji Mincho"
+          "Noto Serif CJK JP"
+          "Noto Serif CJK KR"
           "Noto Color Emoji"
         ];
         sansSerif = [
+          "Source Sans 3"
           "BIZ UDGothic"
-          # "Harano Aji Gothic"
+          "Pretendard JP"
+          "Noto Sans CJK JP"
           "Noto Color Emoji"
         ];
         monospace = [
           "Moralerspace Radon HW"
+          "D2Coding"
           "Noto Color Emoji"
         ];
         emoji = [ "Noto Color Emoji" ];
