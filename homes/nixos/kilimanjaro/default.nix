@@ -27,6 +27,7 @@ in
     ];
     input = {
       kb_layout = "jp,se";
+      kb_options = "grp:win_space_toggle";
     };
     workspace = (lib.genList (n: "${toString (n + 1)}, monitor:${mainMonitor}") 10);
   };

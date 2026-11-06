@@ -17,6 +17,8 @@ input {
             // For example:
             // layout "us,ru"
             layout "jp,se"
+            // NO options - fcitx5 handles all layout switching via Super+Space
+            // Physical layout switching (jp/se) is handled by fcitx5's keyboard items
 
             // If this section is empty, niri will fetch xkb settings
             // from org.freedesktop.locale1. You can control these using

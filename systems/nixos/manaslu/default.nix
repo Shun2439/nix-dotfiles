@@ -103,6 +103,7 @@
   services.xserver.xkb = {
     layout = "jp,se";
     variant = "";
+    options = "grp:win_space_toggle";
   };
 
   # Enable CUPS to print documents.
