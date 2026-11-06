@@ -17,7 +17,7 @@
        workspaces
        (treemacs +lsp)
        tabs
-       (indent-guides +balanced)
+       indent-guides
        (emoji +unicode)
        hl-todo
        nav-flash
@@ -44,17 +44,17 @@
        llm
 
        :term
-       (vterm +toggle)
+       vterm
 
        :lang
-       (javascript +typescript +tree-sitter)
+       (javascript +lsp +tree-sitter)
        (python +lsp +pyright)
-       (rust +lsp +rust-analyzer)
+       (rust +lsp)
        (cc +lsp +tree-sitter)
        (nix +lsp +tree-sitter)
        (lua +lsp +tree-sitter)
        (markdown)
-       (org +pretty +roam +brain +gnuplot +journal +noter +pandoc +pomodoro +present)
+       (org +pretty +roam +gnuplot +journal +noter +pandoc +present)
        (java +lsp)
        (haskell +lsp)
        (clojure +lsp)
