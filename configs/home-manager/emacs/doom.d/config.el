@@ -72,7 +72,13 @@
 ;; Typst export for Org
 (after! org
   (require 'ox-typst)
-  (setq org-adapt-indentation t)
+  (setq org-adapt-indentation t
+        org-export-in-background t
+        org-src-fontify-natively t)
+  ;; nix-doom-emacs: async exports run in a batch child that skips the Doom
+  ;; profile, so load it explicitly (else jlreq-article/ox-typst are missing).
+  (setq org-export-async-init-file
+        (expand-file-name "org-async-init.el" doom-user-dir))
   )
 
 (setq-default org-re-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js")
