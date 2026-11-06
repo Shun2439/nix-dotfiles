@@ -413,6 +413,14 @@ Wait up to TIMEOUT seconds (default 60) for it to come up."
     '(rainbow-delimiters-unmatched-face :foreground "#f38ba8" :weight bold)
     '(rainbow-delimiters-mismatched-face :foreground "#f38ba8" :weight bold :underline t)))
 
+;; indent-bars: 現在のインデント階層のガイドを強調
+;; (setq highlight-indent-guides-responsive t) 相当
+(after! indent-bars
+  (setq indent-bars-highlight-current-depth
+        '(:color "#89b4fa"   ; Mocha Blue
+          :blend 0.7         ; 0=ベース色のまま / 1=指定色そのまま
+          :width 0.25)))     ; Doom のベースは 0.15 なので少し太く
+
 ;; breadcrumb
 (after! lsp-mode
   (setq lsp-headerline-breadcrumb-enable t
