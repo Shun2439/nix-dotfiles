@@ -92,5 +92,8 @@
   :pin "86bd83ee1ad95f123810eb3b116beb543db1960a")
 (package! mixed-pitch :pin "519e05f74825abf04b7d2e0e38ec040d013a125a")
 
+;; OpenCode via ACP
+(package! agent-shell)
+
 ;; Icons in dired
 (package! nerd-icons-dired :pin "104acd8879528b8115589f35f1bbcbe231ad732f")
