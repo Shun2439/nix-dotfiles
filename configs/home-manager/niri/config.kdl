@@ -450,6 +450,7 @@ binds {
     // Mod+V { spawn "sh" "-c" "cliphist list | fuzzel -d --prompt='Clip Manager > ' | cliphist decode | wl-copy"; }
     Alt+V { spawn "sh" "-c" "cliphist list | fuzzel -d --prompt='Clip Manager > ' | cliphist decode | wl-copy"; }
 
+    Alt+Period { spawn "rofimoji" "--selector" "fuzzel"; }
 
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
