@@ -40,6 +40,19 @@
 (setq-default explicit-shell-file-name (or (getenv "SHELL") explicit-shell-file-name))
 (setq-default vterm-shell (or (getenv "SHELL") vterm-shell))
 
+;; Spell checking (hunspell; dictionaries are installed by
+;; configs/home-manager/emacs/default.nix).
+(declare-function ispell-set-spellchecker-params "ispell")
+(declare-function ispell-hunspell-add-multi-dic "ispell")
+(after! ispell
+  ;; Hunspell takes a comma-separated dictionary list for `-d', so English and
+  ;; Swedish are checked at the same time.  The combination must be registered
+  ;; in `ispell-dictionary-alist' before ispell passes it to hunspell.
+  ;; Switch per buffer with `M-x ispell-change-dictionary' (e.g. ko_KR).
+  (ispell-set-spellchecker-params)
+  (ispell-hunspell-add-multi-dic "en_US,sv_SE")
+  (setq ispell-dictionary "en_US,sv_SE"))
+
 (after! company
   (define-key company-active-map (kbd "C-y") #'company-complete-selection))
 

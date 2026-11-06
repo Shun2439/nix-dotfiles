@@ -30,6 +30,7 @@ let
     treesj = ./modules/plugins/treesj.nix;
     skkeleton = ./modules/plugins/skkeleton.nix;
     neovide = ./modules/neovide.nix;
+    spell = ./modules/spell.nix;
 
     # Advanced features
     autocmd = ./modules/autocmd.nix;
@@ -74,6 +75,7 @@ in
         render-markdown
         project-nvim
         neovide
+        spell
       ]);
   };
 }

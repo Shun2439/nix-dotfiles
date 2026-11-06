@@ -1,4 +1,16 @@
 { pkgs, config, ... }:
+let
+  # Bundle the dictionaries with hunspell so Emacs' ispell finds them no matter
+  # how the profile's share/hunspell is wired up (the wrapper sets DICPATH).
+  hunspell = pkgs.hunspellWithDicts (
+    with pkgs.hunspellDicts;
+    [
+      en_US
+      sv_SE
+      ko_KR
+    ]
+  );
+in
 {
   programs.doom-emacs = {
     enable = true;
@@ -7,10 +19,11 @@
     # emacs = pkgs.emacs;
     emacs = pkgs.emacs-pgtk;
     extraPackages = epkgs: [ epkgs.treesit-grammars.with-all-grammars ];
-    extraBinPackages = with pkgs; [
-      git
-      ripgrep
-      fd
+    extraBinPackages = [
+      pkgs.git
+      pkgs.ripgrep
+      pkgs.fd
+      hunspell
     ];
     provideEmacs = true;
   };
@@ -18,8 +31,6 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    hunspell
-    hunspellDicts.en_US
     wordnet # for Thesaurus
 
     sqlite

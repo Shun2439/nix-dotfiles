@@ -29,7 +29,7 @@
 
        :checkers
        syntax
-       (spell +hunspell +everywhere)
+       (spell +flyspell +hunspell +everywhere)
 
        :tools
        (eval +overlay)
