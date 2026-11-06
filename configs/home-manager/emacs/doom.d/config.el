@@ -297,6 +297,11 @@ Wait up to TIMEOUT seconds (default 60) for it to come up."
 ;; Projectile settings
 (setq projectile-project-search-path '("~/projects/" "~/work/"))
 
+;; `locate` is not installed, so `SPC f l` / `SPC s f` (consult-locate) failed
+;; with "Error running timer: (file-missing ... \"locate\")". Search with fd.
+(after! consult
+  (setq consult-locate-args "fd --full-path --color never"))
+
 ;; LSP settings
 (setq lsp-headerline-breadcrumb-enable t
       lsp-lens-enable t
