@@ -243,6 +243,48 @@
    ;; (prolog . t)
    ))
 
+;; Common Lisp (SLY)
+;; SLY's connection-local accessors signal "Can't access prop
+;; sly-continuation-counter for no connection" when nothing is connected, and
+;; Doom only auto-starts SLY from `sly-mode-hook' in `.lisp' buffers.  Evaluating
+;; a Common Lisp org-babel block (or any SLY command run first) therefore fails,
+;; so start SLY on demand before the first synchronous eval.
+(defvar +sly--starting-connection nil)
+
+(defun +sly-ensure-connection (&optional timeout)
+  "Ensure a live SLY connection, starting SLY if necessary.
+Wait up to TIMEOUT seconds (default 60) for it to come up."
+  (require 'sly)
+  (when (and (not (sly-connected-p)) (null sly-net-processes))
+    (sly))
+  (let ((waited 0))
+    (while (and (not (sly-connected-p)) (< waited (or timeout 60)))
+      (sleep-for 0.2)
+      (setq waited (+ waited 0.2))))
+  (unless (sly-connected-p)
+    (user-error "Couldn't establish a SLY connection (see *sly-events*)")))
+
+(defun +sly-eval--ensure-connection-a (fn &rest args)
+  "Start SLY before a synchronous eval when no connection exists."
+  (when (and (not +sly--starting-connection)
+             (not (sly-connected-p))
+             (null sly-net-processes))
+    (let ((+sly--starting-connection t))
+      (+sly-ensure-connection)))
+  (apply fn args))
+
+(after! sly
+  (advice-add 'sly-eval :around #'+sly-eval--ensure-connection-a)
+  ;; `sly-stepper' (pinned by Doom's :lang common-lisp) still uses positional
+  ;; arguments to `define-minor-mode', which Emacs 30 warns about on load.
+  ;; `sly-quicklisp' needs Quicklisp, and without it `slynk-quicklisp' fails to
+  ;; load during connection setup, dropping SLY into its debugger.
+  (setq sly-contribs
+        (delq 'sly-stepper
+              (if (cl-some #'file-directory-p +lisp-quicklisp-paths)
+                  sly-contribs
+                (delq 'sly-quicklisp sly-contribs)))))
+
 ;; Whitespace cleanup
 (after! whitespace
   (setq whitespace-style '(face tabs spaces-tail trailing space-before-tab newline indentation empty space-after-tab tab-mark newline-mark)
