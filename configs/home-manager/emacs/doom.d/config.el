@@ -91,6 +91,7 @@
 ;; Org -> LaTeX: register jlreq class (#+LATEX_CLASS: jlreq-article)
 (after! ox-latex
   (setq org-latex-listings t)
+  (add-to-list 'org-latex-packages-alist '("" "listings"))
   ;; (setq org-latex-listings 'minted)
   (add-to-list 'org-latex-caption-above 'src-block)
   (setq org-latex-default-class "jlreq-article")
