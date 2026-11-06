@@ -413,6 +413,12 @@ Wait up to TIMEOUT seconds (default 60) for it to come up."
 
 (add-hook 'vue-mode-hook #'lsp!)
 
+(setq custom-file "~/.config/emacs/custom.el")
+
+(unless (file-exists-p custom-file)
+  (write-region "" nil custom-file))
+(load custom-file)
+
 ;; (setq org-edit-src-content-indentation 0)
 ;; (setq org-src-preserve-indentation nil)
 
