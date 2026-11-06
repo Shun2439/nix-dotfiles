@@ -53,6 +53,8 @@
       '';
     })
 
-    anki
+    celestia
+    kstars
+    kdePackages.marble
   ];
 }
