@@ -227,6 +227,8 @@
     };
   };
 
+  services.hardware.bolt.enable = true;
+
   services.tailscale.enable = true;
 
   systemd.services.warp-svc = {
