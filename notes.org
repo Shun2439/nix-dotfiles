@@ -117,15 +117,15 @@ services.btrfs.autoScrub = {
 - ~compress=zstd:3~ → [[file:systems/nixos/manaslu/hardware-configuration.nix][hardware-configuration.nix]] の ~fileSystems."/".options~
 *** ハマりどころ
 - ~chattr~ / ~lsattr~ は NixOS の system PATH に無く、~sudo~ は PATH をリセットするので
-  store のパスを直接叩く（恒久対策は ~environment.systemPackages~ に ~e2fsprogs~）
+  store のパスを直接叩く（恒久対策は ~environment.systemPackages~ に ~e2fsprogs~ ）
   #+begin_src shell
   sudo /nix/store/ja4ggh64fjyja45f6jarz5iaq2fr3n8d-e2fsprogs-1.47.4-bin/bin/chattr +C /var/lib/swapfile
   sudo "$(nix build --no-link --print-out-paths nixpkgs#e2fsprogs)/bin/chattr" +C /var/lib/swapfile
   #+end_src
   swapfile が圧縮されると ~swapon~ が失敗するため ~+C~ (COW/圧縮無効) を付ける。起動は継続するので致命傷にはならない
-- 圧縮はマウント時に効くので**再起動後**から。~nixos-rebuild switch~ では反映されない
-  （即時反映は ~sudo mount -o remount,compress=zstd:3 /~）
-- 既存ファイルは遡って圧縮されない。~defragment -czstd~ で回収できるが、
+- 圧縮はマウント時に効くので *再起動後* から。 ~nixos-rebuild switch~ では反映されない
+  （即時反映は ~sudo mount -o remount,compress=zstd:3 /~ ）
+- 既存ファイルは遡って圧縮されない。 ~defragment -czstd~ で回収できるが、
   スナップショットの共有を壊すので原則やらない
 - 確認: ~findmnt -no OPTIONS /~ / ~systemctl list-timers | grep btrfs~
 *** 見送ったもの
@@ -133,7 +133,7 @@ services.btrfs.autoScrub = {
   起動メニュー統合が使えない。システム復旧は NixOS の世代ロールバックで足りる。
   ~/home~ の事故対策はスナップショットより外部バックアップ (restic 等) の方が本質的
 - サブボリューム分割 (~@home~ / ~@nix~): スナップショットを取らないなら意味が薄く、データ移行も重い
-- ~noatime~（~relatime~ で誤差）、quota group（遅くなる）
+- ~noatime~ （ ~relatime~ で誤差）、quota group（遅くなる）
 ** Swap
 manaslu では対応済み（[[file:systems/nixos/manaslu/default.nix][default.nix]] の
 ~swapDevices~ + ~zramSwap~ で ~/var/lib/swapfile~ 4GB + zram 25%）。
