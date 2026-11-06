@@ -32,11 +32,11 @@ in
 
     glibc
     gcc
+    libgcc
 
     # Language servers for LSP support in Emacs
     typescript-language-server
     pyright
-    python312Packages.python-lsp-server
     clang-tools
     ccls
 
