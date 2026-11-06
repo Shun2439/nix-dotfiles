@@ -391,6 +391,8 @@ Wait up to TIMEOUT seconds (default 60) for it to come up."
   (setq lsp-headerline-breadcrumb-enable t
         lsp-headerline-breadcrumb-icons-enable t
         lsp-headerline-breadcrumb-segments '(file symbols))
+  (add-hook 'org-src-mode-hook #'lsp-deferred))
+
 ;; Lua: LSP auto-start (also set up by Doom's `:lang lua +lsp') and
 ;; settings for wezterm configs (~/ghq/.../configs/home-manager/wezterm).
 (after! lsp-mode
