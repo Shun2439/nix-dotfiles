@@ -111,6 +111,7 @@
     enable = true;
     drivers = with pkgs; [
       epson-escpr2
+      cnijfilter2
     ];
   };
 
@@ -141,6 +142,8 @@
       "networkmanager"
       "wheel"
       "docker"
+      "lp"
+      "scanner"
       "input"
       "video" # /dev/dri access for Vulkan (llama.cpp)
       "render"
