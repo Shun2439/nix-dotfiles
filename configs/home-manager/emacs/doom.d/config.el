@@ -448,6 +448,15 @@ Wait up to TIMEOUT seconds (default 60) for it to come up."
 ;;   :config
 ;;   (global-blamer-mode 1))
 
+;; Show src block edit buffers in a reusable side window on the right. Doom's
+;; popup system owns "*Org Src" buffers and takes precedence over
+;; `org-src-window-setup', so that variable must use `display-buffer' (i.e.
+;; `plain') for the popup rule below to apply.
+(after! org
+  (setq org-src-window-setup 'plain)
+  (set-popup-rule! "^\\*Org Src"
+    :side 'right :size 0.5 :select t :autosave t :modeline t :ttl nil :quit nil))
+
 (use-package! lsp-pyright
   :defer t
   :hook (python-mode . lsp-deferred))
