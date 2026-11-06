@@ -460,8 +460,26 @@ Wait up to TIMEOUT seconds (default 60) for it to come up."
 
   (map! "C-c L" #'my/gptel-toggle-local))
 
+(after! lookup
+  (require 'lookup-wiktionary)
+  (add-to-list 'lookup-search-engines
+               '(wiktionary-sv
+                 "Swedish Wiktionary"
+                 "https://sv.wiktionary.org/wiki/%s"
+                 :charset utf-8)))
+
 (use-package! dired-preview
   :hook (dired-mode . dired-preview-mode))
+
+;; OpenCode (ACP) integration
+(add-to-list 'exec-path (expand-file-name "~/.opencode/bin/"))
+(setq agent-shell-opencode-authentication '((:none . t))
+      agent-shell-opencode-default-model-id
+      "opencode/deepseek-v4.1-flash-free")
+
+(use-package! agent-shell
+  :commands (agent-shell agent-shell-opencode-start-agent))
+
 ;;; Appearance ---------------------------------------------------------------
 
 ;; Smooth scrolling
