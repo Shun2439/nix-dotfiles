@@ -23,7 +23,7 @@
 
     kdePackages.kdeconnect-kde
     obsidian # unfree
-    logseq
+    affine
 
     lmms
     tuxguitar
