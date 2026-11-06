@@ -389,9 +389,29 @@ Wait up to TIMEOUT seconds (default 60) for it to come up."
   `(org-document-info-keyword :foreground "#bac2de")  ;; Mocha Subtext 1
   ) ;; end custom-set-faces!
 
-;; rainbow
+;; rainbow (色リテラル "#rrggbb" の着色)
 (add-hook 'prog-mode-hook #'rainbow-mode)
 (add-hook 'text-mode-hook #'rainbow-mode)
+
+;; rainbow-delimiters (括弧をネストの深さで色分け)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+(after! rainbow-delimiters
+  (custom-set-faces!
+    ;; Catppuccin Mocha パレット。深さ 1 が最外周。
+    '(rainbow-delimiters-depth-1-face :foreground "#89b4fa") ; Blue
+    '(rainbow-delimiters-depth-2-face :foreground "#94e2d5") ; Teal
+    '(rainbow-delimiters-depth-3-face :foreground "#a6e3a1") ; Green
+    '(rainbow-delimiters-depth-4-face :foreground "#f9e2af") ; Yellow
+    '(rainbow-delimiters-depth-5-face :foreground "#fab387") ; Peach
+    '(rainbow-delimiters-depth-6-face :foreground "#f38ba8") ; Red
+    '(rainbow-delimiters-depth-7-face :foreground "#f5c2e7") ; Pink
+    '(rainbow-delimiters-depth-8-face :foreground "#cba6f7") ; Mauve
+    '(rainbow-delimiters-depth-9-face :foreground "#b4befe") ; Lavender
+
+    ;; 対応の取れない括弧は強調
+    '(rainbow-delimiters-unmatched-face :foreground "#f38ba8" :weight bold)
+    '(rainbow-delimiters-mismatched-face :foreground "#f38ba8" :weight bold :underline t)))
 
 ;; breadcrumb
 (after! lsp-mode

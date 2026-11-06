@@ -63,6 +63,9 @@
 
 (package! rainbow-mode)
 
+;; Rainbow parentheses
+(package! rainbow-delimiters)
+
 (package! vue-mode)
 
 (package! org-cliplink)
