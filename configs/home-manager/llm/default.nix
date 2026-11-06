@@ -15,6 +15,20 @@ let
   # Without a usable Vulkan device it silently falls back to CPU.
   llama = llamaPkgs.llama-cpp.override { vulkanSupport = true; };
 
+  # eGPU の NVIDIA が使えるホストでは NVIDIA の Vulkan ICD だけを見せ、
+  # Intel iGPU とのレイヤー分割を防ぐ。未接続のホスト/状態では何もしない
+  # (従来どおり iGPU → CPU のフォールバック)。
+  llamaServer = pkgs.writeShellApplication {
+    name = "llama-server-gpu";
+    runtimeInputs = [ llama ];
+    text = ''
+      if [ -e /run/opengl-driver/share/vulkan/icd.d/nvidia_icd.json ] && [ -e /dev/nvidia0 ]; then
+        export VK_ICD_FILENAMES=/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.json
+      fi
+      exec llama-server "$@"
+    '';
+  };
+
   modelDir = "${config.home.homeDirectory}/models/gguf";
   modelFile = "Qwen3-4B-Instruct-2507-Q4_K_M.gguf";
   defaultModel = "${modelDir}/${modelFile}";
@@ -71,7 +85,7 @@ let
 
   llm-serve = pkgs.writeShellApplication {
     name = "llm-serve";
-    runtimeInputs = [ llama ];
+    runtimeInputs = [ llamaServer ];
     text = ''
       model="''${1:-${defaultModel}}"
       if [ ! -f "$model" ]; then
@@ -80,7 +94,7 @@ let
         exit 1
       fi
 
-      exec llama-server -m "$model" \
+      exec llama-server-gpu -m "$model" \
         --host "''${LLM_HOST:-127.0.0.1}" \
         --port "''${LLM_PORT:-8080}" \
         --n-gpu-layers "''${LLM_GPU_LAYERS:-99}" \
@@ -126,6 +140,7 @@ in
 {
   home.packages = [
     llama
+    llamaServer
     pkgs.vulkan-tools
     llm-pull
     llm-serve
@@ -149,7 +164,7 @@ in
     };
     Service = {
       ExecStart = lib.escapeShellArgs (
-        [ "${llama}/bin/llama-server" ]
+        [ "${llamaServer}/bin/llama-server-gpu" ]
         ++ [
           "-m"
           defaultModel

@@ -659,3 +659,10 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
+
+// eGPU (RTX 3070 Ti) で描画する。iGPU 描画 + eGPU への毎フレームコピーだと
+// 常時カクつくため。by-path 指定なので renderD の番号が変わっても追従し、
+// eGPU を挿していないときは iGPU に自動フォールバックする。
+debug {
+    render-drm-device "/dev/dri/by-path/pci-0000:03:00.0-render"
+}

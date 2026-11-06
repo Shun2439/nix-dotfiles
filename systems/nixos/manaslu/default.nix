@@ -16,6 +16,7 @@
     ../../../configs/nixos/desktop/fcitx5.nix
     ../../../configs/nixos/desktop/fonts.nix
     ../../../configs/nixos/desktop/graphics.nix
+    ../../../configs/nixos/desktop/nvidia.nix
     ../../../configs/nixos/samba.nix
     ../../../configs/nixos/core/appimage.nix
     ../../../configs/nixos/core/nix-ld.nix
