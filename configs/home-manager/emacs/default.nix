@@ -35,7 +35,6 @@
     gnutls
 
     nixfmt
-    grip
     graphviz
     glslang
 
