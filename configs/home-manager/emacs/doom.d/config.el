@@ -421,6 +421,22 @@ Wait up to TIMEOUT seconds (default 60) for it to come up."
           :blend 0.7         ; 0=ベース色のまま / 1=指定色そのまま
           :width 0.25)))     ; Doom のベースは 0.15 なので少し太く
 
+;; diff-hl (vc-gutter): 変更マークを見やすく
+;; Doom の `+pretty' は細い棒 + 既定色 (green4/red3/blue3) なので、
+;; 左フリンジを広げて Mocha パレットに寄せる。
+(fringe-mode '(12 . 8)) ; diff-hl は左、flycheck は右
+
+(after! diff-hl
+  (setq diff-hl-show-staged-changes t) ; ステージ済みの変更も gutter に出す
+  (custom-set-faces!
+    '(diff-hl-insert :foreground "#a6e3a1" :background nil) ; Green
+    '(diff-hl-delete :foreground "#f38ba8" :background nil) ; Red
+    '(diff-hl-change :foreground "#f9e2af" :background nil) ; Yellow
+
+    '(diff-hl-reference-insert :foreground "#a6e3a1" :background nil)
+    '(diff-hl-reference-delete :foreground "#f38ba8" :background nil)
+    '(diff-hl-reference-change :foreground "#f9e2af" :background nil)))
+
 ;; breadcrumb
 (after! lsp-mode
   (setq lsp-headerline-breadcrumb-enable t
