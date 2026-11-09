@@ -10,5 +10,7 @@
 
     pwninit
     pwntools
+
+    wireguard-tools
   ];
 }
