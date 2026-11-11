@@ -14,7 +14,7 @@
     ./hardware-configuration.nix
 
     ../../../configs/nixos/core/tlp.nix
-    ../../../configs/nixos/core/podman.nix
+    ../../../configs/nixos/core/docker.nix
     ../../../configs/nixos/core/appimage.nix
     ../../../configs/nixos/core/nix-ld.nix
     ../../../configs/nixos/core/nix.nix
@@ -26,7 +26,6 @@
     ../../../configs/nixos/desktop/fonts.nix
     ../../../configs/nixos/desktop/graphics.nix
     ../../../configs/nixos/desktop/sound.nix
-    ../../../configs/nixos/desktop/hyprland.nix
   ];
 
   # Bootloader.
@@ -71,26 +70,29 @@
 
   services.xserver = {
     enable = true;
+    # ノート PC なので内蔵パネルを左・primary、外部 VGA (1920x1080) を右に置く。
+    # 外部を primary にしたい場合は primary フラグを VGA-1 側へ移す。
     xrandrHeads = [
       {
-        output = "HDMI-1";
+        output = "LVDS-1";
         primary = true;
       }
       {
-        output = "LVDS-1";
+        output = "VGA-1";
       }
     ];
 
+    # GMA 4500 (OpenGL 2.1 / GLES 2.0) では Wayland コンポジタが動かないため X11 + xmonad。
+    # xmonad-extras は使わないので enableContribAndExtras は有効にしない (ビルド時間短縮)。
     windowManager.xmonad = {
-      # enable = true;
-      enableContribAndExtras = true;
+      enable = true;
+      extraPackages = hpkgs: [ hpkgs.xmonad-contrib ];
       config = builtins.readFile ./../../../configs/nixos/desktop/xmonad/xmonad.hs;
-      extraPackages =
-        hpkgs: with hpkgs; [
-          xmonad-contrib
-          # dmenu # allowBroken?
-        ];
     };
+
+    # startx を有効にしないと NixOS が lightdm を既定で有効化してしまう。
+    displayManager.startx.enable = true;
+
     # Configure keymap in X11
     xkb = {
       layout = "jp,se";
@@ -98,13 +100,21 @@
       options = "grp:win_space_toggle";
     };
   };
-  # services.displayManager = {
-  #   defaultSession = "none+xmonad";
-  #   # sessionCommands = ''
-  #   #             xrandr --output HDMI-1 --primary --mode 1920x1080 --rotate normal --right-of --output LVDS-1 --off
-  #   #             ./.fehgb
-  #   # '';
-  # };
+
+  # 8GB だがディスクスワップを避けたいので圧縮スワップを用意する。
+  zramSwap = {
+    enable = true;
+    memoryPercent = 25;
+  };
+
+  # xmonad では DE と違い libinput が既定で有効にならない
+  services.libinput = {
+    enable = true;
+    touchpad = {
+      tapping = true;
+      naturalScrolling = true;
+    };
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -119,6 +129,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
     packages = with pkgs; [
       #  thunderbird
@@ -157,9 +168,9 @@
     nixfmt
     cifs-utils # samba mount
 
-    # podman
+    # containers
     dive
-    podman-tui
+    lazydocker
     docker-compose
 
     # Bluetooth

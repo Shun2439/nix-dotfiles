@@ -1,14 +1,57 @@
-# set Japanese keyboard layout
-setxkbmap -layout jp
+# キーボード配列は services.xserver.xkb (jp,se + grp:win_space_toggle) で設定済み。
+# ここで setxkbmap を呼ぶと上書きされてしまうので触らない。
+
+export XDG_CURRENT_DESKTOP=xmonad
+
+# systemd のユーザーバス (startx では自動では入らないことがある)
+if [ -z "${DBUS_SESSION_BUS_ADDRESS:-}" ] && [ -n "${XDG_RUNTIME_DIR:-}" ]; then
+  export DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/bus"
+fi
 
 # IM
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-export DefaultIMModule=fcitx
+export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=fcitx
 
-fcitx5 &
+fcitx5 -d &
+
+# 壁紙 (GPU を使わない)
+xsetroot -solid "#1e1e2e"
+
+# 外部モニタ (VGA) が繋がっていれば内蔵パネルの右に並べる。
+# xorg.conf の xrandrHeads でも設定しているが、ホットプラグ後に効かないことがあるため。
+if xrandr --query 2>/dev/null | grep -q '^VGA-1 connected'; then
+  xrandr --output LVDS-1 --primary --auto \
+    --output VGA-1 --auto --right-of LVDS-1
+fi
+# 外部のみで使う場合:
+# xrandr --output VGA-1 --primary --auto --output LVDS-1 --off
+
+# polkit 認証エージェント (polkit-agent モジュールが提供)
+polkit-auth-agent &
+
+# 通知
+dunst &
+
+# GTK4 アプリ (nautilus, loupe 等) は GL 3.3 を要求するためソフトウェア描画に固定
+export GSK_RENDERER=cairo
+
+# クリップボード履歴 (clipmenu + rofi)
+export CM_LAUNCHER=rofi
+export CM_SELECTIONS=clipboard
+clipmenud &
+
+# トレイ常駐 (nm-applet / blueman-applet のアイコン置き場)
+stalonetray --icon-size 16 &
+
+# NetworkManager / Bluetooth のアプレット
+nm-applet &
+blueman-applet &
+
+# キーリピート
+xset r rate 250 40
 
 # Cursor
 # oneko &
-

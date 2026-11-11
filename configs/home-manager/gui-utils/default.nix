@@ -15,7 +15,6 @@
     audacity
 
     kicad
-    freecad-wayland
 
     # flameshot
 
@@ -27,17 +26,6 @@
 
     lmms
     tuxguitar
-
-    (pkgs.symlinkJoin {
-      name = "musescore-wayland";
-      paths = [ musescore ];
-      nativeBuildInputs = [ makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/mscore \
-          --set MU_QT_QPA_PLATFORM wayland \
-          --set QT_QPA_PLATFORM wayland
-      '';
-    })
 
     obs-studio
 

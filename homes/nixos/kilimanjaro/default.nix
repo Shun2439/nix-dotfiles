@@ -1,34 +1,20 @@
-{ lib, ... }:
-let
-  mainMonitor = "HDMI-A-1";
-  subMonitor = "LVDS-1";
-in
+{ ... }:
 {
   imports = [
     ../../../modules/home-manager
     ../../../configs/nixos/core/nixos.nix
-    ../../../configs/home-manager/wezterm
+
+    # X11 (xmonad) セッション。GMA 4500 では Wayland が動かないため。
+    ../../../configs/home-manager/x
+    ../../../configs/home-manager/xmobar
+
     ../../../configs/home-manager/browser
-    ../../../configs/home-manager/hyprland
     ../../../configs/home-manager/gui-utils
     ../../../configs/home-manager/polkit-agent
-    ../../../configs/home-manager/recording
   ];
   home = rec {
     username = "shun2439";
     homeDirectory = "/home/${username}";
     stateVersion = "24.11";
-  };
-
-  wayland.windowManager.hyprland.settings = {
-    monitor = [
-      "${mainMonitor}, 2560x1600@60, 1366x0, 1"
-      "${subMonitor}, 1366x768@60, 0x0, 1"
-    ];
-    input = {
-      kb_layout = "jp,se";
-      kb_options = "grp:win_space_toggle";
-    };
-    workspace = (lib.genList (n: "${toString (n + 1)}, monitor:${mainMonitor}") 10);
   };
 }

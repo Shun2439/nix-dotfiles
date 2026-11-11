@@ -16,6 +16,7 @@
     ../../../configs/home-manager/niri
     ../../../configs/home-manager/noctalia
     ../../../configs/home-manager/gui-utils
+    ../../../configs/home-manager/gui-utils/wayland.nix
     ../../../configs/home-manager/polkit-agent
     ../../../configs/home-manager/recording
 

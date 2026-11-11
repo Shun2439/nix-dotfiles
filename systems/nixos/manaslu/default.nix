@@ -22,6 +22,7 @@
     ../../../configs/nixos/core/nix-ld.nix
     ../../../configs/nixos/core/nix.nix
     ../../../configs/nixos/core/storage.nix
+    ../../../configs/nixos/core/docker.nix
   ];
 
   # Bootloader.
@@ -252,10 +253,8 @@
     };
   };
 
-  virtualisation.docker = {
-    enable = true;
-    storageDriver = "btrfs";
-  };
+  # btrfs 固有の設定のみホストに残す (enable は core/docker.nix)
+  virtualisation.docker.storageDriver = "btrfs";
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

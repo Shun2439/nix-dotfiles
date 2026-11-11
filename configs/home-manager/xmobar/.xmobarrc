@@ -1,5 +1,15 @@
 Config {
     -- appearance
-    font = "xft:IPAPGothic:size=14:antialias=true",
-    bgColor = "black",
-} 
+    font = "xft:Moralerspace Radon HW:size=11:antialias=true",
+    bgColor = "#1e1e2e",
+    fgColor = "#cdd6f4",
+    position = Top,
+    lowerOnStart = True,
+    overrideRedirect = False,
+    allDesktops = True,
+    persistent = True,
+    commands = [ Run StdinReader, Run Date "%m/%d %H:%M" "date" 10 ],
+    sepChar = "%",
+    alignSep = "}{",
+    template = "%StdinReader% }{%date%"
+}
