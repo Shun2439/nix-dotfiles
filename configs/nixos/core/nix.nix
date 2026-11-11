@@ -9,6 +9,13 @@
       "nix-command"
       "flakes"
     ];
+
+    # wheel ユーザーが flake の nixConfig (extra-substituters / keys) を
+    # 使えるようにする。これが無いと cachix の指定が無視される。
+    trusted-users = [
+      "root"
+      "@wheel"
+    ];
   };
 
   nix.gc = {

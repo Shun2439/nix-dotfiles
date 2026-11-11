@@ -109,4 +109,7 @@
     text = "";
     force = true;
   };
+
+  # Wayland 専用。X11 ホスト (kilimanjaro) では clipmenu を使う。
+  services.cliphist.enable = true;
 }

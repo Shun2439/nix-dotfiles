@@ -107,5 +107,4 @@
     '';
   };
 
-  services.cliphist.enable = true;
 }
